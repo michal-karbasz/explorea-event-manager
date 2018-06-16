@@ -1,0 +1,29 @@
+
+
+section.flex-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 4px dashed white;
+    height: 80vh;
+    .col {
+        display:flex;        
+        flex-direction: column;
+        align-items: center;
+        img {
+            width: 256px;
+            height: 256px;
+            animation: rotate 10s infinite;
+            animation-timing-function: linear;
+        }
+        span {
+           font-size: 1.5rem; 
+           padding: 5px;
+        }
+    }
+}
+
+@keyframes rotate {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}

@@ -1,9 +1,31 @@
+
 header.flex-container {
         display:flex;
-        justify-content: space-around;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        opacity: .9;
+        border-bottom: 4px dashed white;
+        position: sticky;
+        margin-top: 10px;
         .header-col {
+            display:flex;        
+            align-items: flex-end;
             span {
                font-size: 1.5rem; 
+               padding: 5px;
+            }
+            img {
+                width: 48px;
+                height: 48px;
+            }
+            .logo {
+                transform: rotateY(180deg);
+            }
+        }
+        .menu {
+            span {
+            padding: 0 10px;
             }
         }
     }

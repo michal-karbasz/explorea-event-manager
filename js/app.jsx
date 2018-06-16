@@ -11,7 +11,7 @@ import {
 } from 'react-router-dom';
 
 
-import Nav from './components/nav.jsx';
+import Background1 from './components/background1.jsx';
 import Planet from './components/planet.jsx';
 import Events from './components/events.jsx';
 import  Footer from './components/footer.jsx';
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         <div>
                         {/* <Background /> */}
                             <Switch>
-                                <Route exact path='/' component={Nav} />
+                                <Route exact path='/' component={Background1} />
                             </Switch>
                         </div>
                     </HashRouter>

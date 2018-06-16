@@ -9,8 +9,16 @@
     }
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     font-family: 'Titillium Web', sans-serif;
 }
 
+@import 'partials/background1';
 @import 'partials/nav';
+@import 'partials/planet';
