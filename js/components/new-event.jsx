@@ -33,12 +33,12 @@ to contact me on any subject:`,
     render() {
         return (
             <section className='new-flex-container'>
-            <div className="col">
-            <Form/>
-            </div>
-            <div className="col">
-            <BlankEvent/>
-            </div>
+                <div className="col">
+                    <Form/>
+                </div>
+                <div className="col">
+                    <BlankEvent/>
+                </div>
             </section>
         )
 }

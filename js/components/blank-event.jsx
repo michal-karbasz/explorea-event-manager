@@ -11,15 +11,14 @@ export default class BlankEvent extends React.Component {
                 {/* <img src={`../icons/${this.props.img}.png`} className='category'/> */}
                 <img src={`../icons/moon.png`} className='category'/>
                 <div className='event-bkg'>
-                    <span> excercises</span>
+                    <span>this is event's title</span>
                     <br/>
                     <img src='../icons/time.png'/>
-                    <span>Fri, Jun 28 8:00AM </span>
+                    <span>your date and hour goes here</span>
                     <br/>
                     <img src='../icons/here.png'/>
-                    <span>Katowice, Spodek</span>
+                    <span>your location goes here</span>
                 </div>
-                
             </div>
 
         )

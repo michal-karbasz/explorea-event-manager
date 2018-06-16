@@ -10,6 +10,17 @@ section.new-flex-container {
     background-repeat: no-repeat;
     background-position: center;
     .col {
+        .form-container {
+            margin: 30px;
+            height: 480px;
+            border: 1px solid lightgray;
+            background-color: white;
+            opacity: .9;
+            display:flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            position: relative;
+        }
         .event-box {
             margin: 30px;
             height: 380px;
