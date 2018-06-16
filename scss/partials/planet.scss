@@ -4,21 +4,53 @@ section.flex-container {
     display:flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 4px dashed white;
-    height: 80vh;
+    height: 100vh;
+    background-image: url('../images/background1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     .col {
-        display:flex;        
-        flex-direction: column;
-        align-items: center;
-        img {
-            width: 256px;
-            height: 256px;
-            animation: rotate 900ms infinite alternate;
-            animation-timing-function: linear;
+        .planet-bkg {
+            background-color: white;
+            width: 400px;
+            height: 400px;
+            opacity: 0.9;
+            border-radius: 50%;
+            display:flex;        
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 256px;
+                height: 256px;
+                animation: rotate 900ms infinite alternate;
+                animation-timing-function: linear;
+            }
+            span {
+            font-size: 2rem; 
+            padding: 5px;
+            color: rgb(63, 63, 63)
+            }
         }
-        span {
-           font-size: 1.5rem; 
-           padding: 5px;
+        .planet-bkg-small {
+            background-color: white;
+            width: 150px;
+            height: 150px;
+            opacity: 0.9;
+            border-radius: 50%;
+            display:flex;        
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            img {
+                width: 96px;
+                height: 96px;
+            }
+            span {
+            font-size: 1rem; 
+            padding: 5px;
+            color: rgb(63, 63, 63)
+            }
         }
     }
 }
