@@ -13,7 +13,7 @@ section.flex-container {
         img {
             width: 256px;
             height: 256px;
-            animation: rotate 10s infinite;
+            animation: rotate 900ms infinite alternate;
             animation-timing-function: linear;
         }
         span {
@@ -24,6 +24,6 @@ section.flex-container {
 }
 
 @keyframes rotate {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+    0% {transform: scale(1);}
+    100% {transform: scale(1.02);}
 }
