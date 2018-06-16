@@ -13,13 +13,10 @@ export default class Nav extends React.Component {
                     <span>|</span>
                 </div>
 
-                <div className="header-col new">
-                    <img src='../icons/space_shuttle2.png'/>
-                    <span>new</span>
-                    <span>|</span>
-                </div>
 
                 <div className="header-col menu">
+                    <img src='../icons/space_shuttle2.png'/>
+                    <span>new</span>
                     <span>|</span>
                     <img src='../icons/explorer.png'/>
                     <span>browse</span>
