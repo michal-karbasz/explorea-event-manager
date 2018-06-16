@@ -10,50 +10,67 @@ section.flex-container {
     background-repeat: no-repeat;
     background-position: center;
     .col {
+        .planets {
+            #button2 {
+                margin-right: 40px;
+            }
+        }
         .planet-bkg {
             background-color: white;
-            width: 400px;
-            height: 400px;
+            width: 420px;
+            height: 420px;
             opacity: 0.9;
             border-radius: 50%;
             display:flex;        
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
             img {
                 width: 256px;
                 height: 256px;
                 animation: rotate 900ms infinite alternate;
                 animation-timing-function: linear;
             }
+            p {
+                font-size: 1.8rem; 
+                padding: 5px;
+                color: rgb(63, 63, 63);
+                }
             span {
-            font-size: 2rem; 
-            padding: 5px;
-            color: rgb(63, 63, 63)
+            color: rgb(204, 89, 89);
+            &:hover {
+                color: rgb(216, 0, 0);
+            }
             }
         }
         .planet-bkg-small {
             background-color: white;
-            width: 150px;
-            height: 150px;
+            width: 160px;
+            height: 160px;
             opacity: 0.9;
             border-radius: 50%;
+            margin: 15px 20px;
             display:flex;        
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            text-align: center;
+            flex-wrap: wrap;
             img {
-                width: 96px;
-                height: 96px;
+                width: 64px;
+                height: 64px;
+                animation: rotate 700ms infinite alternate;
+                animation-timing-function: linear;
             }
-            span {
-            font-size: 1rem; 
-            padding: 5px;
-            color: rgb(63, 63, 63)
-            }
+            p {
+            margin: 0 25px;
+            color: rgb(63, 63, 63);
+        }
         }
     }
 }
+
 
 @keyframes rotate {
     0% {transform: scale(1);}
