@@ -1,0 +1,141 @@
+
+.main-container{
+    @include desktop {
+        position: relative;
+        margin-top: 15.3%;
+    }
+}
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 60%;
+    left: 70%;
+    transform: translate(-50%);
+    height: 380px;
+    @include tablet-large {
+        left: 55%;
+        top: 45%;
+        }
+    @include desktop {
+    top: -60px;
+    left: 40%;
+    height: 380px;
+    transform: translate(0%);
+    }
+    .icon{
+        opacity: 0;
+        animation: fade-in 3s 1 forwards;
+        width: 96px;
+        height: 96px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+        &:hover {
+            transform: rotateY(360deg);
+            transition: all 2s;
+        }
+    }
+    .flex-container-side{
+        position: absolute;
+        top:0;
+        left:0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        position: absolute;
+        top:-200px;
+        left: 100px;
+        height: 150px;
+        @include desktop {
+            top: 100px;
+            left: 380px;
+            }
+        .react{
+            opacity: 0;
+            width: 150px;
+            height: 150px;
+            filter: grayscale(30%);
+            animation: fade-in-react 2s 1 forwards, rotate 300s infinite alternate forwards;
+            animation-delay: 3.2s, 3.2s;
+            transition: all 5s ease-in-out;
+        }
+    }
+    .flex-container-below{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        position: absolute;
+        bottom: -100px;
+        left: 0;
+        height: 120px;
+        .skills-to-develop{
+            width: 378px;
+            font-family: 'Exo', sans-serif;
+            font-weight: 500;
+            font-size: 25px;
+            @include desktop {
+                font-size: 20px;
+                }
+        &::after {
+            content: '';
+            position: absolute;
+            top: 8%;
+            right: 110%;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 15px 15px 0 15px;
+            border-color: #333D51 transparent transparent transparent;
+            animation: arrow 1s infinite alternate;
+            animation-delay: 5s;
+            @include desktop {
+                right: 20.5%;
+                animation-play-state: paused;
+                }
+        }
+        }
+        .icon{
+            width: 96px;
+            height: 96px;
+            filter: grayscale(100%);
+            margin-right: 30px;
+            margin-top:10px;
+            &:hover {
+            filter: grayscale(0%);
+            }
+        }
+    }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; filter: grayscale(100%);}
+    70% { opacity: 0.7; filter: grayscale(80%)}
+    100% { opacity: 1; filter: grayscale(60%); }
+  }
+
+  @keyframes fade-in-react {
+    0% { opacity: 0; filter: grayscale(100%)}
+    100% { opacity: 1; filter: grayscale(20%)}
+  }
+
+@keyframes rotate {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(3600deg) }
+  }
+
+@keyframes arrow {
+    0% { transform: translate(0%, 10%); }
+    100% { transform: translate(0%, 650%); }
+  }
+
+  
+
+  $animationDelay: 0.3;
+
+@for $i from 1 through 9 {
+	.flex-container img[id='#{$i}'] {
+		animation-delay: #{0.3+($i)/4}s;
+  }
+}
