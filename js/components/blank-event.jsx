@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Event extends React.Component {
+export default class BlankEvent extends React.Component {
 
 
     render() {
@@ -11,7 +11,7 @@ export default class Event extends React.Component {
                 {/* <img src={`../icons/${this.props.img}.png`} className='category'/> */}
                 <img src={`../icons/moon.png`} className='category'/>
                 <div className='event-bkg'>
-                    <span>gravitation excercises</span>
+                    <span> excercises</span>
                     <br/>
                     <img src='../icons/time.png'/>
                     <span>Fri, Jun 28 8:00AM </span>
