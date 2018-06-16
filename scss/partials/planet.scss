@@ -17,6 +17,7 @@ section.flex-container {
         }
         .planet-bkg {
             background-color: white;
+            border: 5px double $main-color;
             width: 420px;
             height: 420px;
             opacity: 0.9;
@@ -38,7 +39,7 @@ section.flex-container {
                 color: rgb(63, 63, 63);
                 }
             span {
-            color: rgb(204, 89, 89);
+            color: $main-color;
             &:hover {
                 color: rgb(216, 0, 0);
             }
@@ -50,6 +51,7 @@ section.flex-container {
             height: 160px;
             opacity: 0.9;
             border-radius: 50%;
+            border: 3px double $main-color;
             margin: 15px 20px;
             display:flex;        
             flex-direction: column;

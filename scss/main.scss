@@ -1,3 +1,6 @@
+$main-color: rgb(204, 89, 89);
+
+
 @mixin tablet-large {
     @media (min-width: 768px) {
         @content;        

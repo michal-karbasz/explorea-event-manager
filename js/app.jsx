@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             <Switch>
                                 <Route exact path='/' component={Background1} />
                             </Switch>
+                        <Events />
                         </div>
                     </HashRouter>
             )       
