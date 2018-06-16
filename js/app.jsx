@@ -10,7 +10,11 @@ import {
     NavLink,
 } from 'react-router-dom';
 
-// import Planet from './components/planet-menu.jsx';
+
+import Nav from './components/nav.jsx';
+import Planet from './components/planet.jsx';
+import Events from './components/events.jsx';
+import  Footer from './components/footer.jsx';
 
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -23,10 +27,9 @@ document.addEventListener('DOMContentLoaded', function(){
             return (
                     <HashRouter>
                         <div>
-                        <Background />
-                            <Buttons />
+                        {/* <Background /> */}
                             <Switch>
-                                <Route exact path='/' component={(props) => <Planet  {...props} />} />
+                                <Route exact path='/' component={Nav} />
                             </Switch>
                         </div>
                     </HashRouter>

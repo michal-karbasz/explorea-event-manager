@@ -1,0 +1,9 @@
+header.flex-container {
+        display:flex;
+        justify-content: space-around;
+        .header-col {
+            span {
+               font-size: 1.5rem; 
+            }
+        }
+    }
