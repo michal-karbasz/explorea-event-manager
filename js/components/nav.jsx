@@ -16,7 +16,7 @@ export default class Nav extends React.Component {
 
                 <div className="header-col menu">
                     <img src='../icons/space_shuttle2.png'/>
-                    <span>new</span>
+                    <span onClick={this.addNewEvent}>new</span>
                     <span>|</span>
                     <img src='../icons/explorer.png'/>
                     <span>browse</span>

@@ -18,6 +18,14 @@ export default class Events extends React.Component {
 
             <section className='event-flex-container'>
                 <Event/>
+                <Event/>
+                <Event/>
+                <Event/>
+                <Event/>
+                <Event/>
+                <Event/>
+                <Event/>
+                <Event/>
             </section>
         )
     }

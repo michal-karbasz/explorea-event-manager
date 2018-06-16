@@ -1,0 +1,55 @@
+
+.event-flex-container {
+    display:flex;
+    flex-wrap: wrap;
+    
+    .event-box {
+        margin: 30px;
+        height: 380px;
+        border: 1px solid lightgray;
+        display:flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        position: relative;
+        img {
+            width: 380px;
+            height: 280px;
+        }
+        .category {
+            width: 84px;
+            height: 84px;
+            position: absolute;
+            top: -26px;
+            left: -26px;
+        }
+            &::before {
+                content: '';
+                background-color: white;
+                opacity: .5;
+                width: 90px;
+                height: 90px; 
+                border-radius: 50%;
+                position: absolute;
+                top: -26px;
+                left: -26px;
+        }
+        .event-bkg {
+            background-color: white;
+            height: 98px;
+            border-top: 2px solid $main-color;
+            img {
+                width: 16px;
+                height: 16px;
+                margin-left: 10px;
+            }
+            span {
+                font-size: 1.2rem;
+                margin-left: 10px;
+            }
+            span:first-child {
+                font-size: 1.4rem;
+                color: darken($main-color, 5%);
+            }
+        }
+    }
+}
