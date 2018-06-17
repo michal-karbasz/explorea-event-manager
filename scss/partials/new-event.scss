@@ -34,12 +34,15 @@ section.new-flex-container {
                 margin: 10px;
             }
             input {
+                min-width: 300px;
                 padding: 5px;
                 margin: 5px 25px;
                 border: 1px double lightgray;
             }
             textarea {
-                min-width: 250px;
+                min-width: 300px;
+                max-width: 500px;
+                max-height: 180px;
                 padding: 5px;
                 margin: 5px 25px;
                 border: 1px double lightgray;
@@ -53,6 +56,7 @@ section.new-flex-container {
             font-weight: 500;
             font-size: 2rem;
             position: relative;
+            margin-top: 50px;
             &::before {
                 content: '';
                 background-color: white;
@@ -75,10 +79,11 @@ section.new-flex-container {
         }
         .event-box {
             margin: 30px;
-            height: 420px;
+            height: 416px;
             border: 1px solid lightgray;
             display:flex;
             flex-direction: column;
+            justify-content: center;
             flex-wrap: wrap;
             position: relative;
             &:hover .event-description {
@@ -151,13 +156,18 @@ section.new-flex-container {
                 }
             }
             .event-bkg2 {
+                display:flex;
+                align-items: center;
+                flex-wrap: wrap;
                 background-color: white;
-                height: 40px;
+                height: 36px;
                 border-top: 2px solid $main-color;
                 img {
-                    width: 16px;
-                    height: 16px;
+                    width: 22px;
+                    height: 22px;
+                    margin-top: 5px;
                     margin-left: 10px;
+                    transform: rotateY(180deg);
                 }
                 span {
                     font-size: 1.2rem;
