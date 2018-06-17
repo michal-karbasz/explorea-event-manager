@@ -16,6 +16,11 @@ export default class CreateForm extends React.Component {
         }
     }
 
+    handleOrganizerChange = (e) => {
+        if(typeof this.props.organizerChange === 'function') {
+            this.props.organizerChange(e.target.value);
+        }
+    }
 
     render() {
 
@@ -32,10 +37,11 @@ export default class CreateForm extends React.Component {
                         <textarea className="eventDescription" placeholder="describe the event in at least 60 characters" onChange={this.handleDescriptionChange} value={this.props.description} />
                     </label>
                     <br/>
-                    {/*
+                    
                     <label> organizer: <br/>
-                        <input className="contactInput" onChange={this.handleEmailChange} value={this.state.email} placeholder="tell others who's the organizer" />
+                        <input className="eventOrganizer" onChange={this.handleOrganizerChange} value={this.props.organizer} placeholder="tell the others who's stands behind the event" />
                     </label>
+                    {/*
                     <br/>
                     <label> where: <br/>
                         <textarea className="contactArea" placeholder="Write your message here" onChange={this.handleMessageChange} value={this.state.message} />

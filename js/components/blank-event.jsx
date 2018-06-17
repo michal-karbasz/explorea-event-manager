@@ -23,6 +23,9 @@ export default class BlankEvent extends React.Component {
                     <img src='../icons/here.png'/>
                     <span>your location goes here</span>
                 </div>
+                <div className='event-bkg2'>
+                    <span>{this.props.organizer}</span>
+                </div>
             </div>
 
         )

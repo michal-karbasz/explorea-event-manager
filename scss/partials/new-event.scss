@@ -1,4 +1,4 @@
-
+// styles both form and blank-event elements
 
 section.new-flex-container {
     display:flex;
@@ -10,20 +10,72 @@ section.new-flex-container {
     background-repeat: no-repeat;
     background-position: center;
     .col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        // form styling 
+
         .form-container {
             margin: 30px;
             height: 480px;
             border: 1px solid lightgray;
             background-color: white;
-            opacity: .9;
+            opacity: .8;
             display:flex;
             flex-direction: column;
             flex-wrap: wrap;
             position: relative;
+            h3 {
+                padding: 5px 15px;
+            }
+            label {
+                margin: 10px;
+            }
+            input {
+                padding: 5px;
+                margin: 5px 25px;
+                border: 1px double lightgray;
+            }
+            textarea {
+                min-width: 250px;
+                padding: 5px;
+                margin: 5px 25px;
+                border: 1px double lightgray;
+            }
+        }
+
+        // new event styling
+
+        h1 {
+            color: white;
+            font-weight: 500;
+            font-size: 2rem;
+            position: relative;
+            &::before {
+                content: '';
+                background-color: white;
+                // opacity: .5;
+                width: 46px;
+                height: 46px; 
+                border-radius: 50%;
+                position: absolute;
+                bottom: 4px;
+                right: -59px;
+                z-index: 1;
+            }
+            .scope-icon {
+                position: absolute;
+                margin-left: 15px;
+                width: 40px;
+                height: 40px;
+                z-index: 2;
+            }
         }
         .event-box {
             margin: 30px;
-            height: 380px;
+            height: 420px;
             border: 1px solid lightgray;
             display:flex;
             flex-direction: column;
@@ -96,6 +148,20 @@ section.new-flex-container {
                 span:first-child {
                     font-size: 1.4rem;
                     color: darken($main-color, 5%);
+                }
+            }
+            .event-bkg2 {
+                background-color: white;
+                height: 40px;
+                border-top: 2px solid $main-color;
+                img {
+                    width: 16px;
+                    height: 16px;
+                    margin-left: 10px;
+                }
+                span {
+                    font-size: 1.2rem;
+                    margin-left: 10px;
                 }
             }
         }

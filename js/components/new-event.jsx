@@ -23,6 +23,11 @@ export default class NewEvent extends React.Component {
     handleDescriptionChange = (description) => {
         this.setState({description: description})
     }
+
+    handleOrganizerChange = (description) => {
+        this.setState({organizer: organizer})
+    }
+
     handleEmailChange = (e) => {
         this.setState({email: e.target.value })
     }
@@ -41,9 +46,12 @@ export default class NewEvent extends React.Component {
             <section className='new-flex-container'>
                 <div className="col">
                     <Form title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category} userMessage={this.state.userMessage}
-                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange}/>
+                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} descriptionChange={this.handleOrganizerChange}/>
                 </div>
                 <div className="col">
+                    <h1> live preview 
+                    <img src="./icons/telescope.png" className='scope-icon'/>
+                    </h1>
                     <BlankEvent title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category}/>
                 </div>
             </section>
