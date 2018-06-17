@@ -9,6 +9,10 @@ export default class NewEvent extends React.Component {
         title: '',
         organizer: '',
         description: '',
+        location: '',
+        date: '',
+        imgUrl: '',
+        category: '',
         userMessage: `Hi! Please use the below form
 to contact me on any subject:`,
     }
