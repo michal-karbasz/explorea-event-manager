@@ -6,13 +6,14 @@ import BlankEvent from './blank-event.jsx';
 export default class NewEvent extends React.Component {
 
     state = {
-        title: 'Your title goes here',
+        title: '',
         description: '',
         organizer: '',
         location: '',
         location2: '',
-        date: '',
-        imgUrl: '',
+        selectedDay: '',
+        hour: '',
+        imgUrl: '../images/background1.jpg',
         category: '',
         userMessage: `Hi! Fill in the below fields to create a new event:`,
     }
@@ -53,8 +54,16 @@ export default class NewEvent extends React.Component {
         this.setState({location2: location2})
     }
 
-    handleMessageChange = (e) => {
-        this.setState({message: e.target.value })
+    handleDayChange = (date) => {
+        this.setState({selectedDay: date })
+      }
+
+    handleHourChange = (hour) => {
+        this.setState({hour: hour})
+    }
+
+    handleUrlChange = (url) => {
+        this.setState({imgUrl: url })
     }
 
 
@@ -66,14 +75,14 @@ export default class NewEvent extends React.Component {
         return (
             <section className='new-flex-container'>
                 <div className="col">
-                    <Form title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category} userMessage={this.state.userMessage}
-                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} organizerChange={this.handleOrganizerChange} locationChange={this.handleLocationChange} location2Change={this.handleLocation2Change}/>
+                    <Form title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.selectedDay} hour={this.state.hour} imgUrl={this.state.imgUrl} category={this.state.category} userMessage={this.state.userMessage}
+                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} organizerChange={this.handleOrganizerChange} locationChange={this.handleLocationChange} location2Change={this.handleLocation2Change} handleDayChange={this.handleDayChange} hourChange={this.handleHourChange} urlChange={this.handleUrlChange}/>
                 </div>
                 <div className="col">
                     {/* <h1> live preview 
                     <img src="./icons/telescope.png" className='scope-icon'/>
                     </h1> */}
-                    <BlankEvent title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category}/>
+                    <BlankEvent title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.selectedDay} hour={this.state.hour} imgUrl={this.state.imgUrl} category={this.state.category}/>
                 </div>
             </section>
         )

@@ -34,6 +34,24 @@ export default class CreateForm extends React.Component {
         }
     }
 
+    handleHourChange = (e) => {
+        if(typeof this.props.hourChange === 'function') {
+            this.props.hourChange(e.target.value);
+        }
+    }
+
+    handleUrlChange = (e) => {
+        if(typeof this.props.urlChange === 'function') {
+            this.props.urlChange(e.target.value);
+        }
+    }
+
+    handleCategoryChange = (e) => {
+        if(typeof this.props.urlChange === 'function') {
+            this.props.urlChange(e.target.value);
+        }
+    }
+
     render() {
 
         return (
@@ -61,18 +79,17 @@ export default class CreateForm extends React.Component {
                     </label>
                     <br/>
                     
-                    <DayPicker /> 
-                    <label>
-                    at: <br/>
+                    <DayPicker date={this.props.date} dateChange={this.props.handleDayChange} /> 
+                    
                     <input className="eventHour" onChange={this.handleHourChange} value={this.props.hour} placeholder='hh-mm' />
-                    </label>
+
                     <br/>
-                     {/*
+                     
                     <label> image url: <br/>
-                        <input className="contactInput" onChange={this.handleNameChange} value={this.state.title} placeholder="paste image url here"/>
+                        <input className="eventUrl" onChange={this.handleUrlChange} value={this.props.url} placeholder="paste image url here"/>
                     </label>
                     <br/>
-                    <label> Category:
+                    <label> event category:
                         <select onClick={this.handleCategoryChange}>
                             <option disabled selected value> -- select category -- </option>
                             <option>alien education events</option>
@@ -83,14 +100,14 @@ export default class CreateForm extends React.Component {
                         </select>
                     </label>
                     <br/>
-                        <input className="contactSubmit" type="submit" value="Create!" /> */}
+                        <input className="contactSubmit" type="submit" value="Create!" />
                 </form>
             </div>
         )
     }
     componentDidMount() {
         const datepicker = document.querySelector('.DayPickerInput').previousSibling;
-        datepicker.innerText = 'when:'
+        datepicker.innerText = 'when (day and hour):'
     }
 }
 

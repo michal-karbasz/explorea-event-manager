@@ -9,7 +9,7 @@ export default class BlankEvent extends React.Component {
         return (
 
             <div className='event-box'>
-                <img src='../images/background1.jpg' />
+                <img src={this.props.imgUrl} />
                 {/* <img src={`../icons/${this.props.img}.png`} className='category'/> */}
                 <div className='event-description'>
                     <p>About:</p>
@@ -20,7 +20,7 @@ export default class BlankEvent extends React.Component {
                     <span>{this.props.title}</span>
                     <br/>
                     <img src='../icons/time.png'/>
-                    <span>your date and hour goes here</span>
+                    <span>{this.props.date}  at  {this.props.hour}</span>
                     <br/>
                     <img src='../icons/here.png'/>
                     <span>{this.props.location} </span> <br/>
