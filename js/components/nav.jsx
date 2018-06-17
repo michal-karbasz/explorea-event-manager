@@ -18,7 +18,6 @@ export default class Nav extends React.Component {
             <header className='flex-container'>
 
                 <div className="header-col">
-                {/* <span><Link className='btn-text' to="/">HOME</Link></span> */}
                 <Link className='link-btn' to="/"><img src='../icons/satellite_dish.png' className='logo'/>
                     <span>explorea</span>
                 </Link>
