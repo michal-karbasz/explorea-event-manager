@@ -22,6 +22,7 @@ export default class Nav extends React.Component {
                     <span>explorea</span>
                 </Link>
                     <span>|</span>
+                    <h2> Cause we're not alone anymore...</h2>
                 </div>
 
 

@@ -4,7 +4,7 @@ section.new-flex-container {
     display:flex;
     justify-content: space-around;
     align-items: center;
-    height: 95vh;
+    height: 100vh;
     background-image: url('../images/background1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -29,27 +29,56 @@ section.new-flex-container {
             flex-direction: column;
             flex-wrap: wrap;
             position: relative;
+            &:hover .event-description {
+                display: block;
+            }
+            &:hover .category {
+                display: none;
+            }
+            &:hover::before {
+                display: none;
+            }
             img {
                 width: 380px;
                 height: 280px;
             }
-            .category {
-                width: 84px;
-                height: 84px;
+            .event-description {
+                background-color: white;
+                width: 380px;
+                height: 280px;
                 position: absolute;
-                top: -26px;
-                left: -26px;
+                top:0;
+                left:0;
+                font-size: 1.3em;
+                display:none;
+                z-index: 2;
+                opacity: .8;
+                p {
+                    margin: 5px 15px;
+                }
+                p:first-child {
+                    font-size: 1.4em;
+                    color: $main-color;
+                }
+            }
+            
+            .category {
+                width: 76px;
+                height: 76px;
+                position: absolute;
+                top: -38px;
+                left: -38px;
             }
                 &::before {
                     content: '';
                     background-color: white;
                     opacity: .5;
-                    width: 90px;
-                    height: 90px; 
+                    width: 84px;
+                    height: 84px; 
                     border-radius: 50%;
                     position: absolute;
-                    top: -26px;
-                    left: -26px;
+                    top: -42px;
+                    left: -42px;
             }
             .event-bkg {
                 background-color: white;

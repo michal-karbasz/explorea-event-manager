@@ -6,21 +6,23 @@ import BlankEvent from './blank-event.jsx';
 export default class NewEvent extends React.Component {
 
     state = {
-        title: '',
-        organizer: '',
+        title: 'Your title goes here',
         description: '',
+        organizer: '',
         location: '',
         date: '',
         imgUrl: '',
         category: '',
-        userMessage: `Hi! Please use the below form
-to contact me on any subject:`,
+        userMessage: `Hi! Fill in the below fields to create a new event:`,
     }
 
-    handleNameChange = (e) => {
-        this.setState({nameVal: e.target.value })
+    handleTitleChange = (title) => {
+        this.setState({title: title})
     }
 
+    handleDescriptionChange = (description) => {
+        this.setState({description: description})
+    }
     handleEmailChange = (e) => {
         this.setState({email: e.target.value })
     }
@@ -38,10 +40,11 @@ to contact me on any subject:`,
         return (
             <section className='new-flex-container'>
                 <div className="col">
-                    <Form/>
+                    <Form title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category} userMessage={this.state.userMessage}
+                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange}/>
                 </div>
                 <div className="col">
-                    <BlankEvent/>
+                    <BlankEvent title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category}/>
                 </div>
             </section>
         )
