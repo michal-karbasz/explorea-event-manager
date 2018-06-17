@@ -21,7 +21,7 @@ export default class BlankEvent extends React.Component {
                     <span>your date and hour goes here</span>
                     <br/>
                     <img src='../icons/here.png'/>
-                    <span>your location goes here</span>
+                    <span>{this.props.location}</span>
                 </div>
                 <div className='event-bkg2'>
                 <img src='../icons/astronaut2.png'/>

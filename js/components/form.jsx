@@ -22,6 +22,12 @@ export default class CreateForm extends React.Component {
         }
     }
 
+    handleLocationChange = (e) => {
+        if(typeof this.props.locationChange === 'function') {
+            this.props.locationChange(e.target.value);
+        }
+    }
+
     render() {
 
         return (
@@ -41,12 +47,13 @@ export default class CreateForm extends React.Component {
                     <label> organizer: <br/>
                         <input className="eventOrganizer" onChange={this.handleOrganizerChange} value={this.props.organizer} placeholder="tell the others who's stands behind the event" />
                     </label>
-                    {/*
+                   
                     <br/>
                     <label> where: <br/>
-                        <textarea className="contactArea" placeholder="Write your message here" onChange={this.handleMessageChange} value={this.state.message} />
+                        <input className="eventLocation" placeholder="give us the location" onChange={this.handleLocationChange} value={this.props.location} />
                     </label>
                     <br/>
+                     {/*
                     <label>
                     <DayPicker /> 
                     at: <br/>
