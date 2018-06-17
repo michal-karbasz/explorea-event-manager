@@ -3,6 +3,8 @@ import React from 'react';
 export default class BlankEvent extends React.Component {
 
 
+   
+    
     render() {
         return (
 
@@ -21,7 +23,8 @@ export default class BlankEvent extends React.Component {
                     <span>your date and hour goes here</span>
                     <br/>
                     <img src='../icons/here.png'/>
-                    <span>{this.props.location}</span>
+                    <span>{this.props.location} </span> <br/>
+                    <span className='location2'>{this.props.location2}</span>
                 </div>
                 <div className='event-bkg2'>
                 <img src='../icons/astronaut2.png'/>

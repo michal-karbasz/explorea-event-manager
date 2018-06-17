@@ -10,6 +10,7 @@ export default class NewEvent extends React.Component {
         description: '',
         organizer: '',
         location: '',
+        location2: '',
         date: '',
         imgUrl: '',
         category: '',
@@ -30,6 +31,26 @@ export default class NewEvent extends React.Component {
 
     handleLocationChange = (location) => {
         this.setState({location: location})
+        fetch(`https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=AIzaSyANDkkP1jJA17HPe5I379Ov3Lu2Qr4PUwU&input=${this.state.location}
+        `)
+            .then(resp => {
+                if(resp.ok) {
+                    return resp.json();
+                } else {
+                    throw new Error('Blad sieci!');
+                }
+            })
+            .then(data => {
+                this.setState({
+                    location: data,
+                })
+            })
+            .catch(err => console.log(err));
+    }
+
+    
+    handleLocation2Change = (location2) => {
+        this.setState({location2: location2})
     }
 
     handleMessageChange = (e) => {
@@ -45,17 +66,19 @@ export default class NewEvent extends React.Component {
         return (
             <section className='new-flex-container'>
                 <div className="col">
-                    <Form title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category} userMessage={this.state.userMessage}
-                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} organizerChange={this.handleOrganizerChange} locationChange={this.handleLocationChange}/>
+                    <Form title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category} userMessage={this.state.userMessage}
+                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} organizerChange={this.handleOrganizerChange} locationChange={this.handleLocationChange} location2Change={this.handleLocation2Change}/>
                 </div>
                 <div className="col">
-                    <h1> live preview 
+                    {/* <h1> live preview 
                     <img src="./icons/telescope.png" className='scope-icon'/>
-                    </h1>
-                    <BlankEvent title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category}/>
+                    </h1> */}
+                    <BlankEvent title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.date} imgUrl={this.state.imgUrl} category={this.state.category}/>
                 </div>
             </section>
         )
 }
+
+
 }
 

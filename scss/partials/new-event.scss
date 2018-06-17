@@ -1,4 +1,6 @@
+
 // styles both form and blank-event elements
+
 
 section.new-flex-container {
     display:flex;
@@ -30,56 +32,79 @@ section.new-flex-container {
             h3 {
                 padding: 5px 15px;
             }
+            p {
+                margin-left: 10px;
+                font-size: 1em;
+                }
             label {
                 margin: 10px;
-            }
+                }
             input {
-                min-width: 300px;
+                min-width: 386px;
                 padding: 5px;
                 margin: 5px 25px;
                 border: 1px double lightgray;
             }
+            .eventLocation {
+                min-width: 140px;
+                padding: 5px;
+                margin-right: 0;
+            }
             textarea {
-                min-width: 300px;
+                min-width: 386px;
                 max-width: 500px;
+                min-height: 42px;
                 max-height: 180px;
                 padding: 5px;
                 margin: 5px 25px;
                 border: 1px double lightgray;
             }
+            .DayPickerInput {
+                input {
+                    min-width:180px;
+                    padding: 2.5px 5px;
+                    margin-right: 0px;
+                    font-family: 'Titillium Web', sans-serif;
+                }
+            }
+            .eventHour {
+                min-width: 140px;
+            }
         }
+        
 
         // new event styling
 
-        h1 {
-            color: white;
-            font-weight: 500;
-            font-size: 2rem;
-            position: relative;
-            margin-top: 50px;
-            &::before {
-                content: '';
-                background-color: white;
-                // opacity: .5;
-                width: 46px;
-                height: 46px; 
-                border-radius: 50%;
-                position: absolute;
-                bottom: 4px;
-                right: -59px;
-                z-index: 1;
-            }
-            .scope-icon {
-                position: absolute;
-                margin-left: 15px;
-                width: 40px;
-                height: 40px;
-                z-index: 2;
-            }
-        }
+        // h1 {
+        //     color: white;
+        //     font-weight: 500;
+        //     font-size: 2rem;
+        //     position: relative;
+        //     margin-top: 50px;
+        //     &::before {
+        //         content: '';
+        //         background-color: white;
+        //         // opacity: .5;
+        //         width: 46px;
+        //         height: 46px; 
+        //         border-radius: 50%;
+        //         position: absolute;
+        //         bottom: 4px;
+        //         right: -59px;
+        //         z-index: 1;
+        //     }
+        //     .scope-icon {
+        //         position: absolute;
+        //         margin-left: 15px;
+        //         width: 40px;
+        //         height: 40px;
+        //         z-index: 2;
+        //     }
+        // }
         .event-box {
             margin: 30px;
-            height: 416px;
+            max-width: 380px;
+            height: 450px;
             border: 1px solid lightgray;
             display:flex;
             flex-direction: column;
@@ -96,12 +121,12 @@ section.new-flex-container {
                 display: none;
             }
             img {
-                width: 380px;
+                width: 378px;
                 height: 280px;
             }
             .event-description {
                 background-color: white;
-                width: 380px;
+                width: 378px;
                 height: 280px;
                 position: absolute;
                 top:0;
@@ -139,7 +164,7 @@ section.new-flex-container {
             }
             .event-bkg {
                 background-color: white;
-                height: 98px;
+                height: 132px;
                 border-top: 2px solid $main-color;
                 img {
                     width: 16px;
@@ -153,6 +178,9 @@ section.new-flex-container {
                 span:first-child {
                     font-size: 1.4rem;
                     color: darken($main-color, 5%);
+                }
+                .location2 {
+                    margin-left: 36px;
                 }
             }
             .event-bkg2 {
@@ -177,3 +205,4 @@ section.new-flex-container {
         }
     }
 }
+

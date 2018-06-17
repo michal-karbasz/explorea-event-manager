@@ -28,6 +28,12 @@ export default class CreateForm extends React.Component {
         }
     }
 
+    handleLocation2Change = (e) => {
+        if(typeof this.props.location2Change === 'function') {
+            this.props.location2Change(e.target.value);
+        }
+    }
+
     render() {
 
         return (
@@ -50,16 +56,18 @@ export default class CreateForm extends React.Component {
                    
                     <br/>
                     <label> where: <br/>
-                        <input className="eventLocation" placeholder="give us the location" onChange={this.handleLocationChange} value={this.props.location} />
+                        <input className="eventLocation" placeholder="give us the city" onChange={this.handleLocationChange} value={this.props.location} />
+                        <input className="eventLocation" placeholder="further details" onChange={this.handleLocation2Change} value={this.props.location2} />
+                    </label>
+                    <br/>
+                    
+                    <DayPicker /> 
+                    <label>
+                    at: <br/>
+                    <input className="eventHour" onChange={this.handleHourChange} value={this.props.hour} placeholder='hh-mm' />
                     </label>
                     <br/>
                      {/*
-                    <label>
-                    <DayPicker /> 
-                    at: <br/>
-                    <input className="contactInput" onChange={this.handleEmailChange} value={this.state.email} placeholder="tell others who's the organizer" />
-                    </label>
-                    <br/>
                     <label> image url: <br/>
                         <input className="contactInput" onChange={this.handleNameChange} value={this.state.title} placeholder="paste image url here"/>
                     </label>
@@ -79,6 +87,10 @@ export default class CreateForm extends React.Component {
                 </form>
             </div>
         )
+    }
+    componentDidMount() {
+        const datepicker = document.querySelector('.DayPickerInput').previousSibling;
+        datepicker.innerText = 'when:'
     }
 }
 
