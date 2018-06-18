@@ -72,8 +72,45 @@ export default class NewEvent extends React.Component {
     
     handleCreateEvent = (event) => {
         event.preventDefault();
-        console.log('add')
+
+
+
+        if(this.state.title.length < 3 || this.state.title.length > 100 ) {
+            this.setState({userMessage: "Provide event title (3-100 chars)!"});
+        } else if (this.state.description.length < 60) {
+            this.setState({userMessage: "Write some additional description (min. 60 chars)."});
+        } else if (this.state.organizer.length < 3 || this.state.organizer.length > 100) {
+            this.setState({userMessage: "Who's the organizer (3-100 chars)?"});
+        } else {
+            this.setState({userMessage: `Sent!`});
+            this.cloneEvent();
+        }
+
+       
     }
+
+    cloneEvent = () => {
+            let eventToClone = document.querySelector('.event-box');
+            let clone = eventToClone.cloneNode(true);
+            document.getElementById('event-section').appendChild(clone);
+            this.clearState()
+            // this.setState({add: 'false'});
+    }
+
+    clearState = () => {
+        this.setState({title: '',
+        description: '',
+        organizer: '',
+        location: '',
+        location2: '',
+        selectedDay: '',
+        hour: '',
+        imgUrl: '../images/background1.jpg',
+        category: '-- select category --',
+        userMessage: `Hi! Fill in the below fields to create a new event:`, })
+}
+
+
 
     render() {
         return (
@@ -86,7 +123,7 @@ export default class NewEvent extends React.Component {
                     {/* <h1> live preview 
                     <img src="./icons/telescope.png" className='scope-icon'/>
                     </h1> */}
-                    <BlankEvent title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.selectedDay} hour={this.state.hour} imgUrl={this.state.imgUrl} category={this.state.category}/>
+                    <BlankEvent title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.selectedDay} hour={this.state.hour} imgUrl={this.state.imgUrl} category={this.state.category} add={this.state.add}/>
                 </div>
             </section>
         )

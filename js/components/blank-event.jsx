@@ -2,10 +2,15 @@ import React from 'react';
 
 export default class BlankEvent extends React.Component {
 
-
-   
     
     render() {
+        let eventToClone = document.querySelector('.event-box');
+        if (this.props.add === 'true') {
+            let clone = eventToClone.cloneNode(true);
+            document.getElementById('event-section').appendChild(clone);
+            console.log('ok')
+;        }
+
 
         let categorySrc = '../icons/moon.png';
         if (this.props.category === 'alien education events') {

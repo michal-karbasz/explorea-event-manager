@@ -46,19 +46,21 @@ export default class CreateForm extends React.Component {
         if(typeof this.props.categoryChange === 'function') {
             this.props.categoryChange(e.target.value);
         }
+    }
         
     handleCreateEvent = (e) => {
         if(typeof this.props.createEvent === 'function') {
-            this.props.createEvent(e.target.value);
+            this.props.createEvent(e);
         }
-
     }
+
+
 
     render() {
 
         return (
             <div className='form-container'>
-                <form className='form-contact' onSubmit={ this.handleSubmit }>
+                <form className='form-contact' onSubmit={this.handleCreateEvent}>
                 <h3 style={{whiteSpace: 'pre'}}>{this.props.userMessage}</h3>
                     <label> event title: <br/>
                         <input className="eventTitle" onChange={this.handleTitleChange} value={this.props.title} placeholder="event title goes here"/>
@@ -99,7 +101,7 @@ export default class CreateForm extends React.Component {
                         </select>
                     </label>
                     <br/>
-                        <input onSubmit={this.handleCreateEvent} className="eventSubmit" type="submit" value="c r e a t e ! " />
+                        <input  className="eventSubmit" type="submit" value="c r e a t e ! " />
                 </form>
             </div>
         )

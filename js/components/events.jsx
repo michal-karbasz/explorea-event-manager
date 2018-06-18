@@ -16,7 +16,7 @@ export default class Events extends React.Component {
     render() {
         return (
 
-            <section className='event-flex-container'>
+            <section className='event-flex-container' id='event-section'>
                 <Event/>
                 <Event/>
                 <Event/>
