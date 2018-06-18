@@ -34,11 +34,7 @@ export default class CreateForm extends React.Component {
         }
     }
 
-    handleHourChange = (e) => {
-        if(typeof this.props.hourChange === 'function') {
-            this.props.hourChange(e.target.value);
-        }
-    }
+
 
     handleUrlChange = (e) => {
         if(typeof this.props.urlChange === 'function') {
@@ -47,8 +43,8 @@ export default class CreateForm extends React.Component {
     }
 
     handleCategoryChange = (e) => {
-        if(typeof this.props.urlChange === 'function') {
-            this.props.urlChange(e.target.value);
+        if(typeof this.props.categoryChange === 'function') {
+            this.props.categoryChange(e.target.value);
         }
     }
 
@@ -58,7 +54,6 @@ export default class CreateForm extends React.Component {
             <div className='form-container'>
                 <form className='form-contact' onSubmit={ this.handleSubmit }>
                 <h3 style={{whiteSpace: 'pre'}}>{this.props.userMessage}</h3>
-                <br/>
                     <label> event title: <br/>
                         <input className="eventTitle" onChange={this.handleTitleChange} value={this.props.title} placeholder="event title goes here"/>
                     </label>
@@ -79,18 +74,16 @@ export default class CreateForm extends React.Component {
                     </label>
                     <br/>
                     
-                    <DayPicker date={this.props.date} dateChange={this.props.handleDayChange} /> 
+                    <DayPicker date={this.props.date} dateChange={this.props.handleDayChange} hourChange={this.props.hourChange} hour={this.props.hour}/> 
                     
-                    <input className="eventHour" onChange={this.handleHourChange} value={this.props.hour} placeholder='hh-mm' />
-
-                    <br/>
+                    {/* <input className="eventHour" onChange={this.handleHourChange} value={this.props.hour} placeholder='hh-mm' /> */}
                      
                     <label> image url: <br/>
                         <input className="eventUrl" onChange={this.handleUrlChange} value={this.props.url} placeholder="paste image url here"/>
                     </label>
                     <br/>
-                    <label> event category:
-                        <select onClick={this.handleCategoryChange}>
+                    <label> event category: 
+                        <select className='eventCategory' onClick={this.handleCategoryChange}>
                             <option disabled selected value> -- select category -- </option>
                             <option>alien education events</option>
                             <option>flight volounteers</option>
@@ -100,7 +93,7 @@ export default class CreateForm extends React.Component {
                         </select>
                     </label>
                     <br/>
-                        <input className="contactSubmit" type="submit" value="Create!" />
+                        <input className="eventSubmit" type="submit" value="c r e a t e ! " />
                 </form>
             </div>
         )

@@ -14,7 +14,7 @@ export default class NewEvent extends React.Component {
         selectedDay: '',
         hour: '',
         imgUrl: '../images/background1.jpg',
-        category: '',
+        category: '-- select category --',
         userMessage: `Hi! Fill in the below fields to create a new event:`,
     }
 
@@ -32,21 +32,21 @@ export default class NewEvent extends React.Component {
 
     handleLocationChange = (location) => {
         this.setState({location: location})
-        fetch(`https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=AIzaSyANDkkP1jJA17HPe5I379Ov3Lu2Qr4PUwU&input=${this.state.location}
-        `)
-            .then(resp => {
-                if(resp.ok) {
-                    return resp.json();
-                } else {
-                    throw new Error('Blad sieci!');
-                }
-            })
-            .then(data => {
-                this.setState({
-                    location: data,
-                })
-            })
-            .catch(err => console.log(err));
+        // fetch(`https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=AIzaSyANDkkP1jJA17HPe5I379Ov3Lu2Qr4PUwU&input=${this.state.location}
+        // `)
+        //     .then(resp => {
+        //         if(resp.ok) {
+        //             return resp.json();
+        //         } else {
+        //             throw new Error('Blad sieci!');
+        //         }
+        //     })
+        //     .then(data => {
+        //         this.setState({
+        //             location: data,
+        //         })
+        //     })
+        //     .catch(err => console.log(err));
     }
 
     
@@ -66,7 +66,10 @@ export default class NewEvent extends React.Component {
         this.setState({imgUrl: url })
     }
 
-
+    handleCategoryChange = (category) => {
+        this.setState({category: category })
+    }
+    
     handleSubmit = (event) => {
         event.preventDefault();
     }
@@ -76,7 +79,7 @@ export default class NewEvent extends React.Component {
             <section className='new-flex-container'>
                 <div className="col">
                     <Form title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.selectedDay} hour={this.state.hour} imgUrl={this.state.imgUrl} category={this.state.category} userMessage={this.state.userMessage}
-                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} organizerChange={this.handleOrganizerChange} locationChange={this.handleLocationChange} location2Change={this.handleLocation2Change} handleDayChange={this.handleDayChange} hourChange={this.handleHourChange} urlChange={this.handleUrlChange}/>
+                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} organizerChange={this.handleOrganizerChange} locationChange={this.handleLocationChange} location2Change={this.handleLocation2Change} handleDayChange={this.handleDayChange} hourChange={this.handleHourChange} urlChange={this.handleUrlChange} categoryChange={this.handleCategoryChange}/>
                 </div>
                 <div className="col">
                     {/* <h1> live preview 

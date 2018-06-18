@@ -6,6 +6,20 @@ export default class BlankEvent extends React.Component {
    
     
     render() {
+
+        let categorySrc = '../icons/moon.png';
+        if (this.props.category === 'alien education events') {
+            categorySrc = `../icons/planetary.png`
+        } else if (this.props.category === 'flight volounteers') {
+            categorySrc = `../icons/nebula.png`
+        } else if (this.props.category === 'alien meetings') {
+            categorySrc = `../icons/alien_sad.png`
+        } else if (this.props.category === 'NASA job interviews') {
+            categorySrc = `../icons/astronaut.png`
+        } else if (this.props.category === 'alien translator workshops') {
+            categorySrc = `../icons/alien_sleep.png`
+        }
+
         return (
 
             <div className='event-box'>
@@ -15,7 +29,9 @@ export default class BlankEvent extends React.Component {
                     <p>About:</p>
                     <p>{this.props.description}</p>
                 </div>
-                <img src={`../icons/moon.png`} className='category'/>
+
+
+                <img src={categorySrc} className='category'/>
                 <div className='event-bkg'>
                     <span>{this.props.title}</span>
                     <br/>
