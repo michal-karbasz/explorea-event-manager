@@ -53,8 +53,8 @@
                 width: 100px;
                 height: 50px;
                 position: absolute;
-                top:64px;
-                left: -102px;
+                top:-53px;
+                right: 99px;
                 opacity: .9;
                 img{ 
                 height: 32px;
@@ -65,7 +65,7 @@
                 }
             }
             .event-btn:nth-child(2n) {
-                top:114px;
+                right:-1px;
             }
         }
         .category {
