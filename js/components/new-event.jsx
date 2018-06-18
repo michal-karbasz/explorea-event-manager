@@ -131,7 +131,7 @@ export default class NewEvent extends React.Component {
             // this.sendEventsArr(this.state.currentEvents);
             let clone = newEvent.cloneNode(true);
             document.getElementById('event-section').appendChild(clone);
-            // this.clearState()
+            this.clearState()
     }
 
     clearState = () => {
