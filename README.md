@@ -10,8 +10,10 @@ The project is currently at the beginning of developement phase but an overall i
 
 Explorea will cover:
 
--custom event adding
--event edit/remove
--category search
--filter by event name/location
--full responsivenes
+<ul>
+    <li>custom event adding</li>
+    <li>event edit/remove</li>
+    <li>category search</li>
+    <li>filter by event name/location</li>
+    <li>full responsivenes</li>
+</ul>
