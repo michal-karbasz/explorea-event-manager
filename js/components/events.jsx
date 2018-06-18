@@ -14,18 +14,16 @@ export default class Events extends React.Component {
 
 
     render() {
+        console.log(this.props.eventList)
+        const newLi = this.props.eventList.map ((item,index) => {item});
+        
         return (
 
             <section className='event-flex-container' id='event-section'>
                 <Event/>
                 <Event/>
                 <Event/>
-                <Event/>
-                <Event/>
-                <Event/>
-                <Event/>
-                <Event/>
-                <Event/>
+                {newLi}
             </section>
         )
     }

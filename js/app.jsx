@@ -22,6 +22,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
     class App extends React.Component {
 
+        state = {
+            eventList: [],
+        }
+
+        getEventsArray = (arr) => {
+            this.setState({eventList: arr})
+        }
 
         render() {
             return (
@@ -30,9 +37,10 @@ document.addEventListener('DOMContentLoaded', function(){
                             <Nav />
                             <Switch>
                                 <Route exact path='/' component={Planet} />
-                                <Route path='/newEvent' component={NewEvent} />
+                                {/* <Route path='/newEvent' component={NewEvent}  /> */}
+                                <Route path="/newEvent" render={(props) => <NewEvent {...props} eventList={this.state.eventList} getEventsArray={this.getEventsArray} />} />
                             </Switch>
-                        <Events />
+                        <Events eventList={this.state.eventList} />
                         </div>
                     </HashRouter>
             )       

@@ -16,6 +16,7 @@ export default class NewEvent extends React.Component {
         imgUrl: '../images/background1.jpg',
         category: '-- select category --',
         userMessage: `Hi! Fill in the below fields to create a new event:`,
+        currentEvents: [],
     }
 
     handleTitleChange = (title) => {
@@ -77,34 +78,35 @@ export default class NewEvent extends React.Component {
 
         if(this.state.title.length < 3 || this.state.title.length > 32 ) {
             this.setState({userMessage: "Provide event title (3-32 chars) !"});
-        } else if (this.state.description.length < 60 ) {
-            this.setState({userMessage: "Write some additional description (min 60 chars)."});
-        } else if (this.state.organizer.length < 3 || this.state.organizer.length > 32) {
-            this.setState({userMessage: "Who's the organizer (3-32 chars)?"});
-        } else if (this.state.location.length < 1 || this.state.location.length > 32) {
-            this.setState({userMessage: "Provide location (1-32 chars)"});
-        } else if (this.state.location2.length < 3 || this.state.location2.length > 32) {
-            this.setState({userMessage: "Provide location details (3-32 chars)"});
-        } else if (this.state.selectedDay === '' ) {
-            this.setState({userMessage: "Pick the event date"});
-        } else if (this.state.hour.length < 5 ) {
-            this.setState({userMessage: "Provide valid time"});
-        } else if (this.state.category === '-- select category --' ) {
-            this.setState({userMessage: "Select event's category"});
+        // } else if (this.state.description.length < 60 ) {
+        //     this.setState({userMessage: "Write some additional description (min 60 chars)."});
+        // } else if (this.state.organizer.length < 3 || this.state.organizer.length > 32) {
+        //     this.setState({userMessage: "Who's the organizer (3-32 chars)?"});
+        // } else if (this.state.location.length < 1 || this.state.location.length > 32) {
+        //     this.setState({userMessage: "Provide location (1-32 chars)"});
+        // } else if (this.state.location2.length < 3 || this.state.location2.length > 32) {
+        //     this.setState({userMessage: "Provide location details (3-32 chars)"});
+        // } else if (this.state.selectedDay === '' ) {
+        //     this.setState({userMessage: "Pick the event date"});
+        // } else if (this.state.hour.length < 5 ) {
+        //     this.setState({userMessage: "Provide valid time"});
+        // } else if (this.state.category === '-- select category --' ) {
+        //     this.setState({userMessage: "Select event's category"});
         } else {
             this.setState({userMessage: `Added a new event !`});
             this.cloneEvent();
-        }
-        this.state.description.length > 200
-       
+        }       
     }
 
     cloneEvent = () => {
-            let eventToClone = document.querySelector('.event-box');
-            let clone = eventToClone.cloneNode(true);
-            document.getElementById('event-section').appendChild(clone);
-            this.clearState()
-            // this.setState({add: 'false'});
+            const newEvent = document.querySelector('.event-box');
+            const temporaryList = this.state.currentEvents.slice();
+            temporaryList.push(newEvent);
+            this.setState({currentEvents: temporaryList});
+            this.sendEventsArr(this.state.currentEvents);
+            // let clone = newEvent.cloneNode(true);
+            // document.getElementById('event-section').appendChild(clone);
+            // this.clearState()
     }
 
     clearState = () => {
@@ -121,14 +123,21 @@ export default class NewEvent extends React.Component {
 Feel free to create another one:`, })
 }
 
-
+sendEventsArr = (eventArr) => {
+    if(typeof this.props.getEventsArray === 'function') {
+        this.props.getEventsArray(eventArr);
+    }
+}
+    
 
     render() {
+
+        console.log(this.props.eventList)
 
         // if (this.state.description.length > 200 ) {
         //     document.querySelector('.eventDescription').setAttribute('readonly', 'readonly');
         // }
-
+        
         return (
             <section className='new-flex-container'>
                 <div className="col">
