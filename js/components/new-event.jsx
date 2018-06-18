@@ -75,17 +75,27 @@ export default class NewEvent extends React.Component {
 
 
 
-        if(this.state.title.length < 3 || this.state.title.length > 100 ) {
-            this.setState({userMessage: "Provide event title (3-100 chars)!"});
-        } else if (this.state.description.length < 60) {
-            this.setState({userMessage: "Write some additional description (min. 60 chars)."});
-        } else if (this.state.organizer.length < 3 || this.state.organizer.length > 100) {
-            this.setState({userMessage: "Who's the organizer (3-100 chars)?"});
+        if(this.state.title.length < 3 || this.state.title.length > 32 ) {
+            this.setState({userMessage: "Provide event title (3-32 chars) !"});
+        } else if (this.state.description.length < 60 ) {
+            this.setState({userMessage: "Write some additional description (min 60 chars)."});
+        } else if (this.state.organizer.length < 3 || this.state.organizer.length > 32) {
+            this.setState({userMessage: "Who's the organizer (3-32 chars)?"});
+        } else if (this.state.location.length < 1 || this.state.location.length > 32) {
+            this.setState({userMessage: "Provide location (1-32 chars)"});
+        } else if (this.state.location2.length < 3 || this.state.location2.length > 32) {
+            this.setState({userMessage: "Provide location details (3-32 chars)"});
+        } else if (this.state.selectedDay === '' ) {
+            this.setState({userMessage: "Pick the event date"});
+        } else if (this.state.hour.length < 5 ) {
+            this.setState({userMessage: "Provide valid time"});
+        } else if (this.state.category === '-- select category --' ) {
+            this.setState({userMessage: "Select event's category"});
         } else {
-            this.setState({userMessage: `Sent!`});
+            this.setState({userMessage: `Added a new event !`});
             this.cloneEvent();
         }
-
+        this.state.description.length > 200
        
     }
 
@@ -107,12 +117,18 @@ export default class NewEvent extends React.Component {
         hour: '',
         imgUrl: '../images/background1.jpg',
         category: '-- select category --',
-        userMessage: `Hi! Fill in the below fields to create a new event:`, })
+        userMessage: `Your event has just been added.
+Feel free to create another one:`, })
 }
 
 
 
     render() {
+
+        // if (this.state.description.length > 200 ) {
+        //     document.querySelector('.eventDescription').setAttribute('readonly', 'readonly');
+        // }
+
         return (
             <section className='new-flex-container'>
                 <div className="col">

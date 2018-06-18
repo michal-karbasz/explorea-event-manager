@@ -159,16 +159,23 @@ section.new-flex-container {
                 position: absolute;
                 top:0;
                 left:0;
-                font-size: 1.3em;
+                font-size: 1.2em;
                 display:none;
-                z-index: 2;
+                z-index: 2; 
                 opacity: .8;
-                p {
-                    margin: 5px 15px;
-                }
-                p:first-child {
-                    font-size: 1.4em;
-                    color: $main-color;
+                .description-col {
+                    display:flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    p {
+                        margin: 1px 15px;
+                        text-align: justify;
+                        overflow: auto;
+                    }
+                    p:first-child {
+                        font-size: 1.4em;
+                        color: $main-color;
+                    }
                 }
             }
             .category {

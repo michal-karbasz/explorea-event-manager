@@ -8,7 +8,6 @@ export default class BlankEvent extends React.Component {
         if (this.props.add === 'true') {
             let clone = eventToClone.cloneNode(true);
             document.getElementById('event-section').appendChild(clone);
-            console.log('ok')
 ;        }
 
 
@@ -31,8 +30,10 @@ export default class BlankEvent extends React.Component {
                 <img src={this.props.imgUrl} />
                 {/* <img src={`../icons/${this.props.img}.png`} className='category'/> */}
                 <div className='event-description'>
-                    <p>About:</p>
-                    <p>{this.props.description}</p>
+                    <div className="description-col">
+                        <p>About:</p>
+                        <p>{this.props.description}</p>
+                    </div>
                 </div>
 
 

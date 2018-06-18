@@ -63,22 +63,22 @@ export default class CreateForm extends React.Component {
                 <form className='form-contact' onSubmit={this.handleCreateEvent}>
                 <h3 style={{whiteSpace: 'pre'}}>{this.props.userMessage}</h3>
                     <label> event title: <br/>
-                        <input className="eventTitle" onChange={this.handleTitleChange} value={this.props.title} placeholder="event title goes here"/>
+                        <input className="eventTitle" maxLength='32' onChange={this.handleTitleChange} value={this.props.title} placeholder="event title goes here"/>
                     </label>
                     <br/>
-                    <label> description: <br/>
-                        <textarea className="eventDescription" placeholder="describe the event in at least 60 characters" onChange={this.handleDescriptionChange} value={this.props.description} />
+                    <label> description (hover over event to see preview): <br/>
+                        <textarea className="eventDescription" maxLength='200' placeholder="describe the event in at least 60 characters" onChange={this.handleDescriptionChange} value={this.props.description} />
                     </label>
                     <br/>
                     
                     <label> organizer: <br/>
-                        <input className="eventOrganizer" onChange={this.handleOrganizerChange} value={this.props.organizer} placeholder="tell the others who's stands behind the event" />
+                        <input className="eventOrganizer" maxLength='32'  onChange={this.handleOrganizerChange} value={this.props.organizer} placeholder="tell the others who's stands behind the event" />
                     </label>
                    
                     <br/>
                     <label> where: <br/>
-                        <input className="eventLocation" placeholder="give us the city" onChange={this.handleLocationChange} value={this.props.location} />
-                        <input className="eventLocation" placeholder="further details" onChange={this.handleLocation2Change} value={this.props.location2} />
+                        <input className="eventLocation" placeholder="give us the city" maxLength='32'  onChange={this.handleLocationChange} value={this.props.location} />
+                        <input className="eventLocation" placeholder="further details" maxLength='32'  onChange={this.handleLocation2Change} value={this.props.location2} />
                     </label>
                     <br/>
                     
