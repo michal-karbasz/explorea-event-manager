@@ -102,7 +102,8 @@ export default class NewEvent extends React.Component {
         let editimg = document.createElement('img');
         let editspan = document.createElement('span');
         editbtn.classList.add('event-btn');
-        editimg.setAttribute('src','../icons/edit.png')
+        editbtn.setAttribute('id','edit-btn');
+        editimg.setAttribute('src','../icons/edit.png');
         editspan.innerText = 'edit';
         editbtn.appendChild(editimg);
         editbtn.appendChild(editspan);
@@ -112,7 +113,9 @@ export default class NewEvent extends React.Component {
         let deleteimg = document.createElement('img');
         let deletespan = document.createElement('span');
         deletebtn.classList.add('event-btn');
-        deleteimg.setAttribute('src','../icons/delete.png')
+        deletebtn.setAttribute('id','delete-btn');
+        deletebtn.addEventListener('click', this.handleDelete);
+        deleteimg.setAttribute('src','../icons/delete.png');
         deletespan.innerText = 'delete';
         deletebtn.appendChild(deleteimg);
         deletebtn.appendChild(deletespan);

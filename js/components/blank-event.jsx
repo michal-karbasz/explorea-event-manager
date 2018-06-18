@@ -2,14 +2,11 @@ import React from 'react';
 
 export default class BlankEvent extends React.Component {
 
-   
+    
     render() {
-//         let eventToClone = document.querySelector('.event-box');
-//         if (this.props.add === 'true') {
-//             let clone = eventToClone.cloneNode(true);
-//             document.getElementById('event-section').appendChild(clone);
-// ;        }
 
+
+    //choose category icon       
 
         let categorySrc = '../icons/moon.png';
         if (this.props.category === 'alien education events') {
@@ -28,15 +25,14 @@ export default class BlankEvent extends React.Component {
 
             <div className='event-box'>
                 <img src={this.props.imgUrl} />
-                {/* <img src={`../icons/${this.props.img}.png`} className='category'/> */}
                 <div className='event-description'>
-                    <div className="description-col" id='description-container'>
+                    <div className='description-col' id='description-container'>
                         <p>About:</p>
                         <p>{this.props.description}</p>
-                        {/* <button className='event-btn'><img  src='../icons/edit.png'/> <span> edit </span> </button>
-                        <button className='event-btn'><img  src='../icons/delete2.png'/> <span> delete </span>  </button> */}
                     </div>
                 </div>
+
+
                 <img src={categorySrc} className='category'/>
                 <div className='event-bkg'>
                     <span id='eventTitle'>{this.props.title}</span>

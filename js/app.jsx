@@ -16,9 +16,21 @@ import Events from './components/events.jsx';
 // import  Footer from './components/footer.jsx';
 
 
-
 document.addEventListener('DOMContentLoaded', function(){
 
+    document.addEventListener('click',function(e) {
+        if(e.target && e.target.id == 'edit-btn'){
+            console.log('ok');
+        }
+     })
+
+     document.addEventListener('click',function(e) {
+         const box = document.querySelector('.event-box');
+        if(e.target && e.target.id == 'delete-btn'){
+            console.log(box);
+            e.target.remove(box);
+        }
+     })
 
     class App extends React.Component {
 
@@ -37,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function(){
                             <Nav />
                             <Switch>
                                 <Route exact path='/' component={Planet} />
-                                {/* <Route path='/newEvent' component={NewEvent}  /> */}
                                 <Route path="/newEvent" component={NewEvent} /> 
                                  {/* render={(props) => <NewEvent {...props} eventList={this.state.eventList} getEventsArray={this.getEventsArray} /> */}
                             </Switch>
