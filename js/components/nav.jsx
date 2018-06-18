@@ -25,7 +25,7 @@ export default class Nav extends React.Component {
                 <div className="header-col menu">
                     <Link className='link-btn' to="/newEvent">
                         <img src='../icons/space_shuttle2.png'/>
-                        <span onClick={this.addNewEvent}>new</span>
+                        <span onClick={this.addNewEvent} className='addNewBtn'>new</span>
                     </Link>
                     <span>|</span>
                     <img src='../icons/explorer.png'/>

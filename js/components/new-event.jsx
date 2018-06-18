@@ -70,8 +70,9 @@ export default class NewEvent extends React.Component {
         this.setState({category: category })
     }
     
-    handleSubmit = (event) => {
+    handleCreateEvent = (event) => {
         event.preventDefault();
+        console.log('add')
     }
 
     render() {
@@ -79,7 +80,7 @@ export default class NewEvent extends React.Component {
             <section className='new-flex-container'>
                 <div className="col">
                     <Form title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.selectedDay} hour={this.state.hour} imgUrl={this.state.imgUrl} category={this.state.category} userMessage={this.state.userMessage}
-                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} organizerChange={this.handleOrganizerChange} locationChange={this.handleLocationChange} location2Change={this.handleLocation2Change} handleDayChange={this.handleDayChange} hourChange={this.handleHourChange} urlChange={this.handleUrlChange} categoryChange={this.handleCategoryChange}/>
+                    titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} organizerChange={this.handleOrganizerChange} locationChange={this.handleLocationChange} location2Change={this.handleLocation2Change} handleDayChange={this.handleDayChange} hourChange={this.handleHourChange} urlChange={this.handleUrlChange} categoryChange={this.handleCategoryChange} createEvent={this.handleCreateEvent}/>
                 </div>
                 <div className="col">
                     {/* <h1> live preview 

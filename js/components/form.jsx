@@ -46,6 +46,12 @@ export default class CreateForm extends React.Component {
         if(typeof this.props.categoryChange === 'function') {
             this.props.categoryChange(e.target.value);
         }
+        
+    handleCreateEvent = (e) => {
+        if(typeof this.props.createEvent === 'function') {
+            this.props.createEvent(e.target.value);
+        }
+
     }
 
     render() {
@@ -93,7 +99,7 @@ export default class CreateForm extends React.Component {
                         </select>
                     </label>
                     <br/>
-                        <input className="eventSubmit" type="submit" value="c r e a t e ! " />
+                        <input onSubmit={this.handleCreateEvent} className="eventSubmit" type="submit" value="c r e a t e ! " />
                 </form>
             </div>
         )
