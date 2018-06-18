@@ -6,7 +6,7 @@ section.new-flex-container {
     display:flex;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url('../images/background1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -20,8 +20,9 @@ section.new-flex-container {
         // form styling 
 
         .form-container {
-            margin: 30px;
-            height: 500px;
+            margin-top: 65px;
+            margin-bottom: 10px;
+            min-height: 500px;
             border: 1px solid lightgray;
             background-color: white;
             // opacity: .9;
