@@ -30,13 +30,13 @@ export default class BlankEvent extends React.Component {
                 <img src={this.props.imgUrl} />
                 {/* <img src={`../icons/${this.props.img}.png`} className='category'/> */}
                 <div className='event-description'>
-                    <div className="description-col">
+                    <div className="description-col" id='description-container'>
                         <p>About:</p>
                         <p>{this.props.description}</p>
+                        {/* <button className='event-btn'><img  src='../icons/edit.png'/> <span> edit </span> </button>
+                        <button className='event-btn'><img  src='../icons/delete2.png'/> <span> delete </span>  </button> */}
                     </div>
                 </div>
-
-
                 <img src={categorySrc} className='category'/>
                 <div className='event-bkg'>
                     <span id='eventTitle'>{this.props.title}</span>

@@ -73,9 +73,6 @@ export default class NewEvent extends React.Component {
     
     handleCreateEvent = (event) => {
         event.preventDefault();
-
-
-
         if(this.state.title.length < 3 || this.state.title.length > 32 ) {
             this.setState({userMessage: "Provide event title (3-32 chars) !"});
         // } else if (this.state.description.length < 60 ) {
@@ -94,18 +91,43 @@ export default class NewEvent extends React.Component {
         //     this.setState({userMessage: "Select event's category"});
         } else {
             this.setState({userMessage: `Added a new event !`});
+            this.addButtons();
             this.cloneEvent();
         }       
     }
 
+    addButtons = () => {
+        const eventBox = document.getElementById('description-container')
+        let editbtn = document.createElement('button');
+        let editimg = document.createElement('img');
+        let editspan = document.createElement('span');
+        editbtn.classList.add('event-btn');
+        editimg.setAttribute('src','../icons/edit.png')
+        editspan.innerText = 'edit';
+        editbtn.appendChild(editimg);
+        editbtn.appendChild(editspan);
+        eventBox.appendChild(editbtn);
+
+        let deletebtn = document.createElement('button');
+        let deleteimg = document.createElement('img');
+        let deletespan = document.createElement('span');
+        deletebtn.classList.add('event-btn');
+        deleteimg.setAttribute('src','../icons/delete.png')
+        deletespan.innerText = 'delete';
+        deletebtn.appendChild(deleteimg);
+        deletebtn.appendChild(deletespan);
+        eventBox.appendChild(deletebtn);
+    }
+
+
     cloneEvent = () => {
-            const newEvent = document.querySelector('.event-box');
-            const temporaryList = this.state.currentEvents.slice();
-            temporaryList.push(newEvent);
-            this.setState({currentEvents: temporaryList});
-            this.sendEventsArr(this.state.currentEvents);
-            // let clone = newEvent.cloneNode(true);
-            // document.getElementById('event-section').appendChild(clone);
+            let newEvent = document.querySelector('.event-box');
+            // const temporaryList = this.state.currentEvents.slice();
+            // temporaryList.push(newEvent);
+            // this.setState({currentEvents: temporaryList});
+            // this.sendEventsArr(this.state.currentEvents);
+            let clone = newEvent.cloneNode(true);
+            document.getElementById('event-section').appendChild(clone);
             // this.clearState()
     }
 
@@ -131,8 +153,6 @@ sendEventsArr = (eventArr) => {
     
 
     render() {
-
-        console.log(this.props.eventList)
 
         // if (this.state.description.length > 200 ) {
         //     document.querySelector('.eventDescription').setAttribute('readonly', 'readonly');

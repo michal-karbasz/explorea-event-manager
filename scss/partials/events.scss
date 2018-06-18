@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     
     .event-box {
-        margin: 30px;
+        margin: 35px;
         margin-top: 70px;
         max-width: 380px;
         height: 450px;
@@ -44,6 +44,28 @@
             p:first-child {
                 font-size: 1.4em;
                 color: $main-color;
+            }
+            .event-btn{
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                border: 1px solid $main-color;
+                width: 100px;
+                height: 50px;
+                position: absolute;
+                top:64px;
+                left: -102px;
+                opacity: .9;
+                img{ 
+                height: 32px;
+                width: 32px;
+                }
+                span{
+                    font-size: 1.2rem;
+                }
+            }
+            .event-btn:nth-child(2n) {
+                top:114px;
             }
         }
         .category {
