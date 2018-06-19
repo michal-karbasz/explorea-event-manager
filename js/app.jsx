@@ -16,19 +16,41 @@ import Events from './components/events.jsx';
 // import  Footer from './components/footer.jsx';
 
 
+
+
 document.addEventListener('DOMContentLoaded', function(){
+    
+    let enableEdit = (e) => {
+        e.target.parentElement.parentElement.parentElement.children[1,3,4].contentEditable;
+    }
 
     document.addEventListener('click',function(e) {
         if(e.target && e.target.id == 'edit-btn'){
-            console.log('ok');
+            if ( e.target.lastElementChild.innerText == 'edit') {
+            e.target.lastElementChild.innerText = 'confirm';
+            e.target.firstElementChild.setAttribute('url','../icons/confirm.png')
+        } else if (e.target.lastElementChild.innerText == 'confirm'){
+            e.target.lastElementChild.innerText = 'edit'; 
+            e.target.firstElementChild.setAttribute('url','../icons/edit.png')
+            }
+            e.target.parentElement.parentElement.parentElement.children[4].contentEditable=('true');
+            console.log(e.target.parentElement.parentElement.parentElement)
+            console.log(e.target.parentElement.parentElement.parentElement.children[4])
+            // enableEdit(e);
         }
      })
 
      document.addEventListener('click',function(e) {
-         const box = document.querySelector('.event-box');
         if(e.target && e.target.id == 'delete-btn'){
-            console.log(box);
-            e.target.remove(box);
+            e.target.parentElement.parentElement.parentElement.children[2].classList.add('show');
+        }
+        if(e.target && e.target.id == 'delete-btn-positive'){
+            e.target.parentElement.parentElement.parentElement.remove();
+        }
+        if(e.target && e.target.id == 'delete-btn-negative'){
+            e.target.parentElement.parentElement.parentElement.children[2].classList.add('fade-out');
+            // e.target.parentElement.classList.add('fade-out');
+            setTimeout(function(){ e.target.parentElement.parentElement.parentElement.children[2].classList.remove('show');}, 1000);
         }
      })
 

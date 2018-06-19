@@ -50,12 +50,14 @@
                 align-items: center;
                 justify-content: space-around;
                 border: 1px solid $main-color;
-                width: 100px;
-                height: 50px;
+                width: 120px;
+                height: 56px;
                 position: absolute;
-                top:-52px;
-                right: 99px;
+                top:-56px;
+                right: 119px;
                 opacity: .9;
+                border: 4px double $main-color;
+                background-color: white;
                 img{ 
                 height: 32px;
                 width: 32px;
@@ -67,6 +69,71 @@
             .event-btn:nth-child(2n) {
                 right:-1px;
             }
+        }
+        .delete-confirm {
+            background-color: white;
+            border-right: 1px solid $main-color;
+            width: 1px;
+            height: 280px;
+            position: absolute;
+            top:0;
+            left:0;
+            font-size: 1.2em;
+            display:none;
+            z-index: 2;
+            animation: slide-right 700ms 1 normal forwards;
+            .description-col {
+                display:flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+                flex-wrap: wrap;
+                // position: relative;
+                p {
+                    margin: 45px 15px;
+                    text-align: justify;
+                    opacity: 0;
+                    animation: fade-in 1.2s 1 normal forwards;
+                    animation-delay: 0.3s;
+                }
+                .event-btn{
+                    align-items: center;
+                    justify-content: space-around;
+                    border: 4px double $main-color;
+                    background-color: white;
+                    width: 120px;
+                    height: 60px;
+                    margin-bottom: 15px;
+                    font-size: 1.1rem;
+                    color:rgb(102, 97, 97);
+                    letter-spacing: 1px;
+                    opacity: 0;
+                    animation: fade-in 1s 1 normal forwards;
+                    animation-delay: 1.3s;
+                    &:hover{
+                        background-color: $main-color;
+                        border: 4px double white;
+                        color: white;
+                    }
+                    .fade-out{
+                        animation: fade-in 100ms 1 reverse;
+                    }
+                    img{ 
+                    height: 32px;
+                    width: 32px;
+                    }
+                    span{
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+        .show{
+            display:block;
+        }
+        .fade-out{
+            opacity: 0;
+            transition: all 1s;
         }
         .category {
             width: 66px;
@@ -127,4 +194,14 @@
             }
         }
     }
+}
+
+@keyframes slide-right {
+    0% {width: 1px};
+    100% {width: 378px}
+}
+
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
 }
