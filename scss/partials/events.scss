@@ -205,10 +205,13 @@
         position: absolute;
         top: 240px;
         left:0;
-        font-size: 1.2em;
-        z-index: 2;
+        font-size: 1rem;
+        z-index: 1;
         animation: slide-right 1s 1 normal forwards;
         span {
+            overflow: scroll;
+        }
+        span:first-child {
             color: $main-color;
         }
     }

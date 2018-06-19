@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function(){
         if(e.target && e.target.id == 'edit-btn') {
             const eventBox =  e.target.parentElement.parentElement.parentElement;
             const eventBoxTitleSection = eventBox.children[4];
+            const eventImg = eventBox.firstElementChild;
             if ( e.target.lastElementChild.innerText == 'edit') {
             e.target.lastElementChild.innerText = 'confirm';
             e.target.firstElementChild.setAttribute('src','../icons/confirm.png');
@@ -42,13 +43,15 @@ document.addEventListener('DOMContentLoaded', function(){
             let urlChangeField = document.createElement('div');
             let urlSpan = document.createElement('span');
             urlSpan.innerText = 'Paste new image url here:'
-            let urlInput = document.createElement('p');
+            let urlInput = document.createElement('span');
             urlChangeField.classList.add('urlField');
             urlChangeField.appendChild(urlSpan);
             urlChangeField.appendChild(urlInput);
             urlChangeField.children[1].setAttribute('contenteditable',true); //change image
             eventBox.appendChild(urlChangeField);
         } else if (e.target.lastElementChild.innerText == 'confirm') {
+            const newUrl = eventBox.lastElementChild.children[1].innerText;
+            eventImg.setAttribute('src',newUrl);
             e.target.lastElementChild.innerText = 'edit'; 
             e.target.firstElementChild.setAttribute('src','../icons/edit.png');
             let editable_elements = document.querySelectorAll("[contenteditable=true]");
