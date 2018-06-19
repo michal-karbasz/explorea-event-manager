@@ -197,6 +197,21 @@
             }
         }
     }
+    .urlField {
+        background-color: white;
+        // border: 1px solid $main-color;
+        width: 378px;
+        height: 40px;
+        position: absolute;
+        top: 240px;
+        left:0;
+        font-size: 1.2em;
+        z-index: 2;
+        animation: slide-right 1s 1 normal forwards;
+        span {
+            color: $main-color;
+        }
+    }
 }
 
 @keyframes slide-right {

@@ -39,10 +39,18 @@ document.addEventListener('DOMContentLoaded', function(){
             eventBox.children[5].children[1].setAttribute('contenteditable',true);  //change organizer
             eventBox.children[1].children[0].children[1].setAttribute('contenteditable',true);  //change description
             eventBox.children[1].classList.add('slide-up');
+            let urlChangeField = document.createElement('div');
+            let urlSpan = document.createElement('span');
+            urlSpan.innerText = 'Paste new image url here:'
+            let urlInput = document.createElement('p');
+            urlChangeField.classList.add('urlField');
+            urlChangeField.appendChild(urlSpan);
+            urlChangeField.appendChild(urlInput);
+            urlChangeField.children[1].setAttribute('contenteditable',true); //change image
+            eventBox.appendChild(urlChangeField);
         } else if (e.target.lastElementChild.innerText == 'confirm') {
             e.target.lastElementChild.innerText = 'edit'; 
             e.target.firstElementChild.setAttribute('src','../icons/edit.png');
-            console.log(eventBox.children[4])
             let editable_elements = document.querySelectorAll("[contenteditable=true]");
             for (let i = 0; i < editable_elements.length; i++) {
                 editable_elements[i].setAttribute('contenteditable',false);
