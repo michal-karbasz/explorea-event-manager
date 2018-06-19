@@ -208,8 +208,13 @@
         font-size: 1rem;
         z-index: 1;
         animation: slide-right 1s 1 normal forwards;
-        span {
-            overflow: scroll;
+        display: flex;
+        
+        p {
+            display: block;
+            overflow: hidden;
+            word-wrap: break-word;
+            color:grey;
         }
         span:first-child {
             color: $main-color;

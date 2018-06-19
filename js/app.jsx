@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
             eventBox.children[1].classList.add('slide-up');
             let urlChangeField = document.createElement('div');
             let urlSpan = document.createElement('span');
-            urlSpan.innerText = 'Paste new image url here:'
+            urlSpan.innerText = 'Paste new image url here: '
             let urlInput = document.createElement('span');
             urlChangeField.classList.add('urlField');
             urlChangeField.appendChild(urlSpan);
