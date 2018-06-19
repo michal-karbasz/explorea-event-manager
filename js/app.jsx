@@ -25,17 +25,33 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     document.addEventListener('click',function(e) {
-        if(e.target && e.target.id == 'edit-btn'){
+        
+        if(e.target && e.target.id == 'edit-btn') {
+            const eventBox =  e.target.parentElement.parentElement.parentElement;
+            const eventBoxTitleSection = eventBox.children[4];
             if ( e.target.lastElementChild.innerText == 'edit') {
             e.target.lastElementChild.innerText = 'confirm';
-            e.target.firstElementChild.setAttribute('url','../icons/confirm.png')
-        } else if (e.target.lastElementChild.innerText == 'confirm'){
+            e.target.firstElementChild.setAttribute('src','../icons/confirm.png');
+            eventBoxTitleSection.children[0].setAttribute('contenteditable',true);  //change title
+            eventBoxTitleSection.children[3].setAttribute('contenteditable',true);  //change time
+            eventBoxTitleSection.children[6].setAttribute('contenteditable',true);  //change location
+            eventBoxTitleSection.children[8].setAttribute('contenteditable',true);  //change location2
+            eventBox.children[5].children[1].setAttribute('contenteditable',true);  //change organizer
+            eventBox.children[1].children[0].children[1].setAttribute('contenteditable',true);  //change description
+            eventBox.children[1].classList.add('slide-up');
+        } else if (e.target.lastElementChild.innerText == 'confirm') {
             e.target.lastElementChild.innerText = 'edit'; 
-            e.target.firstElementChild.setAttribute('url','../icons/edit.png')
+            e.target.firstElementChild.setAttribute('src','../icons/edit.png');
+            console.log(eventBox.children[4])
+            let editable_elements = document.querySelectorAll("[contenteditable=true]");
+            for (let i = 0; i < editable_elements.length; i++) {
+                editable_elements[i].setAttribute('contenteditable',false);
+                // eventBox.children[4].setAttribute('contenteditable',false)
+                // eventBox.children[4].removeAttribute('contenteditable')
+                }
             }
-            e.target.parentElement.parentElement.parentElement.children[4].contentEditable=('true');
-            console.log(e.target.parentElement.parentElement.parentElement)
-            console.log(e.target.parentElement.parentElement.parentElement.children[4])
+
+            
             // enableEdit(e);
         }
      })

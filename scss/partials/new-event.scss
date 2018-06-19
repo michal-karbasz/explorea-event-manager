@@ -202,7 +202,9 @@ section.new-flex-container {
                     }
                 }
             }
-           
+            .delete-confirm {
+                display:none;
+            }
             .category {
                 width: 66px;
                 height: 66px;
