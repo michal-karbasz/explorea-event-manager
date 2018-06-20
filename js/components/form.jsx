@@ -63,11 +63,11 @@ export default class CreateForm extends React.Component {
                 <form className='form-contact' onSubmit={this.handleCreateEvent}>
                 <h3 style={{whiteSpace: 'pre'}}>{this.props.userMessage}</h3>
                     <label> event title: <br/>
-                        <input className="eventTitle" maxLength='32' onChange={this.handleTitleChange} value={this.props.title} placeholder="event title goes here"/>
+                        <input className="eventTitle" autoFocus maxLength='32' onChange={this.handleTitleChange} value={this.props.title} placeholder="event title goes here"/>
                     </label>
                     <br/>
                     <label> description (hover over event to see preview): <br/>
-                        <textarea className="eventDescription" maxLength='200' placeholder="describe the event in at least 60 characters" onChange={this.handleDescriptionChange} value={this.props.description} />
+                        <textarea className="eventDescription" maxLength='325' placeholder="describe the event in at least 60 characters" onChange={this.handleDescriptionChange} value={this.props.description} />
                     </label>
                     <br/>
                     

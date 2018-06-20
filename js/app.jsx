@@ -29,13 +29,25 @@ document.addEventListener('DOMContentLoaded', function(){
             if ( e.target.lastElementChild.innerText == 'edit') {
             e.target.lastElementChild.innerText = 'confirm';
             e.target.firstElementChild.setAttribute('src','../icons/confirm.png');
-            eventBoxTitleSection.children[0].setAttribute('contenteditable',true);  //change title
-            eventBoxTitleSection.children[3].setAttribute('contenteditable',true);  //change time
-            eventBoxTitleSection.children[6].setAttribute('contenteditable',true);  //change location
-            eventBoxTitleSection.children[8].setAttribute('contenteditable',true);  //change location2
-            eventBox.children[5].children[1].setAttribute('contenteditable',true);  //change organizer
-            eventBox.children[1].children[0].children[1].setAttribute('contenteditable',true);  //change description
+            //add maxLength attribute;
+            eventBoxTitleSection.children[0].setAttribute('maxlength','32');  
+            eventBoxTitleSection.children[0].setAttribute('minlength','3');  
+            eventBoxTitleSection.children[3].setAttribute('maxLength','32');  
+            eventBoxTitleSection.children[5].setAttribute('maxLength','32'); 
+            eventBoxTitleSection.children[8].setAttribute('maxLength','32'); 
+            eventBoxTitleSection.children[10].setAttribute('maxLength','32');
+            eventBox.children[5].children[1].setAttribute('maxLength','32');   
+            eventBox.children[1].children[0].children[1].setAttribute('maxLength','325'); 
+            //make content editable
+            eventBoxTitleSection.children[0].removeAttribute('disabled');  //change title
+            eventBoxTitleSection.children[3].removeAttribute('disabled');  //change time
+            eventBoxTitleSection.children[5].removeAttribute('disabled');  //change hour
+            eventBoxTitleSection.children[8].removeAttribute('disabled');  //change location
+            eventBoxTitleSection.children[10].removeAttribute('disabled');  //change location2
+            eventBox.children[5].children[1].removeAttribute('disabled');  //change organizer
+            eventBox.children[1].children[0].children[1].removeAttribute('disabled');  //change description
             eventBox.children[1].classList.add('slide-up');
+            eventBox.children[1].children[0].children[1].classList.add('textarea-short');
             let urlChangeField = document.createElement('div');
             let urlSpan = document.createElement('span');
             urlSpan.innerText = 'Paste new image url here: '
@@ -45,6 +57,12 @@ document.addEventListener('DOMContentLoaded', function(){
             urlChangeField.appendChild(urlInput);
             urlChangeField.children[1].setAttribute('contenteditable',true); //change image
             eventBox.appendChild(urlChangeField);
+                if ( e.target && e.target.id == 'category-img') {
+                    const categoryImg = eventBox.children[3];
+                    console.log('ok')
+                }
+            //when edit is clicked
+
         } else if (e.target.lastElementChild.innerText == 'confirm') {
             const newUrl = eventBox.lastElementChild.children[1].innerText;
             if (newUrl != '') {
@@ -52,12 +70,20 @@ document.addEventListener('DOMContentLoaded', function(){
             }
             eventBox.lastElementChild.remove();
             eventBox.children[1].classList.remove('slide-up');
+            eventBox.children[1].children[0].children[1].classList.remove('textarea-short');
             e.target.lastElementChild.innerText = 'edit'; 
             e.target.firstElementChild.setAttribute('src','../icons/edit.png');
-            let editable_elements = document.querySelectorAll("[contenteditable=true]");
-            for (let i = 0; i < editable_elements.length; i++) {
-                editable_elements[i].setAttribute('contenteditable',false);
-                }
+            eventBoxTitleSection.children[0].setAttribute('disabled','');  //change title
+            eventBoxTitleSection.children[3].setAttribute('disabled','');  //change time
+            eventBoxTitleSection.children[5].setAttribute('disabled','');  //change hour
+            eventBoxTitleSection.children[8].setAttribute('disabled','');  //change location
+            eventBoxTitleSection.children[10].setAttribute('disabled','');  //change location2
+            eventBox.children[5].children[1].setAttribute('disabled','');  //change organizer
+            eventBox.children[1].children[0].children[1].setAttribute('disabled','');  //change description
+            // let editable_elements = document.querySelectorAll("[contenteditable=true]");
+            // for (let i = 0; i < editable_elements.length; i++) {
+            //     editable_elements[i].setAttribute('contenteditable',false);
+                // }
             }
         }
      })
@@ -72,7 +98,9 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         if(e.target && e.target.id == 'delete-btn-negative'){
             e.target.parentElement.parentElement.parentElement.children[2].classList.add('fade-out');
-            setTimeout(function(){ e.target.parentElement.parentElement.parentElement.children[2].classList.remove('show');}, 1000);
+            setTimeout(function(){ e.target.parentElement.parentElement.parentElement.children[2].classList.remove('show');
+                e.target.parentElement.parentElement.parentElement.children[2].classList.remove('fade-out');
+            }, 1000);
         }
      })
 

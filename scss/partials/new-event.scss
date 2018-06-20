@@ -184,6 +184,19 @@ section.new-flex-container {
                         text-align: justify;
                         overflow: auto;
                     }
+                    .description {
+                        font-family: 'Titillium Web', sans-serif;
+                        margin: 1px 15px;
+                        text-align: justify;
+                        white-space: normal;
+                        font-size: 1.1rem;
+                        border: none;
+                        background-color: transparent; 
+                        max-height: 230px;
+                        max-width: 350px;
+                        min-height: 230px;
+                        min-width: 350px;
+                    }
                     p:first-child {
                         font-size: 1.4em;
                         color: $main-color;
@@ -244,14 +257,30 @@ section.new-flex-container {
                 }
                 span {
                     font-size: 1.2rem;
-                    margin-left: 10px;
+                    // margin-left: 10px;
                 }
-                span:first-child {
+                input {
+                    font-size: 1.2rem;
+                    margin-left: 10px;
+                    border: none;
+                    background-color: transparent; 
+                }
+                .title {
                     font-size: 1.4rem;
                     color: darken($main-color, 5%);
+                    border: none;
+                    background-color: transparent;
+                    width: 350px;
+                }
+                .date {
+                    width: 110px;
+                }
+                .hour {
+                    width: 110px;
+                    margin-left: 15px;
                 }
                 .location2 {
-                    margin-left: 36px;
+                    margin-left: 37px;
                 }
             }
             .event-bkg2 {
@@ -268,9 +297,11 @@ section.new-flex-container {
                     margin-left: 10px;
                     transform: rotateY(180deg);
                 }
-                span {
+                input {
                     font-size: 1.2rem;
                     margin-left: 10px;
+                    border: none;
+                    background-color: transparent; 
                 }
             }
         }
