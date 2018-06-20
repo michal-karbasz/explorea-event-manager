@@ -30,7 +30,7 @@ export default class Nav extends React.Component {
                     <span>|</span>
                     <img src='../icons/explorer.png'/>
                     <span>browse</span>
-                    <span>about</span>
+                    <Link className='link-btn' to="/about"> <span>about</span> </Link>
                     <span>find</span>
                 </div>
 

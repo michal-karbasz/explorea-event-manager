@@ -13,6 +13,7 @@ import Nav from './components/nav.jsx';
 import Planet from './components/planet.jsx';
 import NewEvent from './components/new-event.jsx';
 import Events from './components/events.jsx';
+import About from './components/about.jsx';
 // import  Footer from './components/footer.jsx';
 
 
@@ -201,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             <Switch>
                                 <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} handleSearchChange={this.handleSearchChange} searchEvent={this.handleSearchEvent} /> } />
                                 <Route path="/newEvent" component={NewEvent} /> 
+                                <Route path="/about" component={About} /> 
                             </Switch>
                         <Events />  
                         </div>

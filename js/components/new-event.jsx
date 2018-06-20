@@ -139,7 +139,7 @@ export default class NewEvent extends React.Component {
         selectedDay: '',
         hour: '',
         imgUrl: '../images/background1.jpg',
-        category: '-- select category --',
+        category: '',
         userMessage: `Your event has just been added.
 Feel free to create another one:`, })
 }
