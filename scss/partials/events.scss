@@ -14,6 +14,7 @@
         justify-content: center;
         flex-wrap: wrap;
         position: relative;
+        transition: all 1s;
         &:hover .event-description {
             display: block;
         }
@@ -97,12 +98,24 @@
                 position: absolute;
                 top: 50px;
                 left: 50px;
+                
             }
-            .flightVolounteers{
+            .flightVolounteers {
                 top: 15px;
                 left: 150px;
             }
-            
+            .alienMeetings {
+                top: 50px;
+                left: 250px;
+            }
+            .nasa {
+                top: 150px;
+                left: 250px;
+            }
+            .alienTranslatorWorkshops {
+                top: 150px;
+                left: 50px;
+            }
             
             
         }
@@ -177,7 +190,7 @@
             width: 66px;
             height: 66px;
             position: absolute;
-            top: -33px;
+            top: -43px;
             left: -33px;
         }
             &::before {
@@ -188,7 +201,7 @@
                 height: 84px; 
                 border-radius: 50%;
                 position: absolute;
-                top: -42px;
+                top: -52px;
                 left: -42px;
         }
         .event-bkg {

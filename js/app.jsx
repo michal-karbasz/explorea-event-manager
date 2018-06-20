@@ -88,29 +88,49 @@ document.addEventListener('DOMContentLoaded', function(){
      document.addEventListener('click',function(e) {
          //delete event
          if ( e.target && e.target.id == 'category-img') {
-            const descriptionBox = e.target.parentElement.children[1];
-            let category1 = document.createElement('img');
-            let category2 = document.createElement('img');
-            let category3 = document.createElement('img');
-            let category4 = document.createElement('img');
-            let category5 = document.createElement('img');
-            e.target.classList.add('category-moved');
-            category1.setAttribute('src', '../icons/planetary.png');
-            category1.classList.add('alienEducationEvents'); 
-            category2.setAttribute('src', '../icons/nebula.png');
-            category2.classList.add('flightVolounteers');
-            category3.setAttribute('src', '../icons/alien_sad.png');
-            category3.classList.add('alienMeetings');
-            category4.setAttribute('src', '../icons/astronaut.png');
-            category4.classList.add('nasa');
-            category5.setAttribute('src', '../icons/alien_sleep.png');
-            category5.classList.add('alienTranslatorWorkshops');
-            descriptionBox.appendChild(category1);
-            descriptionBox.appendChild(category2);
-            descriptionBox.appendChild(category3);
-            descriptionBox.appendChild(category4);
-            descriptionBox.appendChild(category5);
+             const descriptionBox = e.target.parentElement.children[1];
+             let category1 = document.createElement('img');
+             let category2 = document.createElement('img');
+             let category3 = document.createElement('img');
+             let category4 = document.createElement('img');
+             let category5 = document.createElement('img');
+
+            // when description img clicked
+
+             if (e.target.classList.contains('category-moved') === false) {
+                e.target.classList.add('category-moved');
+                category1.setAttribute('src', '../icons/planetary.png');
+                category1.classList.add('alienEducationEvents'); 
+                category2.setAttribute('src', '../icons/nebula.png');
+                category2.classList.add('flightVolounteers');
+                category3.setAttribute('src', '../icons/alien_sad.png');
+                category3.classList.add('alienMeetings');
+                category4.setAttribute('src', '../icons/astronaut.png');
+                category4.classList.add('nasa');
+                category5.setAttribute('src', '../icons/alien_sleep.png');
+                category5.classList.add('alienTranslatorWorkshops');
+                descriptionBox.appendChild(category1);
+                descriptionBox.appendChild(category2);
+                descriptionBox.appendChild(category3);
+                descriptionBox.appendChild(category4);
+                descriptionBox.appendChild(category5);
+            } else if (e.target.classList.contains('category-moved')) {
+                const imgArr = Array.from(descriptionBox.children)
+                console.log(descriptionBox.children)
+                for (let i = 1; i < imgArr.length; i++ ){
+                    imgArr[i].remove();
+                }
+                e.target.classList.remove('category-moved');
+            }
         }
+
+        if ( e.target && e.target.classList.contains('alienEducationEvents') || e.target.classList.contains('flightVolounteers') || e.target.classList.contains('alienMeetings') || e.target.classList.contains('nasa') || e.target.classList.contains('alienTranslatorWorkshops')) {
+            const formerCategory = e.target.parentElement.parentElement.children[3];
+            const newSrc = e.target.getAttribute('src');
+            formerCategory.setAttribute('src',newSrc);
+            console.log(e.target)
+        }
+
         if(e.target && e.target.id == 'delete-btn'){
             e.target.parentElement.parentElement.parentElement.children[2].classList.add('show');
         }
