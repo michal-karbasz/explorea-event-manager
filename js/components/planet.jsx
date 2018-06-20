@@ -5,14 +5,30 @@ export default class Planet extends React.Component {
 
     state = {
         visible: 'hidden',
+        display: 'none',
     }
 
+    openSearchBox = () => {
+        this.setState({display: this.state.display === 'none' ? 'block' : 'none'})
+    }
 
     revealPlanets = () => {
         this.setState({visible: this.state.visible === 'hidden' ? 'visible' : 'hidden'})
     }
 
+    onClick = (e) => {
+        const input = document.querySelector(['.search-box'])
+        if (e.target != input) {
+            this.openSearchBox();
+            this.revealPlanets();
+        }
+    }
 
+    // runOpenSearchBox = (e) => {
+    //     if(typeof this.props.openSearchBox === 'function') {
+    //         this.props.openSearchBox(e.target);
+    //     }
+    // }
 
     render() {
         return (
@@ -26,9 +42,10 @@ export default class Planet extends React.Component {
                     </div>
                 </div>
                 <div className="col">
-                    <div className="planet-bkg" onClick={this.revealPlanets}>
+                    <div className="planet-bkg" onClick={this.onClick}>
                         <img src='../icons/planet.png' className='planet'/>
                         <p><span>click</span> to explore events</p>
+                        <input maxLength='32' className='search-box' placeholder='enter event name or city...' style={{display:this.state.display}} onChange={this.handleSearchChange}/>
                     </div>
                 </div>
                 <div className="col">

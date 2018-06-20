@@ -116,8 +116,6 @@
                 top: 150px;
                 left: 50px;
             }
-            
-            
         }
         .slide-up{
             animation: slide-up 500ms 1 normal forwards;
@@ -301,6 +299,9 @@
             margin-left: 5px;
             min-width: 175px;
         }
+    }
+    .hidden {
+        display:none;
     }
 }
 

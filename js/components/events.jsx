@@ -29,9 +29,9 @@ export default class Events extends React.Component {
         return (
 
             <section className='event-flex-container' id='event-section'>
+                {/* <Event/>
                 <Event/>
-                <Event/>
-                <Event/>
+                <Event/> */}
                 {/* {this.props.eventList.map ((item) => <div>{item}</div>)} */}
             </section>
         )

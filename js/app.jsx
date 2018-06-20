@@ -153,16 +153,19 @@ document.addEventListener('DOMContentLoaded', function(){
             eventList: [],
         }
         
-        handlecategoryChange = () => {
+        handlecategoryChange = (planet) => {
             let eventListArr = [].slice.call(document.querySelectorAll('.event-box'));
             this.setState ({ eventList: eventListArr})
             console.log(this.state.eventList)
-
+            
+            for (let i = 0; i < this.state.eventList.length ; i++) {
+                this.state.eventList[i].classList.remove('hidden');
+                console.log(this.state.eventList[i])
+                if(this.state.eventList[i].children[3].getAttribute('src').indexOf(planet.getAttribute('src')) == -1) {
+                    this.state.eventList[i].classList.add('hidden');
+                } 
+            }
         }
-        componentWillMount() {
-
-        }
-
 
         render() {
 
