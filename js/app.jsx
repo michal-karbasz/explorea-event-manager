@@ -151,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         state = {
             eventList: [],
+            input: '',
         }
         
         handlecategoryChange = (planet) => {
@@ -167,6 +168,10 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
 
+        handleSearchChange = (userInput) => {
+            this.setState({input: userInput })
+        }
+
         render() {
 
        
@@ -175,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         <div>
                             <Nav />
                             <Switch>
-                                <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} /> } />
+                                <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} handleSearchChange={this.handleSearchChange} /> } />
                                 <Route path="/newEvent" component={NewEvent} /> 
                             </Switch>
                         <Events />  

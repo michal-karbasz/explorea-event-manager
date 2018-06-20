@@ -8,8 +8,14 @@ export default class Planet extends React.Component {
         display: 'none',
     }
 
+    shrinkPlanet = () => {
+        const planetImg = document.querySelector('.planet');
+        planetImg.classList.add('shrink');
+    }
+
     openSearchBox = () => {
         this.setState({display: this.state.display === 'none' ? 'block' : 'none'})
+        this.shrinkPlanet();
     }
 
     revealPlanets = () => {
@@ -24,11 +30,18 @@ export default class Planet extends React.Component {
         }
     }
 
-    // runOpenSearchBox = (e) => {
-    //     if(typeof this.props.openSearchBox === 'function') {
-    //         this.props.openSearchBox(e.target);
-    //     }
-    // }
+    handleInputChange = (e) => {
+        if(typeof this.props.handleSearchChange === 'function') {
+            this.props.handleSearchChange(e.target.value);
+        }
+    }
+
+    handleSubmit = (e) => {
+        if(typeof this.props.searchEvent === 'function') {
+            this.props.searchEvent(e);
+        }
+    }
+
 
     render() {
         return (
@@ -45,7 +58,10 @@ export default class Planet extends React.Component {
                     <div className="planet-bkg" onClick={this.onClick}>
                         <img src='../icons/planet.png' className='planet'/>
                         <p><span>click</span> to explore events</p>
-                        <input maxLength='32' className='search-box' placeholder='enter event name or city...' style={{display:this.state.display}} onChange={this.handleSearchChange}/>
+                        <form className='search-box-container' style={{display:this.state.display}} onSubmit={this.handleSubmit}>
+                            <input maxLength='32' className='search-box' placeholder='enter event name or city...'  onChange={this.handleSearchChange}/>
+                            <input type='submit' className='search-submit' value='search' />
+                        </form>
                     </div>
                 </div>
                 <div className="col">
