@@ -84,8 +84,6 @@ export default class CreateForm extends React.Component {
                     
                     <DayPicker date={this.props.date} dateChange={this.props.handleDayChange} hourChange={this.props.hourChange} hour={this.props.hour}/> 
                     
-                    {/* <input className="eventHour" onChange={this.handleHourChange} value={this.props.hour} placeholder='hh-mm' /> */}
-                     
                     <label> image url: <br/>
                         <input className="eventUrl" onChange={this.handleUrlChange} value={this.props.url} placeholder="paste image url here"/>
                     </label>

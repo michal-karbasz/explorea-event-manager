@@ -73,27 +73,27 @@ export default class NewEvent extends React.Component {
     
     handleCreateEvent = (event) => {
         event.preventDefault();
-        // if(this.state.title.length < 3 || this.state.title.length > 32 ) {
-        //     this.setState({userMessage: "Provide event title (3-32 chars) !"});
-        // } else if (this.state.description.length < 60 ) {
-        //     this.setState({userMessage: "Write some additional description (min 60 chars)."});
-        // } else if (this.state.organizer.length < 3 || this.state.organizer.length > 32) {
-        //     this.setState({userMessage: "Who's the organizer (3-32 chars)?"});
-        // } else if (this.state.location.length < 1 || this.state.location.length > 32) {
-        //     this.setState({userMessage: "Provide location (1-32 chars)"});
-        // } else if (this.state.location2.length < 3 || this.state.location2.length > 32) {
-        //     this.setState({userMessage: "Provide location details (3-32 chars)"});
-        // } else if (this.state.selectedDay === '' ) {
-        //     this.setState({userMessage: "Pick the event date"});
-        // } else if (this.state.hour.length < 5 ) {
-        //     this.setState({userMessage: "Provide valid time"});
-        // } else if (this.state.category === '-- select category --' ) {
-        //     this.setState({userMessage: "Select event's category"});
-        // } else {
+        if(this.state.title.length < 3 || this.state.title.length > 32 ) {
+            this.setState({userMessage: "Provide event title (3-32 chars) !"});
+        } else if (this.state.description.length < 60 ) {
+            this.setState({userMessage: "Write some additional description (min 60 chars)."});
+        } else if (this.state.organizer.length < 3 || this.state.organizer.length > 32) {
+            this.setState({userMessage: "Who's the organizer (3-32 chars)?"});
+        } else if (this.state.location.length < 1 || this.state.location.length > 32) {
+            this.setState({userMessage: "Provide location (1-32 chars)"});
+        } else if (this.state.location2.length < 3 || this.state.location2.length > 32) {
+            this.setState({userMessage: "Provide location details (3-32 chars)"});
+        } else if (this.state.selectedDay === '' ) {
+            this.setState({userMessage: "Pick the event date"});
+        } else if (this.state.hour.length < 5 ) {
+            this.setState({userMessage: "Provide valid time"});
+        } else if (this.state.category === '-- select category --' ) {
+            this.setState({userMessage: "Select event's category"});
+        } else {
             this.setState({userMessage: `Added a new event !`});
             this.addButtons();
             this.cloneEvent();
-        // }       
+        }       
     }
 
     addButtons = () => {
@@ -125,10 +125,6 @@ export default class NewEvent extends React.Component {
 
     cloneEvent = () => {
             let newEvent = document.querySelector('.event-box');
-            // const temporaryList = this.state.currentEvents.slice();
-            // temporaryList.push(newEvent);
-            // this.setState({currentEvents: temporaryList});
-            // this.sendEventsArr(this.state.currentEvents);
             let clone = newEvent.cloneNode(true);
             document.getElementById('event-section').appendChild(clone);
             this.clearState()
@@ -157,9 +153,6 @@ sendEventsArr = (eventArr) => {
 
     render() {
 
-        // if (this.state.description.length > 200 ) {
-        //     document.querySelector('.eventDescription').setAttribute('readonly', 'readonly');
-        // }
         
         return (
             <section className='new-flex-container'>
@@ -168,9 +161,6 @@ sendEventsArr = (eventArr) => {
                     titleChange={this.handleTitleChange} descriptionChange={this.handleDescriptionChange} organizerChange={this.handleOrganizerChange} locationChange={this.handleLocationChange} location2Change={this.handleLocation2Change} handleDayChange={this.handleDayChange} hourChange={this.handleHourChange} urlChange={this.handleUrlChange} categoryChange={this.handleCategoryChange} createEvent={this.handleCreateEvent}/>
                 </div>
                 <div className="col">
-                    {/* <h1> live preview 
-                    <img src="./icons/telescope.png" className='scope-icon'/>
-                    </h1> */}
                     <BlankEvent title={this.state.title} description={this.state.description} organizer={this.state.organizer} location={this.state.location} location2={this.state.location2} date={this.state.selectedDay} hour={this.state.hour} imgUrl={this.state.imgUrl} category={this.state.category} add={this.state.add}/>
                 </div>
             </section>

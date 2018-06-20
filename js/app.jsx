@@ -21,7 +21,7 @@ import Events from './components/events.jsx';
 document.addEventListener('DOMContentLoaded', function(){
     
     document.addEventListener('click',function(e) {
-        //edit event fieldds
+        //edit event fields
         if(e.target && e.target.id == 'edit-btn') {
             const eventBox =  e.target.parentElement.parentElement.parentElement;
             const eventBoxTitleSection = eventBox.children[4];
@@ -143,33 +143,47 @@ document.addEventListener('DOMContentLoaded', function(){
                 e.target.parentElement.parentElement.parentElement.children[2].classList.remove('fade-out');
             }, 1000);
         }
+
+        
      })
 
     class App extends React.Component {
 
-        // state = {
-        //     eventList: [],
-        // }
+        state = {
+            eventList: [],
+        }
+        
+        handlecategoryChange = () => {
+            let eventListArr = [].slice.call(document.querySelectorAll('.event-box'));
+            this.setState ({ eventList: eventListArr})
+            console.log(this.state.eventList)
 
-        // getEventsArray = (arr) => {
-        //     this.setState({eventList: arr})
-        // }
+        }
+        componentWillMount() {
+
+        }
+
 
         render() {
+
+       
             return (
                     <HashRouter>
                         <div>
                             <Nav />
                             <Switch>
-                                <Route exact path='/' component={Planet} />
+                                <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} /> } />
                                 <Route path="/newEvent" component={NewEvent} /> 
-                                 {/* render={(props) => <NewEvent {...props} eventList={this.state.eventList} getEventsArray={this.getEventsArray} /> */}
                             </Switch>
                         <Events />  
                         {/* eventList={this.state.eventList} */}
                         </div>
                     </HashRouter>
             )       
+         }
+         componentDidMount() {
+
+        
          }
     }
 

@@ -20,9 +20,9 @@ export default class Planet extends React.Component {
             <section className='flex-container'>
                 <div className="col">
                     <div className='planets'>
-                        <Planets visibility={this.state.visible} id='button1' img='planetary' span='alien education events' />
-                        <Planets visibility={this.state.visible} id='button2' img='nebula' span='flight volounteers' />
-                        <Planets visibility={this.state.visible} id='button3' img='alien_sad' span='alien meetings' />
+                        <Planets visibility={this.state.visible} id='button1' img='planetary' span='alien education events' handleCategoryChange={this.props.handlecategoryChange}/>
+                        <Planets visibility={this.state.visible} id='button2' img='nebula' span='flight volounteers' handleCategoryChange={this.props.handlecategoryChange} />
+                        <Planets visibility={this.state.visible} id='button3' img='alien_sad' span='alien meetings' handleCategoryChange={this.props.handlecategoryChange} />
                     </div>
                 </div>
                 <div className="col">
@@ -33,8 +33,8 @@ export default class Planet extends React.Component {
                 </div>
                 <div className="col">
                     <div className='planets'>
-                        <Planets visibility={this.state.visible} id='button4' img='astronaut' span='NASA job interviews' />
-                        <Planets visibility={this.state.visible} id='button5' img='alien_sleep' span='alien translator workshops' />
+                        <Planets visibility={this.state.visible} id='button4' img='astronaut' span='NASA job interviews' handleCategoryChange={this.props.handlecategoryChange}/>
+                        <Planets visibility={this.state.visible} id='button5' img='alien_sleep' span='alien translator workshops' handleCategoryChange={this.props.handlecategoryChange} />
                     </div>
                 </div>
             </section>
