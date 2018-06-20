@@ -57,10 +57,7 @@ document.addEventListener('DOMContentLoaded', function(){
             urlChangeField.appendChild(urlInput);
             urlChangeField.children[1].setAttribute('contenteditable',true); //change image
             eventBox.appendChild(urlChangeField);
-                if ( e.target && e.target.id == 'category-img') {
-                    const categoryImg = eventBox.children[3];
-                    console.log('ok')
-                }
+
             //when edit is clicked
 
         } else if (e.target.lastElementChild.innerText == 'confirm') {
@@ -90,6 +87,30 @@ document.addEventListener('DOMContentLoaded', function(){
 
      document.addEventListener('click',function(e) {
          //delete event
+         if ( e.target && e.target.id == 'category-img') {
+            const descriptionBox = e.target.parentElement.children[1];
+            let category1 = document.createElement('img');
+            let category2 = document.createElement('img');
+            let category3 = document.createElement('img');
+            let category4 = document.createElement('img');
+            let category5 = document.createElement('img');
+            e.target.classList.add('category-moved');
+            category1.setAttribute('src', '../icons/planetary.png');
+            category1.classList.add('alienEducationEvents'); 
+            category2.setAttribute('src', '../icons/nebula.png');
+            category2.classList.add('flightVolounteers');
+            category3.setAttribute('src', '../icons/alien_sad.png');
+            category3.classList.add('alienMeetings');
+            category4.setAttribute('src', '../icons/astronaut.png');
+            category4.classList.add('nasa');
+            category5.setAttribute('src', '../icons/alien_sleep.png');
+            category5.classList.add('alienTranslatorWorkshops');
+            descriptionBox.appendChild(category1);
+            descriptionBox.appendChild(category2);
+            descriptionBox.appendChild(category3);
+            descriptionBox.appendChild(category4);
+            descriptionBox.appendChild(category5);
+        }
         if(e.target && e.target.id == 'delete-btn'){
             e.target.parentElement.parentElement.parentElement.children[2].classList.add('show');
         }
