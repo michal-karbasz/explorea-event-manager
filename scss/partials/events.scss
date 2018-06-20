@@ -209,15 +209,22 @@
         z-index: 1;
         animation: slide-right 1s 1 normal forwards;
         display: flex;
-        
-        p {
-            display: block;
+        align-items: center;
+
+        span:last-child {
             overflow: hidden;
-            word-wrap: break-word;
+            // word-wrap: break-word;
+            min-width: 180px;
+            max-width: 180px;
             color:grey;
+            border: 1px dotted $main-color;
+            margin-left: 5px;
+            white-space: nowrap;
         }
         span:first-child {
             color: $main-color;
+            margin-left: 5px;
+            min-width: 175px;
         }
     }
 }

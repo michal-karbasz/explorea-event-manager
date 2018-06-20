@@ -20,12 +20,8 @@ import Events from './components/events.jsx';
 
 document.addEventListener('DOMContentLoaded', function(){
     
-    let enableEdit = (e) => {
-        e.target.parentElement.parentElement.parentElement.children[1,3,4].contentEditable;
-    }
-
     document.addEventListener('click',function(e) {
-        
+        //edit event fieldds
         if(e.target && e.target.id == 'edit-btn') {
             const eventBox =  e.target.parentElement.parentElement.parentElement;
             const eventBoxTitleSection = eventBox.children[4];
@@ -51,23 +47,23 @@ document.addEventListener('DOMContentLoaded', function(){
             eventBox.appendChild(urlChangeField);
         } else if (e.target.lastElementChild.innerText == 'confirm') {
             const newUrl = eventBox.lastElementChild.children[1].innerText;
-            eventImg.setAttribute('src',newUrl);
+            if (newUrl != '') {
+                eventImg.setAttribute('src',newUrl);
+            }
+            eventBox.lastElementChild.remove();
+            eventBox.children[1].classList.remove('slide-up');
             e.target.lastElementChild.innerText = 'edit'; 
             e.target.firstElementChild.setAttribute('src','../icons/edit.png');
             let editable_elements = document.querySelectorAll("[contenteditable=true]");
             for (let i = 0; i < editable_elements.length; i++) {
                 editable_elements[i].setAttribute('contenteditable',false);
-                // eventBox.children[4].setAttribute('contenteditable',false)
-                // eventBox.children[4].removeAttribute('contenteditable')
                 }
             }
-
-            
-            // enableEdit(e);
         }
      })
 
      document.addEventListener('click',function(e) {
+         //delete event
         if(e.target && e.target.id == 'delete-btn'){
             e.target.parentElement.parentElement.parentElement.children[2].classList.add('show');
         }
@@ -76,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         if(e.target && e.target.id == 'delete-btn-negative'){
             e.target.parentElement.parentElement.parentElement.children[2].classList.add('fade-out');
-            // e.target.parentElement.classList.add('fade-out');
             setTimeout(function(){ e.target.parentElement.parentElement.parentElement.children[2].classList.remove('show');}, 1000);
         }
      })

@@ -88,10 +88,20 @@ section.new-flex-container {
                     border: 1px dotted lightgray;
                 }
                 .eventSubmit {
-                    padding: 15px;
-                    margin-top: 30px;
+                    padding: 10px;
+                    margin-top: 15px;
+                    margin-bottom:15px;
                     background-color: $main-color;
-                    border: 1px dotted lightgray;
+                    border: 4px double white;
+                    color: white;
+                    font-size: 1.1rem;
+                    transition: all 1s;
+                    &:hover{
+                        transition: 1s;
+                        color: $main-color;
+                        background-color: white;
+                        border: 4px double $main-color;
+                    }
                 }
                 select {
                     padding: 5px;
