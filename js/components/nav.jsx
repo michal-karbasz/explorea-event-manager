@@ -28,8 +28,10 @@ export default class Nav extends React.Component {
                         <span onClick={this.addNewEvent} className='addNewBtn'>new</span>
                     </Link>
                     <span>|</span>
+                    <Link className='link-btn' to="/">
                     <img src='../icons/explorer.png'/>
                     <span>browse</span>
+                    </Link>
                     <Link className='link-btn' to="/about"> <span>about</span> </Link>
                     <span>find</span>
                 </div>
