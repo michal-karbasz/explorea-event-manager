@@ -33,7 +33,7 @@ export default class Nav extends React.Component {
                     <span>browse</span>
                     </Link>
                     <Link className='link-btn' to="/about"> <span>about</span> </Link>
-                    <span>find</span>
+                    {/* <span>find</span> */}
                 </div>
 
             </header>
