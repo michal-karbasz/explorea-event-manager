@@ -16,22 +16,31 @@
         border: 4px dashed $main-color;
         background-color: lighten($main-color, 10%);
         opacity: .9;
+        @include desktop {
+            flex-direction: row;
+            justify-content: center;
+        }
         >p {
             font-size: 2rem;
             margin-bottom: 20px;
             padding: 15px 35px;
             letter-spacing: 10px;
+            max-width: 200px;
         }
         span {
             color: white;
             
+        }
+        img {
+            width: 64px;
+            height: 64px;
+            margin-right: 20px;
         }
         .flex-row {
             max-width: 600px;
             display: flex;
             text-align: justify;
             background-color: white;
-            opacity: .8;
         p {
             padding: 25px 35px;
         }

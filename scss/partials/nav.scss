@@ -19,6 +19,10 @@ header.flex-container {
             }
             h2 {
                 margin-left: 10px;
+                display:none;
+                @include desktop {
+                    display:block;
+                }
             }
             span {
                font-size: 1.5rem; 
