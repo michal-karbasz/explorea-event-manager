@@ -59,7 +59,7 @@ export default class Planet extends React.Component {
                         <img src='../icons/planet.png' className='planet'/>
                         <p><span>click</span> to explore events</p>
                         <form className='search-box-container' style={{display:this.state.display}} onSubmit={this.handleSubmit}>
-                            <input maxLength='32' className='search-box' placeholder='enter event name or city...'  onChange={this.handleSearchChange}/>
+                            <input maxLength='32' className='search-box' placeholder='enter event name or city...'  onChange={this.handleInputChange}/>
                             <input type='submit' className='search-submit' value='search' />
                         </form>
                     </div>

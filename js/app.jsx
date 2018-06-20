@@ -154,11 +154,14 @@ document.addEventListener('DOMContentLoaded', function(){
             input: '',
         }
         
-        handlecategoryChange = (planet) => {
+        getEventList = () => {
             let eventListArr = [].slice.call(document.querySelectorAll('.event-box'));
             this.setState ({ eventList: eventListArr})
-            console.log(this.state.eventList)
-            
+        }
+
+
+        handlecategoryChange = (planet) => {
+            this.getEventList();            
             for (let i = 0; i < this.state.eventList.length ; i++) {
                 this.state.eventList[i].classList.remove('hidden');
                 console.log(this.state.eventList[i])
@@ -170,28 +173,42 @@ document.addEventListener('DOMContentLoaded', function(){
 
         handleSearchChange = (userInput) => {
             this.setState({input: userInput })
+            this.getEventList();
+            console.log(this.state.eventList)
         }
 
+        handleSearchEvent = (event) => {
+            event.preventDefault();
+           
+            
+            // this.getEventList();
+            for (let i = 0; i < this.state.eventList.length ; i++) {
+                this.state.eventList[i].classList.remove('hidden');
+                if(this.state.eventList[i].children[4].firstElementChild.value.indexOf(this.state.input) == -1) {
+                    this.state.eventList[i].classList.add('hidden');
+                } 
+            }
+        }
+        // future location search
+        // || this.state.eventList[i].children[4].children[8].value.indexOf(this.state.input) == -1)
         render() {
 
-       
+            console.log(this.state.input)
             return (
                     <HashRouter>
                         <div>
                             <Nav />
                             <Switch>
-                                <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} handleSearchChange={this.handleSearchChange} /> } />
+                                <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} handleSearchChange={this.handleSearchChange} searchEvent={this.handleSearchEvent} /> } />
                                 <Route path="/newEvent" component={NewEvent} /> 
                             </Switch>
                         <Events />  
-                        {/* eventList={this.state.eventList} */}
                         </div>
                     </HashRouter>
             )       
          }
          componentDidMount() {
-
-        
+            console.log(this.state.input)
          }
     }
 
