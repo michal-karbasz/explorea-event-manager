@@ -23,13 +23,17 @@ document.addEventListener('DOMContentLoaded', function(){
     
     document.addEventListener('click',function(e) {
         //edit event fields
-        if(e.target && e.target.id == 'edit-btn') {
-            const eventBox =  e.target.parentElement.parentElement.parentElement;
+        let eventBox = undefined;
+        let clickedElmnt = undefined;
+        if(e.target && (e.target.id == 'edit-btn' || e.target.parentElement.id == 'edit-btn')) {
+            console.log(e.target.parentElement)
+            e.target.parentElement.id == 'edit-btn' ?  eventBox =  e.target.parentElement.parentElement.parentElement.parentElement : eventBox =  e.target.parentElement.parentElement.parentElement;
+            e.target.parentElement.id == 'edit-btn' ?  clickedElmnt =  e.target.parentElement : clickedElmnt =  e.target;
             const eventBoxTitleSection = eventBox.children[4];
             const eventImg = eventBox.firstElementChild;
-            if ( e.target.lastElementChild.innerText == 'edit') {
-            e.target.lastElementChild.innerText = 'confirm';
-            e.target.firstElementChild.setAttribute('src','../icons/confirm.png');
+            if ( clickedElmnt.lastElementChild.innerText == 'edit') {
+            clickedElmnt.lastElementChild.innerText = 'confirm';
+            clickedElmnt.firstElementChild.setAttribute('src','../icons/confirm.png');
             //add maxLength attribute;
             eventBoxTitleSection.children[0].setAttribute('maxlength','32');  
             eventBoxTitleSection.children[0].setAttribute('minlength','3');  
@@ -61,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             //when edit is clicked
 
-        } else if (e.target.lastElementChild.innerText == 'confirm') {
+        } else if (clickedElmnt.lastElementChild.innerText == 'confirm') {
             const newUrl = eventBox.lastElementChild.children[1].innerText;
             if (newUrl != '') {
                 eventImg.setAttribute('src',newUrl);
@@ -69,8 +73,8 @@ document.addEventListener('DOMContentLoaded', function(){
             eventBox.lastElementChild.remove();
             eventBox.children[1].classList.remove('slide-up');
             eventBox.children[1].children[0].children[1].classList.remove('textarea-short');
-            e.target.lastElementChild.innerText = 'edit'; 
-            e.target.firstElementChild.setAttribute('src','../icons/edit.png');
+            clickedElmnt.lastElementChild.innerText = 'edit'; 
+            clickedElmnt.firstElementChild.setAttribute('src','../icons/edit.png');
             eventBoxTitleSection.children[0].setAttribute('disabled','');  //change title
             eventBoxTitleSection.children[3].setAttribute('disabled','');  //change time
             eventBoxTitleSection.children[5].setAttribute('disabled','');  //change hour
@@ -84,9 +88,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 // }
             }
         }
-     })
 
-     document.addEventListener('click',function(e) {
          //delete event
          if ( e.target && e.target.id == 'category-img') {
              const descriptionBox = e.target.parentElement.children[1];
@@ -132,16 +134,20 @@ document.addEventListener('DOMContentLoaded', function(){
             console.log(e.target)
         }
 
-        if(e.target && e.target.id == 'delete-btn'){
-            e.target.parentElement.parentElement.parentElement.children[2].classList.add('show');
+        //delete event
+
+        if(e.target && (e.target.id == 'delete-btn'  || e.target.parentElement.id == 'delete-btn')){
+            e.target.parentElement.id == 'delete-btn' ?  clickedElmnt =  e.target.parentElement : clickedElmnt =  e.target;
+            clickedElmnt.parentElement.parentElement.parentElement.children[2].classList.add('show');
         }
         if(e.target && e.target.id == 'delete-btn-positive'){
             e.target.parentElement.parentElement.parentElement.remove();
         }
-        if(e.target && e.target.id == 'delete-btn-negative'){
+        if(e.target && e.target.id == 'delete-btn-negative') {
+            
             e.target.parentElement.parentElement.parentElement.children[2].classList.add('fade-out');
             setTimeout(function(){ e.target.parentElement.parentElement.parentElement.children[2].classList.remove('show');
-                e.target.parentElement.parentElement.parentElement.children[2].classList.remove('fade-out');
+               e.target.parentElement.parentElement.parentElement.children[2].classList.remove('fade-out');
             }, 1000);
         }
 
