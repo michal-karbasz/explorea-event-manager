@@ -153,6 +153,7 @@ document.addEventListener('DOMContentLoaded', function(){
         state = {
             eventList: [],
             input: '',
+            changed: false,
         }
         
         getEventList = () => {
@@ -162,10 +163,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
         handlecategoryChange = (planet) => {
-            this.getEventList();            
+            this.handleSearchChange();    
             for (let i = 0; i < this.state.eventList.length ; i++) {
                 this.state.eventList[i].classList.remove('hidden');
-                console.log(this.state.eventList[i])
                 if(this.state.eventList[i].children[3].getAttribute('src').indexOf(planet.getAttribute('src')) == -1) {
                     this.state.eventList[i].classList.add('hidden');
                 } 
@@ -175,19 +175,17 @@ document.addEventListener('DOMContentLoaded', function(){
         handleSearchChange = (userInput) => {
             this.setState({input: userInput })
             this.getEventList();
-            console.log(this.state.eventList)
         }
 
         handleSearchEvent = (event) => {
-            event.preventDefault();
-           
-            
+            event.preventDefault();        
             // this.getEventList();
             for (let i = 0; i < this.state.eventList.length ; i++) {
                 this.state.eventList[i].classList.remove('hidden');
                 if(this.state.eventList[i].children[4].firstElementChild.value.indexOf(this.state.input) == -1) {
                     this.state.eventList[i].classList.add('hidden');
                 } 
+                this.setState({input:''})
             }
         }
         // future location search

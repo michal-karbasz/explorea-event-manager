@@ -24,7 +24,7 @@ export default class Event extends React.Component {
             </div>
 
 
-            <img src={categorySrc} className='category' id='category-img'/>
+            <img src={this.props.category} className='category' id='category-img'/>
             <div className='event-bkg'>
                 <input className='title' disabled id='eventTitle' value={this.props.title}/>
                 <br/>

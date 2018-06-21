@@ -73,27 +73,27 @@ export default class NewEvent extends React.Component {
     
     handleCreateEvent = (event) => {
         event.preventDefault();
-        if(this.state.title.length < 3 || this.state.title.length > 32 ) {
-            this.setState({userMessage: "Provide event title (3-32 chars) !"});
-        } else if (this.state.description.length < 60 ) {
-            this.setState({userMessage: "Write some additional description (min 60 chars)."});
-        } else if (this.state.organizer.length < 3 || this.state.organizer.length > 32) {
-            this.setState({userMessage: "Who's the organizer (3-32 chars)?"});
-        } else if (this.state.location.length < 1 || this.state.location.length > 32) {
-            this.setState({userMessage: "Provide location (1-32 chars)"});
-        } else if (this.state.location2.length < 3 || this.state.location2.length > 32) {
-            this.setState({userMessage: "Provide location details (3-32 chars)"});
-        } else if (this.state.selectedDay === '' ) {
-            this.setState({userMessage: "Pick the event date"});
-        } else if (this.state.hour.length < 5 ) {
-            this.setState({userMessage: "Provide valid time"});
-        } else if (this.state.category === '-- select category --' ) {
-            this.setState({userMessage: "Select event's category"});
-        } else {
+        // if(this.state.title.length < 3 || this.state.title.length > 32 ) {
+        //     this.setState({userMessage: "Provide event title (3-32 chars) !"});
+        // } else if (this.state.description.length < 60 ) {
+        //     this.setState({userMessage: "Write some additional description (min 60 chars)."});
+        // } else if (this.state.organizer.length < 3 || this.state.organizer.length > 32) {
+        //     this.setState({userMessage: "Who's the organizer (3-32 chars)?"});
+        // } else if (this.state.location.length < 1 || this.state.location.length > 32) {
+        //     this.setState({userMessage: "Provide location (1-32 chars)"});
+        // } else if (this.state.location2.length < 3 || this.state.location2.length > 32) {
+        //     this.setState({userMessage: "Provide location details (3-32 chars)"});
+        // } else if (this.state.selectedDay === '' ) {
+        //     this.setState({userMessage: "Pick the event date"});
+        // } else if (this.state.hour.length < 5 ) {
+        //     this.setState({userMessage: "Provide valid time"});
+        // } else if (this.state.category === '-- select category --' ) {
+        //     this.setState({userMessage: "Select event's category"});
+        // } else {
             this.setState({userMessage: `Added a new event !`});
             this.addButtons();
             this.cloneEvent();
-        }       
+        // }       
     }
 
     addButtons = () => {

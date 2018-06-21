@@ -59,15 +59,18 @@
                 max-width: 350px;
             }
             .textarea-short{
+                font-family: 'Titillium Web', sans-serif;
                 animation: textarea 1ms 1 forwards;
             }
             
             p:first-child {
+                font-family: 'Titillium Web', sans-serif;
                 font-size: 1.4em;
                 color: $main-color;
 
             }
             .event-btn{
+                font-family: 'Titillium Web', sans-serif;
                 display: flex;
                 align-items: center;
                 justify-content: space-around;
@@ -85,6 +88,7 @@
                 width: 32px;
                 }
                 span{
+                    font-family: 'Titillium Web', sans-serif;
                     font-size: 1.2rem;
 
                 }
@@ -206,12 +210,14 @@
             background-color: white;
             height: 132px;
             border-top: 2px solid $main-color;
+            
             img {
                 width: 16px;
                 height: 16px;
                 margin-left: 10px;
             }
             span {
+                font-family: 'Titillium Web', sans-serif;
                 font-size: 1.2rem;
                 margin-left: 10px;
                 // width: 150px;
@@ -221,11 +227,13 @@
                 text-overflow: ellipsis;
             }
             span:first-child {
+                font-family: 'Titillium Web', sans-serif;
                 font-size: 1.4rem;
                 color: darken($main-color, 5%);
                 width: 350px;
             }
             input {
+                font-family: 'Titillium Web', sans-serif;
                 font-size: 1.2rem;
                 margin-left: 10px;
                 border: none;
@@ -263,9 +271,11 @@
                 transform: rotateY(180deg);
             }
             input {
+                font-family: 'Titillium Web', sans-serif;
                 font-size: 1.2rem;
                 margin-left: 10px;
                 border: none;
+                min-width: 300px;
                 background-color: transparent; 
             }
         }

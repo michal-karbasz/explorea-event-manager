@@ -24,9 +24,11 @@ export default class Planet extends React.Component {
 
     onClick = (e) => {
         const input = document.querySelector(['.search-box'])
-        if (e.target != input) {
+        const submit = document.querySelector('.search-submit')
+        if (e.target != input && e.target != submit) {
             this.openSearchBox();
             this.revealPlanets();
+            this.handleInputChange();
         }
     }
 
@@ -56,7 +58,7 @@ export default class Planet extends React.Component {
                 </div>
                 <div className="col">
                     <div className="planet-bkg" onClick={this.onClick}>
-                        <img src='../icons/planet.png' className='planet'/>
+                        <img src='../icons/planet.png' onClick={this.onClick} className='planet'/>
                         <p><span>click</span> to explore events</p>
                         <form className='search-box-container' style={{display:this.state.display}} onSubmit={this.handleSubmit}>
                             <input maxLength='32' className='search-box' placeholder='enter event name or city...'  onChange={this.handleInputChange}/>
