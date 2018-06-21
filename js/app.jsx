@@ -188,6 +188,13 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.setState({input:''})
             }
         }
+
+        displayAllEvents = () => {
+            this.getEventList;
+            for (let i = 0; i < this.state.eventList.length ; i++) {
+                this.state.eventList[i].classList.remove('hidden');
+            }
+        }
         // future location search
         // || this.state.eventList[i].children[4].children[8].value.indexOf(this.state.input) == -1)
         render() {
@@ -198,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function(){
                         <div>
                             <Nav />
                             <Switch>
-                                <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} handleSearchChange={this.handleSearchChange} searchEvent={this.handleSearchEvent} /> } />
+                                <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} handleSearchChange={this.handleSearchChange} searchEvent={this.handleSearchEvent} displayAll={this.displayAllEvents} /> } />
                                 <Route path="/newEvent" component={NewEvent} /> 
                                 <Route path="/about" component={About} /> 
                             </Switch>
