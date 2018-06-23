@@ -45,12 +45,12 @@ export default class Events extends React.Component {
                         hour='18:55'
                         location='New York City'
                         location2='754 9th Ave, At 51st Street'
-                        organizer='Mars Kitchen'
+                        organizer='Mars` Kitchen'
                         imgUrl='https://nerdist.com/wp-content/uploads/2016/01/MartianSpaceFood_FEATT.jpg'
                         category='../icons/planetary.png'
                         />
                 <Event  title='Astronauts Needed' 
-                        description='NASA is hiring in Poland! Spodek (Saucer) in Katowice has currently been revealed as former soviet space agency HQ and has been restored for further use.
+                        description='NASA is hiring in Poland! Spodek (The Saucer) in Katowice has currently been revealed as former soviet space agency HQ and has been restored for further use.
                         The interview will check your martian languauge skills, endurance and overall health. '
                         date='04.07.2033'
                         hour='10:00'
