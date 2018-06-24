@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Link,
 } from 'react-router-dom';
+import Typer from './typer.jsx';
 
 
 export default class Nav extends React.Component { 
@@ -18,7 +19,7 @@ export default class Nav extends React.Component {
                     <span>explorea</span>
                 </Link>
                     <span>|</span>
-                    <h2> Cause we're not alone anymore...</h2>
+                    <Typer text="Cause we're not alone anymore..." />
                 </div>
 
 

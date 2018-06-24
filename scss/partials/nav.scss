@@ -20,6 +20,7 @@ header.flex-container {
             h2 {
                 margin-left: 10px;
                 display:none;
+                
                 @include desktop {
                     display:block;
                 }
@@ -48,3 +49,5 @@ header.flex-container {
             }
         }
     }
+
+
