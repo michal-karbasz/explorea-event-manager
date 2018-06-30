@@ -150,14 +150,18 @@ section.new-flex-container {
             justify-content: center;
             flex-wrap: wrap;
             position: relative;
+            opacity: 1;
+            transition: opacity 500ms;
             &:hover .event-description {
                 display: block;
             }
             &:hover .category {
-                display: none;
+                opacity: 0;
+                transition: 1s;
             }
             &:hover::before {
-                display: none;
+                opacity: 0;
+                transition: 1s;
             }
             img {
                 width: 378px;
