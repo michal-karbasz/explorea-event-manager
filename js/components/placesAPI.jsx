@@ -29,7 +29,7 @@ export default class Places extends React.Component {
     render () {
         return (
             <input 
-                id='autocomplete'   //link with new Autocompleteobject
+                id='autocomplete'   //link with new Autocomplete object
                 className="eventLocation" 
                 placeholder="give us the city"
                 maxLength='32'

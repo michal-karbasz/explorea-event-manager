@@ -37,7 +37,7 @@ export default class NewEvent extends React.Component {
     }
 
     updateCity = (city) => {
-        this.setState ({location: city[4].long_name})
+        this.setState ({location: city[0].long_name})
     }
 
     
