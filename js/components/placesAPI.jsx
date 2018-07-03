@@ -9,6 +9,8 @@ export default class Places extends React.Component {
         }
     }
 
+// define what to do with the city picked by user
+
     handlePlaceSelect = () => {
         const place = this.autocomplete.getPlace();
         let city = place.address_components
@@ -16,6 +18,8 @@ export default class Places extends React.Component {
             this.props.updateCity(city);
         }
     }
+
+// each time user tries to type create a new instance of Autocomplete, lookup by id 
 
     componentDidMount () {
         this.autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete') , {} )
@@ -25,7 +29,7 @@ export default class Places extends React.Component {
     render () {
         return (
             <input 
-                id='autocomplete'
+                id='autocomplete'   //link with new Autocompleteobject
                 className="eventLocation" 
                 placeholder="give us the city"
                 maxLength='32'
