@@ -3,12 +3,6 @@ import React from 'react';
 export default class Places extends React.Component {
 
 
-    initAutocomplete = () => {
-        let autocomplete = new google.maps.places.Autocomplete (document.getElementById('autocomplete') , {} )
-        autocomplete.addListiner('place_changed', this.handlePlaceSelect)
-    }
-
-
     handleLocationChange = (e) => {
         if(typeof this.props.locationChange === 'function') {
             this.props.locationChange(e.target.value);
@@ -16,13 +10,16 @@ export default class Places extends React.Component {
     }
 
     handlePlaceSelect = () => {
-        const componentForm = {
-            city: 'long_name'
+        const place = this.autocomplete.getPlace();
+        let city = place.address_components
+        if(typeof this.props.updateCity === 'function') {
+            this.props.updateCity(city);
         }
     }
 
     componentDidMount () {
-        this.initAutocomplete();
+        this.autocomplete = new google.maps.places.Autocomplete(document.getElementById('autocomplete') , {} )
+        this.autocomplete.addListener('place_changed', this.handlePlaceSelect)
     }
 
     render () {

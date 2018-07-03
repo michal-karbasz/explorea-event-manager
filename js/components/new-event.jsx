@@ -32,8 +32,12 @@ export default class NewEvent extends React.Component {
     }
 
     handleLocationChange = (location) => {
-        // this.setState({location: location})
+        this.setState({location: location})
         // https://maps.googleapis.com/maps/api/place/queryautocomplete/json?key=AIzaSyANDkkP1jJA17HPe5I379Ov3Lu2Qr4PUwU&input=${this.state.location}
+    }
+
+    updateCity = (city) => {
+        this.setState ({location: city[4].long_name})
     }
 
     
@@ -158,6 +162,7 @@ sendEventsArr = (eventArr) => {
             descriptionChange={this.handleDescriptionChange}
             organizerChange={this.handleOrganizerChange}
             locationChange={this.handleLocationChange}
+            updateCity={this.updateCity}
             location2Change={this.handleLocation2Change}
             handleDayChange={this.handleDayChange}
             hourChange={this.handleHourChange}

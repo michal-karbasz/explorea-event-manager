@@ -74,7 +74,7 @@ export default class CreateForm extends React.Component {
                     <br/>
                     <label> where: <br/>
                         {/* <input className="eventLocation" placeholder="give us the city" maxLength='32'  onChange={this.handleLocationChange} value={this.props.location} /> */}
-                        <Places locationChange={this.props.locationChange} />
+                        <Places locationChange={this.props.locationChange} updateCity={this.props.updateCity} />
                         <input className="eventLocation" placeholder="further details" maxLength='32'  onChange={this.handleLocation2Change} value={this.props.location2} />
                     </label>
                     <br/>
