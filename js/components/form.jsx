@@ -1,5 +1,6 @@
 import React from 'react';
 import DayPicker from './datepicker.jsx';
+import Places from './placesAPI.jsx';
 
 export default class CreateForm extends React.Component {
 
@@ -22,11 +23,6 @@ export default class CreateForm extends React.Component {
         }
     }
 
-    handleLocationChange = (e) => {
-        if(typeof this.props.locationChange === 'function') {
-            this.props.locationChange(e.target.value);
-        }
-    }
 
     handleLocation2Change = (e) => {
         if(typeof this.props.location2Change === 'function') {
@@ -77,7 +73,8 @@ export default class CreateForm extends React.Component {
                    
                     <br/>
                     <label> where: <br/>
-                        <input className="eventLocation" placeholder="give us the city" maxLength='32'  onChange={this.handleLocationChange} value={this.props.location} />
+                        {/* <input className="eventLocation" placeholder="give us the city" maxLength='32'  onChange={this.handleLocationChange} value={this.props.location} /> */}
+                        <Places locationChange={this.props.locationChange} />
                         <input className="eventLocation" placeholder="further details" maxLength='32'  onChange={this.handleLocation2Change} value={this.props.location2} />
                     </label>
                     <br/>
