@@ -6,7 +6,7 @@ Explorea is an imaginary event managing app based on React, Vanilla and Sass. Fl
 
 <img src='screenshot.PNG'>
 
-The project is currently at the beginning of developement phase but an overall idea is easliy noticable. 
+The project is currently in the middle of developement phase but an overall idea is easliy noticable. 
 
 Explorea covers:
 
@@ -14,13 +14,13 @@ Explorea covers:
     <li>custom event adding (click 'new' in nav bar, basic form validation included)</li>
     <li>event edit/remove
         <ol>
-            <li>Buttons show on event hover</li>
+            <li>Buttons appear on event hover</li>
             <li>Click on category icon to change it (text will be added to each icon)</li>
             <li>Edit event contents at will then click confirm</li>
         </ol></li>
     <li>category search 
         <ol>
-            <li>In the navbar choose explorea/browse</li>
+            <li>Choose explorea/browse in the navbar</li>
             <li>Click on the planet to display categories</li>
             <li>Choose your category</li>
         </ol>
@@ -33,5 +33,7 @@ Explorea covers:
             <li>Click 'search' or press Enter </li>
         </ol>
     </li>
+    <li>Google Places Autocomplete API</li>
+    <li>date picker</li>
     <li>basic responsivenes</li>
 </ul>
