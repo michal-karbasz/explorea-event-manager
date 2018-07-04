@@ -5,8 +5,7 @@ section.flex-container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100%;
+    min-height: 100vh;
     background-image: url('../images/background1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -25,6 +24,10 @@ section.flex-container {
     }
     .col {
         .planets {
+            display:flex;
+            @include desktop {
+                display:initial;
+            }
             #button2 {
                 margin-right: 40px;
             }
@@ -32,8 +35,8 @@ section.flex-container {
         .planet-bkg {
             background-color: white;
             border: 5px double $main-color;
-            width: 420px;
-            height: 420px;
+            width: 360px;
+            height: 360px;
             opacity: 0.9;
             border-radius: 50%;
             display:flex;        
@@ -41,11 +44,19 @@ section.flex-container {
             align-items: center;
             justify-content: center;
             text-align: center;
+            @include desktop {
+                width: 420px;
+                height: 420px;
+            }
             img {
-                width: 256px;
-                height: 256px;
+                width: 192px;
+                height: 192px;
                 animation: rotate 900ms infinite alternate;
                 animation-timing-function: linear;
+                @include desktop {
+                    width: 256px;
+                    height: 256px;
+                }
             }
             p {
                 font-size: 1.8rem; 
