@@ -1,0 +1,27 @@
+
+footer.flex-container {
+        display:flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-top: 1px dashed lightgray;
+        .col {
+            display:flex;
+            align-items: center;
+            margin-left: 48px;
+            img {
+                width: 32px;
+                height: 32px;
+                margin: 6px;
+                transform: rotateY(0deg);
+                transition: all 1s;
+                &:hover {
+                    transform: rotateY(180deg);
+                    transition: all 800ms;
+                }
+            }
+            .coloured {
+                color: $main-color;
+            }
+    }
+}
+

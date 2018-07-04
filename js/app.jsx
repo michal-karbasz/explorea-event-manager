@@ -14,7 +14,7 @@ import Planet from './components/planet.jsx';
 import NewEvent from './components/new-event.jsx';
 import Events from './components/events.jsx';
 import About from './components/about.jsx';
-// import  Footer from './components/footer.jsx';
+import Footer from './components/footer.jsx';
 
 
 
@@ -216,7 +216,8 @@ document.addEventListener('DOMContentLoaded', function(){
                                 <Route path="/newEvent" component={NewEvent} /> 
                                 <Route path="/about" component={About} /> 
                             </Switch>
-                        <Events />  
+                        <Events />
+                        <Footer />  
                         </div>
                     </HashRouter>
             )       
