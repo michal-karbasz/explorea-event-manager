@@ -15,13 +15,16 @@ export default class Nav extends React.Component {
             <header className='flex-container'>
 
                 <div className="header-col">
-                <Link className='link-btn' to="/"><img src='../icons/satellite_dish.png' className='logo'/>
-                    <span>explorea</span>
-                </Link>
+                    <Link className='link-btn' to="/"><img src='../icons/satellite_dish.png' className='logo'/>
+                        <span>explorea</span>
+                    </Link>
                     <span>|</span>
                     <Typer text="Cause we're not alone anymore..." />
                 </div>
 
+                <div className="animation-col">
+                    <img src='../icons/ufo.png' />
+                </div>
 
                 <div className="header-col menu">
                     <Link className='link-btn' to="/newEvent">

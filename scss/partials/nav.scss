@@ -43,11 +43,35 @@ header.flex-container {
                 transform: rotateY(180deg);
             }
         }
+        .animation-col {
+            img {
+                opacity:0;
+                width: 42px;
+                height: 42px;
+                animation: ufoFlight 10s forwards ease, ufoFlight2 800ms infinite alternate ease-in-out ;
+                animation-delay: 5s, 15s;
+            }
+        }
         .menu {
             span {
             padding: 0 10px;
             }
         }
+    }
+
+    @keyframes ufoFlight {
+        0% {opacity:1; transform: translate(0,0)}
+        10% {transform: translate(-200px,30px)}
+        30% {transform: translate(-250px,200px)}
+        50% {transform: translate(-200px,300px)}
+        60% {transform: translate(200px,500px)}
+        70% {transform: translate(250px,300px)}
+        100% {opacity:1; transform: translate(0,0)}
+    }
+
+    @keyframes ufoFlight2 {
+        0% {transform: translate(0,0)}
+        100% {transform: translate(0,2px)}
     }
 
 
