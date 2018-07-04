@@ -4,6 +4,7 @@
 
 section.new-flex-container {
     display:flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     min-height: 100vh;
@@ -11,6 +12,9 @@ section.new-flex-container {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    @include desktop {
+        flex-direction: initial;
+    }
     .col {
         display: flex;
         flex-direction: column;
