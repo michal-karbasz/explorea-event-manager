@@ -115,6 +115,7 @@ export default class NewEvent extends React.Component {
 
     cloneEvent = () => {
             let newEvent = document.querySelector('.event-box');
+            localStorage.setItem('event',newEvent);
             let clone = newEvent.cloneNode(true);
             document.getElementById('event-section').appendChild(clone);
             this.clearState()

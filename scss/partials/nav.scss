@@ -42,14 +42,12 @@ header.flex-container {
             .logo {
                 transform: rotateY(180deg);
             }
-        }
-        .animation-col {
-            img {
+            .ufo {
                 opacity:0;
                 width: 42px;
                 height: 42px;
-                animation: ufoFlight 15s forwards ease-in-out, ufoFlight2 800ms infinite alternate ease-in-out ;
-                animation-delay: 5s, 20s;
+                animation: ufoFlight 800ms infinite alternate ease-in-out ;
+                animation-delay: 5s;
             }
         }
         .menu {
@@ -60,20 +58,8 @@ header.flex-container {
     }
 
     @keyframes ufoFlight {
-        0% {opacity:1; transform: translate(0,0)}
-        15% {transform: translate(-200px,0)}
-        30% {transform: translate(-80px,360px)}
-        50% {transform: translate(-80px,360px)}
-        65% {transform: translate(-180px,500px)}
-        67% {transform: translate(-40px,510px)}
-        70% {transform: translate(70px,500px)}
-        80% {transform: translate(200px,0)}
-        100% {opacity:1; transform: translate(0,0)}
-    }
-
-    @keyframes ufoFlight2 {
-        0% {transform: translate(0,0)}
-        100% {transform: translate(0,2px)}
+        0% {opacity: 1; transform: translate(10px,-2px) }
+        100% {opacity: 1; transform: translate(10px,0)}
     }
 
 

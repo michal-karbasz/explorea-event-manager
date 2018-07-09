@@ -20,10 +20,7 @@ export default class Nav extends React.Component {
                     </Link>
                     <span>|</span>
                     <Typer text="Cause we're not alone anymore..." />
-                </div>
-
-                <div className="animation-col">
-                    <img src='../icons/ufo.png' />
+                    <img className='ufo' src='../icons/ufo.png' />
                 </div>
 
                 <div className="header-col menu">
@@ -33,7 +30,7 @@ export default class Nav extends React.Component {
                     </Link>
                     <span>|</span>
                     <Link className='link-btn' to="/">
-                    <img src='../icons/explorer.png'/>
+                    <img className='explorer' src='../icons/explorer.png'/>
                     <span>browse</span>
                     </Link>
                     <Link className='link-btn' to="/about"> <span>about</span> </Link>
