@@ -36,7 +36,7 @@ module.exports = {
                 plugins: () => [
                   new require('autoprefixer')({
                     browsers: [
-                      'ie 11' // tu definiujemy wsparcie dla przegladarek w css
+                      'ie 11' 
                     ]
                   })
                 ]

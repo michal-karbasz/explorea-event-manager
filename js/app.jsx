@@ -159,6 +159,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         state = {
             eventList: [],
+            counter: 0,
             input: '',
             changed: false,
         }
