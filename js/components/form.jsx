@@ -1,4 +1,7 @@
 import React from 'react';
+
+// import components
+
 import DayPicker from './datepicker.jsx';
 import Places from './placesAPI.jsx';
 
@@ -23,14 +26,11 @@ export default class CreateForm extends React.Component {
         }
     }
 
-
     handleLocation2Change = (e) => {
         if(typeof this.props.location2Change === 'function') {
             this.props.location2Change(e.target.value);
         }
     }
-
-
 
     handleUrlChange = (e) => {
         if(typeof this.props.urlChange === 'function') {

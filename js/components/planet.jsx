@@ -1,4 +1,7 @@
 import React from 'react';
+
+// import components
+
 import Planets from './planet-button.jsx';
 
 export default class Planet extends React.Component {

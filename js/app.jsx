@@ -8,6 +8,8 @@ import {
     Switch,
 } from 'react-router-dom';
 
+//import components
+
 import ErrorBoundary from './components/errorboundary.jsx';
 import Nav from './components/nav.jsx';
 import Planet from './components/planet.jsx';
@@ -22,11 +24,12 @@ import Footer from './components/footer.jsx';
 document.addEventListener('DOMContentLoaded', function(){
     
     document.addEventListener('click',function(e) {
-        //edit event fields
+
+        //if edit button is clicked (either container, image or text) change button text and image to 'confirm'
+
         let eventBox = undefined;
         let clickedElmnt = undefined;
         if(e.target && (e.target.id == 'edit-btn' || e.target.parentElement.id == 'edit-btn')) {
-            console.log(e.target.parentElement)
             e.target.parentElement.id == 'edit-btn' ?  eventBox =  e.target.parentElement.parentElement.parentElement.parentElement : eventBox =  e.target.parentElement.parentElement.parentElement;
             e.target.parentElement.id == 'edit-btn' ?  clickedElmnt =  e.target.parentElement : clickedElmnt =  e.target;
             const eventBoxTitleSection = eventBox.children[4];
@@ -34,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function(){
             if ( clickedElmnt.lastElementChild.innerText == 'edit') {
             clickedElmnt.lastElementChild.innerText = 'confirm';
             clickedElmnt.firstElementChild.setAttribute('src','../icons/confirm.png');
+
             //add maxLength attribute;
+
             eventBoxTitleSection.children[0].setAttribute('maxlength','32');  
             eventBoxTitleSection.children[0].setAttribute('minlength','3');  
             eventBoxTitleSection.children[3].setAttribute('maxLength','32');  
@@ -43,7 +48,9 @@ document.addEventListener('DOMContentLoaded', function(){
             eventBoxTitleSection.children[10].setAttribute('maxLength','32');
             eventBox.children[5].children[1].setAttribute('maxLength','32');   
             eventBox.children[1].children[0].children[1].setAttribute('maxLength','325'); 
+
             //make content editable
+
             eventBoxTitleSection.children[0].removeAttribute('disabled');  //change title
             eventBoxTitleSection.children[3].removeAttribute('disabled');  //change time
             eventBoxTitleSection.children[5].removeAttribute('disabled');  //change hour
@@ -90,7 +97,6 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
         if ( e.target && e.target.id == 'category-img' && e.target.parentElement.children[1].classList.contains('slide-up') ) {
-            console.log();
             const descriptionBox = e.target.parentElement.children[1];
             let category1 = document.createElement('img');
             let category2 = document.createElement('img');
@@ -119,7 +125,6 @@ document.addEventListener('DOMContentLoaded', function(){
                descriptionBox.appendChild(category5);
            } else if (e.target.classList.contains('category-moved')) {
                const imgArr = Array.from(descriptionBox.children)
-               console.log(descriptionBox.children)
                for (let i = 1; i < imgArr.length; i++ ){
                    imgArr[i].remove();
                }
@@ -132,7 +137,6 @@ document.addEventListener('DOMContentLoaded', function(){
            const formerCategory = e.target.parentElement.parentElement.children[3];
            const newSrc = e.target.getAttribute('src');
            formerCategory.setAttribute('src',newSrc);
-           console.log(e.target)
        }
 
         //delete event
@@ -159,7 +163,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
         state = {
             eventList: [],
-            counter: 0,
             input: '',
             changed: false,
         }
@@ -187,7 +190,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
         handleSearchEvent = (event) => {
             event.preventDefault();        
-            // this.getEventList();
             for (let i = 0; i < this.state.eventList.length ; i++) {
                 this.state.eventList[i].classList.remove('hidden');
                 if(this.state.eventList[i].children[4].firstElementChild.value.indexOf(this.state.input) == -1) {
@@ -207,7 +209,6 @@ document.addEventListener('DOMContentLoaded', function(){
         // || this.state.eventList[i].children[4].children[8].value.indexOf(this.state.input) == -1)
         render() {
 
-            console.log(this.state.input)
             return (
                     <HashRouter>
                         <div>
@@ -224,7 +225,6 @@ document.addEventListener('DOMContentLoaded', function(){
             )       
          }
          componentDidMount() {
-            console.log(this.state.input)
          }
     }
 
