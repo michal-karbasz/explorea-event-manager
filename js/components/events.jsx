@@ -35,7 +35,10 @@ export default class Events extends React.Component {
                 date={item.date}
                 hour={item.hour}
                 imgUrl={item.image}
-                category={item.category}description={item.description}
+                category={item.category}
+                description={item.description}
+                isExample={item.type}
+
                 />
             )
 
@@ -45,7 +48,7 @@ export default class Events extends React.Component {
             <section className='event-flex-container' id='event-section'>
 
                     {UserEvents} {/* render 3 exemplary events + user-created ones */}
-                    
+
             </section>
         )
     }

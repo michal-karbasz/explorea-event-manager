@@ -31,6 +31,15 @@ export default class Event extends React.Component {
             categorySrc = `../icons/alien_sleep.png`
         }
 
+        
+            let buttons = {}
+            if  (this.props.isExample !== 'example') {
+                buttons = {
+                button1: <EventButton buttonType='edit' onClick={this.handleEdit} />,
+                button2:  <EventButton buttonType='delete' onClick={this.handleDelete} />
+            }
+        }
+
         return (
 
             <div className='event-box'>
@@ -39,8 +48,8 @@ export default class Event extends React.Component {
                 <div className='description-col' id='description-container'>
                     <p>About:</p>
                     <textarea className='description' cols='34' rows='10' disabled value={this.props.description}/>
-                    <EventButton buttonType='edit' onClick={this.handleEdit} />
-                    <EventButton buttonType='delete' onClick={this.handleDelete} />
+                    {buttons.button1}
+                    {buttons.button2}
                 </div>
             </div>
 
