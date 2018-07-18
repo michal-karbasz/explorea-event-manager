@@ -22,17 +22,14 @@ export default class NewEvent extends React.Component {
 
     // user input handling functions start
 
-    handleTitleChange = (title) => {
-        this.setState({title: title})
+
+    handleChange = (e) => {
+        const target = e.target;
+        const value = target.value
+        const name = target.name;
+        this.setState({[name]: value});
     }
 
-    handleDescriptionChange = (description) => {
-        this.setState({description: description})
-    }
-
-    handleOrganizerChange = (organizer) => {
-        this.setState({organizer: organizer})
-    }
 
     handleLocationChange = (location) => {
         this.setState({location: location})
@@ -42,20 +39,12 @@ export default class NewEvent extends React.Component {
         this.setState({location: city[0].long_name})
     }
 
-    handleLocation2Change = (location2) => {
-        this.setState({location2: location2})
-    }
-
     handleDayChange = (date) => {
         this.setState({selectedDay: date})
     }
 
     handleHourChange = (hour) => {
         this.setState({hour: hour})
-    }
-
-    handleUrlChange = (url) => {
-        this.setState({imgUrl: url})
     }
 
     handleCategoryChange = (category) => {
@@ -168,7 +157,8 @@ Feel free to create another one:`
                         hourChange={this.handleHourChange}
                         urlChange={this.handleUrlChange}
                         categoryChange={this.handleCategoryChange}
-                        createEvent={this.handleCreateEvent}/>
+                        createEvent={this.handleCreateEvent}
+                        handleChange={this.handleChange}/>
                 </div>
                 <div className="col">
                     <BlankEvent
