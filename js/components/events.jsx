@@ -17,13 +17,20 @@ export default class Events extends React.Component {
     }
 
     render() {
-        console.log(this.props.eventList)
-        const UserEvents = this.props.eventList.map ((item, index) => <Event title={item.title} /> )
-        // const UserEvents = userEventsToArray.map ((item, index) => <div className='event-box' key={index}>{Array.from(item)} </div>  );
 
-        // let exampleEvents = this.props.event.map((item)) => {
-        //     return ( <Event/>)
-        // }
+        // create a variable to store all user-created events passed from App's State
+
+        const UserEvents = this.props.eventList.map ((item, index) => <Event
+                key={index}
+                title={item.title}
+                organizer={item.organizer}
+                location={item.location}
+                location2={item.location2}
+                date={item.date}
+                hour={item.hour}
+                imgUrl={item.image}
+                category={item.category}description={item.description}/>
+        )
 
         return (
 
@@ -59,7 +66,7 @@ export default class Events extends React.Component {
                     organizer='NASA'
                     imgUrl='https://www.rd.com/wp-content/uploads/2017/10/00_Space_The-Surprising-Way-Your-Genes-Can-Change-in-Space-According-to-NASA_562691425-Vadim-Sadovski-760x506.jpg'
                     category='../icons/astronaut.png'/> 
-                    {UserEvents}
+                    {UserEvents} {/* render 3 exemplary events + user-created ones */}
             </section>
         )
     }
