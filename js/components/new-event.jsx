@@ -18,7 +18,7 @@ export default class NewEvent extends React.Component {
         imgUrl: '../images/background1.jpg',
         category: '-- select category --',
         userMessage: `Hi! Fill in the below fields to create a new event:`,
-        currentEvents: []
+        items: []
     }
 
     handleTitleChange = (title) => {
@@ -86,18 +86,36 @@ export default class NewEvent extends React.Component {
         //     this.setState({userMessage: "Select event's category"});
         // } else {
             this.setState({userMessage: `Added a new event !`});
-            this.cloneEvent();
+            this.cloneEvent(); //funkcja powinna dodawać event do arraya w app
         // }
     }
 
     cloneEvent = () => {
-        let newEvent = document.querySelector('.event-box');
-        let clone = newEvent.cloneNode(true);
-        document.getElementById('event-section').appendChild(clone);
+        let newEvent = {
+            title: this.state.title,
+            description: this.state.description,
+            organizer: this.state.organizer,
+            location: this.state.location,
+            location2: this.state.location2,
+            date: this.state.selectedDay,
+            hour: this.state.hour,
+            image: this.state.imgUrl,
+            category: this.state.category,
+        };
+        this.addEvent(newEvent)
+
+        // let clone = newEvent.cloneNode(true);
+        // document.getElementById('event-section').appendChild(clone);
         this.clearState()
     }
 
     //clears form's input after the event has been added
+
+    addEvent = (newEvent) => {
+        if(typeof this.props.addNewEvent === 'function') {
+            this.props.addNewEvent(newEvent);
+        }
+    }
 
     clearState = () => {
         this.setState({
@@ -122,7 +140,6 @@ Feel free to create another one:`
     }
 
     render() {
-
         return (
             <section className='new-flex-container'>
                 <div className="col">

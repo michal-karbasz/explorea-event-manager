@@ -17,11 +17,14 @@ export default class Events extends React.Component {
     }
 
     render() {
+        console.log(this.props.eventList)
+        const UserEvents = this.props.eventList.map ((item, index) => <Event title={item.title} /> )
+        // const UserEvents = userEventsToArray.map ((item, index) => <div className='event-box' key={index}>{Array.from(item)} </div>  );
 
-        // const editBtn = document.querySelectorAll(".event-description #edit-btn");
-        // for (let i = 0; i < editBtn.length; i++) {
-        // editBtn[i].addEventListener("click", handleEventEdit); } let newLi =
-        // this.props.eventList.map ((item) => {item});
+        // let exampleEvents = this.props.event.map((item)) => {
+        //     return ( <Event/>)
+        // }
+
         return (
 
             <section className='event-flex-container' id='event-section'>
@@ -55,7 +58,8 @@ export default class Events extends React.Component {
                     location2='Spodek'
                     organizer='NASA'
                     imgUrl='https://www.rd.com/wp-content/uploads/2017/10/00_Space_The-Surprising-Way-Your-Genes-Can-Change-in-Space-According-to-NASA_562691425-Vadim-Sadovski-760x506.jpg'
-                    category='../icons/astronaut.png'/> {/* {this.props.eventList.map ((item) => <div>{item}</div>)} */}
+                    category='../icons/astronaut.png'/> 
+                    {UserEvents}
             </section>
         )
     }
