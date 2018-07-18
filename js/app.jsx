@@ -164,13 +164,46 @@ document.addEventListener('DOMContentLoaded', function(){
      })
 
     class App extends React.Component {
+        constructor(props) {
+            super(props);
+    
+            //define three variables containing example events data
 
-        state = {
-            eventList: [],
+            this.event1 = ['Martian language classes', 'Take part in martian language course. Martian teachers speak southern dialect (the easiest one as they claim) and are currently learing our Common Tongue so don`t worry about communication gap', '24.08.2034', '15:15' , 'Węgorzewo', 'Wiejska 15', 'Martian Language School', 'http://www.dailygalaxy.com/.a/6a00d8341bf7f753ef0223c84ee54d200c-800wi', '../icons/alien_sleep.png' ]
+
+            this.event2 = ['Martian cousine', 'Learn cooking from martian best chefs. In return, you can teach them i.e. how to grow potatoes on Mars. It is said that they absolutelty love them! ', '29.04.2034', '18:55' , 'New York City', '754 9th Ave, At 51st Street', 'Mars` Kitchen', 'https://nerdist.com/wp-content/uploads/2016/01/MartianSpaceFood_FEATT.jpg', '../icons/planetary.png' ]
+    
+            this.event3 = ['Astronauts Needed', 'NASA is hiring in Poland! Spodek (The Saucer) in Katowice has currently been revealed as former soviet space agency HQ and has been restored for further use. The interview will check your martian languauge skills, endurance and overall health. ', '04.07.2033', '10:00' , 'Katowice', 'Spodek', 'NASA', 'https://www.rd.com/wp-content/uploads/2017/10/00_Space_The-Surprising-Way-Your-Genes-Can-Change-in-Space-According-to-NASA_562691425-Vadim-Sadovski-760x506.jpg', '../icons/astronaut.png' ]
+
+            //define a constructor for example event object
+
+            function ExemplaryEvent (title, description, date, hour, location, location2, organizer, imgUrl, category) {
+                this.title =  title;
+                this.description = description;
+                this.date = date;
+                this.hour = hour;
+                this.location = location;
+                this.location2 = location2;
+                this.organizer = organizer;
+                this.image = imgUrl;
+                this.category = category;
+            }
+    
+            ExemplaryEvent.prototype.type = 'example';
+    
+            //create three event instances to be displated by default
+
+            this.exemplaryEvent1 = new ExemplaryEvent (...this.event1);
+            this.exemplaryEvent2 = new ExemplaryEvent (...this.event2);
+            this.exemplaryEvent3 = new ExemplaryEvent (...this.event3);
+
+        this.state = {
+            eventList: [this.exemplaryEvent1, this.exemplaryEvent2, this.exemplaryEvent3],
             input: '',
             changed: false,
         }
-        
+    }
+
         getEventList = () => {
             let eventListArr = [].slice.call(document.querySelectorAll('.event-box'));
             this.setState ({ eventList: eventListArr})
@@ -181,8 +214,7 @@ document.addEventListener('DOMContentLoaded', function(){
         addNewEvent = (event) => {
             const temporaryList = this.state.eventList.slice();
             temporaryList.push(event);
-            console.log(temporaryList)
-            this.setState({eventList: temporaryList});
+            this.setState({eventList: temporaryList}, () => console.log (this.state.eventList))
         }
 
         handlecategoryChange = (planet) => {
@@ -217,9 +249,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.state.eventList[i].classList.remove('hidden');
             }
         }
-        // future location search
-        // || this.state.eventList[i].children[4].children[8].value.indexOf(this.state.input) == -1)
+
+
         render() {
+
             return (
                     <HashRouter>
                         <div>
@@ -229,18 +262,14 @@ document.addEventListener('DOMContentLoaded', function(){
                                 <Route path="/newEvent" render={(props) => <NewEvent {...props} eventList={this.state.eventList} addNewEvent={this.addNewEvent} /> } /> 
                                 <Route path="/about" component={About} /> 
                             </Switch>
-                        <Events eventList={this.state.eventList} />
+                            
+                        <Events eventList={this.state.eventList} addNewEvent={this.addNewEvent}/>
                         <Footer />  
                         </div>
                     </HashRouter>
-            )       
-         }
-         componentDidMount() {
+            )      
          }
     }
-
-
-
 
     ReactDOM.render(
         <ErrorBoundary>

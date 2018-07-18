@@ -21,6 +21,8 @@ export default class NewEvent extends React.Component {
         items: []
     }
 
+    // user input handling functions start
+
     handleTitleChange = (title) => {
         this.setState({title: title})
     }
@@ -61,6 +63,10 @@ export default class NewEvent extends React.Component {
         this.setState({category: category})
     }
 
+    // user input handling functions end
+
+    // after 'create' button has been clicked, validate the form and if everything is correct collect user's data into a 'New Event' object
+
     handleCreateEvent = (event) => {
         event.preventDefault();
 
@@ -86,11 +92,11 @@ export default class NewEvent extends React.Component {
         //     this.setState({userMessage: "Select event's category"});
         // } else {
             this.setState({userMessage: `Added a new event !`});
-            this.cloneEvent(); //funkcja powinna dodawać event do arraya w app
+            this.copyEvent(); 
         // }
     }
 
-    cloneEvent = () => {
+    copyEvent = () => {
         let newEvent = {
             title: this.state.title,
             description: this.state.description,
@@ -103,19 +109,18 @@ export default class NewEvent extends React.Component {
             category: this.state.category,
         };
         this.addEvent(newEvent)
-
-        // let clone = newEvent.cloneNode(true);
-        // document.getElementById('event-section').appendChild(clone);
         this.clearState()
     }
 
-    //clears form's input after the event has been added
+    // executes parent's function - newEvent object that contains all event's data introduced by user is passed as an argument
 
     addEvent = (newEvent) => {
         if(typeof this.props.addNewEvent === 'function') {
             this.props.addNewEvent(newEvent);
         }
     }
+
+    //clears form's input after the event has been added
 
     clearState = () => {
         this.setState({
