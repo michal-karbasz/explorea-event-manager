@@ -6,15 +6,15 @@ import Event from './event.jsx';
 
 export default class Events extends React.Component {
 
-    state = {
-        visible: 'hidden'
-    }
+    // state = {
+    //     visible: 'hidden'
+    // }
 
-    revealPlanets = () => {
-        this.setState({
-            visible: this.state.visible === 'hidden' ? 'visible' : 'hidden',
-        })
-    }
+    // revealPlanets = () => {
+    //     this.setState({
+    //         visible: this.state.visible === 'hidden' ? 'visible' : 'hidden',
+    //     })
+    // }
 
     addEvent = (newEvent) => {
         if(typeof this.props.addNewEvent === 'function') {
@@ -38,22 +38,17 @@ export default class Events extends React.Component {
                 category={item.category}
                 description={item.description}
                 isExample={item.type}
-
                 />
             )
-
 
         return (
 
             <section className='event-flex-container' id='event-section'>
 
-                    {UserEvents} {/* render 3 exemplary events + user-created ones */}
+                {/* render 3 example events + user-created ones */} 
+                {UserEvents}
 
             </section>
         )
     }
-    componentDidMount() {
-
-    }
-
 }

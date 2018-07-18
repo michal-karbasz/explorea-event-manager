@@ -7,15 +7,15 @@ export default class BlankEvent extends React.Component {
         //choose category icon
 
         let categorySrc = '../icons/moon.png';
-        if (this.props.category === 'alien education events') {
+        if (this.props.category === 'education') {
             categorySrc = `../icons/planetary.png`
-        } else if (this.props.category === 'flight volounteers') {
+        } else if (this.props.category === 'flight') {
             categorySrc = `../icons/nebula.png`
-        } else if (this.props.category === 'alien meetings') {
+        } else if (this.props.category === 'meetings') {
             categorySrc = `../icons/alien_sad.png`
-        } else if (this.props.category === 'NASA job interviews') {
+        } else if (this.props.category === 'job') {
             categorySrc = `../icons/astronaut.png`
-        } else if (this.props.category === 'alien translator workshops') {
+        } else if (this.props.category === 'translator') {
             categorySrc = `../icons/alien_sleep.png`
         }
 
@@ -30,7 +30,7 @@ export default class BlankEvent extends React.Component {
                             className='description'
                             cols='34'
                             rows='10'
-                            disabled="disabled"
+                            disabled
                             value={this.props.description}/>
                     </div>
                 </div>
@@ -47,27 +47,27 @@ export default class BlankEvent extends React.Component {
                 <div className='event-bkg'>
                     <input
                         className='title'
-                        disabled="disabled"
+                        disabled
                         id='eventTitle'
                         value={this.props.title}/>
                     <br/>
                     <img src='../icons/time.png'/>
-                    <input className='date' disabled="disabled" value={this.props.date}/>
+                    <input className='date' disabled value={this.props.date}/>
                     <span>at</span>
-                    <input className='hour' disabled="disabled" value={this.props.hour}/>
+                    <input className='hour' disabled value={this.props.hour}/>
                     <br/>
                     <img src='../icons/here.png'/>
                     <input
                         className='location'
-                        disabled="disabled"
+                        disabled
                         id='eventCity'
                         value={this.props.location}/>
                     <br/>
-                    <input className='location2' disabled="disabled" value={this.props.location2}/>
+                    <input className='location2' disabled value={this.props.location2}/>
                 </div>
                 <div className='event-bkg2'>
                     <img src='../icons/astronaut2.png'/>
-                    <input className='organizer' disabled="disabled" value={this.props.organizer}/>
+                    <input className='organizer' disabled value={this.props.organizer}/>
                 </div>
             </div>
         )

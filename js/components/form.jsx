@@ -85,13 +85,13 @@ export default class CreateForm extends React.Component {
                     </label>
                     <br/>
                     <label> event category: 
-                        <select className='eventCategory' onClick={this.handleCategoryChange}>
-                            <option disabled selected value> -- select category -- </option>
-                            <option>alien education events</option>
-                            <option>flight volounteers</option>
-                            <option>alien meetings</option>
-                            <option>NASA job interviews</option>
-                            <option>alien translator workshops</option>
+                        <select className='eventCategory' onChange={this.handleCategoryChange} defaultValue='select'>
+                            <option value='select' disabled> -- select category -- </option>
+                            <option value='education'>alien education events</option>
+                            <option value='flight'>flight volounteers</option>
+                            <option value='meetings'>alien meetings</option>
+                            <option value='job'>NASA job interviews</option>
+                            <option value='translator'>alien translator workshops</option>
                         </select>
                     </label>
                     <br/>

@@ -38,6 +38,10 @@ document.addEventListener('DOMContentLoaded', function(){
     //             : clickedElmnt = e.target;
     //         const eventBoxTitleSection = eventBox.children[4];
     //         const eventImg = eventBox.firstElementChild;
+
+
+
+
     //         if ( clickedElmnt.lastElementChild.innerText == 'edit') {
     //         clickedElmnt.lastElementChild.innerText = 'confirm';
     //         clickedElmnt.firstElementChild.setAttribute('src','../icons/confirm.png');
@@ -167,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function(){
         constructor(props) {
             super(props);
     
-            //define three variables containing example events data
+            //define the contents of 3 example events
 
             this.event1 = ['Martian language classes', 'Take part in martian language course. Martian teachers speak southern dialect (the easiest one as they claim) and are currently learing our Common Tongue so don`t worry about communication gap', '24.08.2034', '15:15' , 'Węgorzewo', 'Wiejska 15', 'Martian Language School', 'http://www.dailygalaxy.com/.a/6a00d8341bf7f753ef0223c84ee54d200c-800wi', '../icons/alien_sleep.png' ]
 
@@ -197,11 +201,10 @@ document.addEventListener('DOMContentLoaded', function(){
             this.exemplaryEvent2 = new ExemplaryEvent (...this.event2);
             this.exemplaryEvent3 = new ExemplaryEvent (...this.event3);
 
-        this.state = {
-            eventList: [this.exemplaryEvent1, this.exemplaryEvent2, this.exemplaryEvent3],
-            input: '',
-            changed: false,
-        }
+            this.state = {
+                eventList: [this.exemplaryEvent1, this.exemplaryEvent2, this.exemplaryEvent3],
+                input: '',
+            }
     }
 
         getEventList = () => {
@@ -214,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function(){
         addNewEvent = (event) => {
             const temporaryList = this.state.eventList.slice();
             temporaryList.push(event);
-            this.setState({eventList: temporaryList}, () => console.log (this.state.eventList))
+            this.setState({eventList: temporaryList})
         }
 
         handlecategoryChange = (planet) => {
@@ -259,7 +262,12 @@ document.addEventListener('DOMContentLoaded', function(){
                             <Nav />
                             <Switch>
                                 <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} handleSearchChange={this.handleSearchChange} searchEvent={this.handleSearchEvent} displayAll={this.displayAllEvents} /> } />
-                                <Route path="/newEvent" render={(props) => <NewEvent {...props} eventList={this.state.eventList} addNewEvent={this.addNewEvent} /> } /> 
+                                <Route
+                                    path="/newEvent"
+                                    render={(props) => <NewEvent {...props}
+                                    eventList={this.state.eventList}
+                                    addNewEvent={this.addNewEvent}/>
+                                } />
                                 <Route path="/about" component={About} /> 
                             </Switch>
                             

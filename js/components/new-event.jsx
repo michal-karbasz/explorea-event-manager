@@ -18,7 +18,6 @@ export default class NewEvent extends React.Component {
         imgUrl: '../images/background1.jpg',
         category: '-- select category --',
         userMessage: `Hi! Fill in the below fields to create a new event:`,
-        items: []
     }
 
     // user input handling functions start
