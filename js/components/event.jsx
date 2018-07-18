@@ -1,9 +1,36 @@
 import React from 'react';
 
+//import components
+import EventButton from './event-button.jsx';
+
 export default class Event extends React.Component {
     
+    handleEdit = () => {
+        console.log('edit');
+    }
+
+    handleDelete = () =>{
+        console.log('delete');
+    }
+
 
     render() {
+
+        //choose category icon
+
+        let categorySrc = '../icons/moon.png';
+        if (this.props.category === 'alien education events') {
+            categorySrc = `../icons/planetary.png`
+        } else if (this.props.category === 'flight volounteers') {
+            categorySrc = `../icons/nebula.png`
+        } else if (this.props.category === 'alien meetings') {
+            categorySrc = `../icons/alien_sad.png`
+        } else if (this.props.category === 'NASA job interviews') {
+            categorySrc = `../icons/astronaut.png`
+        } else if (this.props.category === 'alien translator workshops') {
+            categorySrc = `../icons/alien_sleep.png`
+        }
+
         return (
 
             <div className='event-box'>
@@ -12,6 +39,8 @@ export default class Event extends React.Component {
                 <div className='description-col' id='description-container'>
                     <p>About:</p>
                     <textarea className='description' cols='34' rows='10' disabled value={this.props.description}/>
+                    <EventButton buttonType='edit' onClick={this.handleEdit} />
+                    <EventButton buttonType='delete' onClick={this.handleDelete} />
                 </div>
             </div>
 
@@ -23,8 +52,7 @@ export default class Event extends React.Component {
                 </div>
             </div>
 
-
-            <img src={this.props.category} className='category' id='category-img'/>
+            <img src={categorySrc} className='category' id='category-img'/>
             <div className='event-bkg'>
                 <input className='title' disabled id='eventTitle' value={this.props.title}/>
                 <br/>

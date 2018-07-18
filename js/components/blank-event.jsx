@@ -1,18 +1,6 @@
 import React from 'react';
 
-//import components
-import EventButton from './event-button.jsx';
-
-
 export default class BlankEvent extends React.Component {
-
-    handleEdit = () => {
-        console.log('edit');
-    }
-
-    handleDelete = () => {
-        console.log('delete');
-    }
 
     render() {
 
@@ -44,8 +32,6 @@ export default class BlankEvent extends React.Component {
                             rows='10'
                             disabled="disabled"
                             value={this.props.description}/>
-                        <EventButton buttonType='edit' onClick={this.handleEdit} />
-                        <EventButton buttonType='delete' onClick={this.handleDelete} />
                     </div>
                 </div>
 
@@ -84,7 +70,6 @@ export default class BlankEvent extends React.Component {
                     <input className='organizer' disabled="disabled" value={this.props.organizer}/>
                 </div>
             </div>
-
         )
     }
 
