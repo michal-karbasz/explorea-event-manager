@@ -9,13 +9,13 @@ export default class BlankEvent extends React.Component {
         let categorySrc = '../icons/moon.png';
         if (this.props.category === 'education') {
             categorySrc = `../icons/planetary.png`
-        } else if (this.props.category === 'flight') {
+        } else if (this.props.category === 'flights') {
             categorySrc = `../icons/nebula.png`
         } else if (this.props.category === 'meetings') {
             categorySrc = `../icons/alien_sad.png`
-        } else if (this.props.category === 'job') {
+        } else if (this.props.category === 'jobs') {
             categorySrc = `../icons/astronaut.png`
-        } else if (this.props.category === 'translator') {
+        } else if (this.props.category === 'translation') {
             categorySrc = `../icons/alien_sleep.png`
         }
 

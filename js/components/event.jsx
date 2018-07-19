@@ -2,6 +2,7 @@ import React from 'react';
 
 //import components
 import EventButton from './event-button.jsx';
+import Category from './category-button.jsx';
 
 export default class Event extends React.Component {
     
@@ -14,16 +15,28 @@ export default class Event extends React.Component {
         location: this.props.location,
         location2: this.props.location2,
         organizer: this.props.organizer,
+        image: this.props.imgUrl,
+        category: this.props.category,
+        categoryClicked: false,
     }
 
-    handleEdit = (e) => {
-        this.setState({ editClicked: !this.state.editClicked })
+    // signal if the event is/is not during edit phase; secure that the category button disappears if user clicked, didn't change it but ended editing 
+
+    handleEdit = () => {
+        this.setState({ 
+            editClicked: !this.state.editClicked,
+            categoryClicked: false,
+        })
     }
+
+    //signal that the event is about to be delete -> trigger are-you-sure buttons
 
     handleDelete = () => {
         this.setState({ deleteClicked: !this.state.deleteClicked })
         console.log('delete');
     }
+
+    //function takes care of multiple state changes during edit mode
 
     handleInputChange = (e) => {
         const target = e.target;
@@ -32,10 +45,12 @@ export default class Event extends React.Component {
         this.setState ({ [name]: value})
     }
 
-    componentWillReceiveProps(nextProps){
-        if(nextProps.value !== this.props.value){
-            this.setState({title:nextProps.value});
-        }
+    handleCategoryClicked = () => {
+        this.setState({ categoryClicked: !this.state.categoryClicked})
+    }
+
+    handleCategoryChange = (category) => {
+        this.setState({ category: category})
     }
 
     render() {
@@ -43,15 +58,15 @@ export default class Event extends React.Component {
         //choose category icon
 
         let categorySrc = '../icons/moon.png';
-        if (this.props.category === 'education') {
+        if (this.state.category === 'education') {
             categorySrc = `../icons/planetary.png`
-        } else if (this.props.category === 'flight') {
+        } else if (this.state.category === 'flights') {
             categorySrc = `../icons/nebula.png`
-        } else if (this.props.category === 'meetings') {
+        } else if (this.state.category === 'meetings') {
             categorySrc = `../icons/alien_sad.png`
-        } else if (this.props.category === 'job') {
+        } else if (this.state.category === 'jobs') {
             categorySrc = `../icons/astronaut.png`
-        } else if (this.props.category === 'translator') {
+        } else if (this.state.category === 'translation') {
             categorySrc = `../icons/alien_sleep.png`
         }
         //check if the event is an example, if no, render edit/delete buttons
@@ -65,25 +80,50 @@ export default class Event extends React.Component {
             }
         }
 
+        const urlStyle = {
+            display: this.state.editClicked ? 'block' : 'none',
+        }
+        
         return (
 
             <div className='event-box'>
-                <img src={this.props.imgUrl}/>
-                <div className='event-description'>
+
+                {/* render event background image */}
+
+                <img src={this.state.image} alt='event main image'/>
+
+                {/* render event description section */}
+
+                <div className={`event-description ${this.state.editClicked ? 'slide-up': null}`}>
                     <div className='description-col' id='description-container'>
                         <p>About:</p>
                         <textarea
-                            className='description'
+                            className={`description ${this.state.editClicked ? 'textarea-short': null}`}
                             cols='34'
-                            rows='10'
+                            rows='9'
                             disabled={!this.state.editClicked}
                             value={this.state.description} 
                             name='description'
                             onChange={this.handleInputChange} />
+
+                {/* render edit/delete buttons if necessary */}
+
                         {buttons.button1} 
                         {buttons.button2}
                     </div>
+
+                {/* render category buttons to change category during edit */}
+
+                    <div className='categories'>
+                        <Category visible={this.state.categoryClicked ? 'block' : 'none'} img='planetary' span='education' handleCategoryChange={this.handleCategoryChange}/>
+                        <Category visible={this.state.categoryClicked ? 'block' : 'none'} img='nebula' span='flights' handleCategoryChange={this.handleCategoryChange} />
+                        <Category visible={this.state.categoryClicked ? 'block' : 'none'} img='alien_sad' span='meetings' handleCategoryChange={this.handleCategoryChange} />
+                        <Category visible={this.state.categoryClicked ? 'block' : 'none'} img='astronaut' span='jobs' handleCategoryChange={this.handleCategoryChange} />
+                        <Category visible={this.state.categoryClicked ? 'block' : 'none'} img='alien_sleep' span='translation' handleCategoryChange={this.handleCategoryChange} />
+                    </div>
                 </div>
+
+                {/* render delete are-you-sure? buttons */}
 
                 <div className='delete-confirm'>
                     <div className='description-col'>
@@ -93,14 +133,28 @@ export default class Event extends React.Component {
                     </div>
                 </div>
 
-                <img src={categorySrc} className='category' id='category-img'/>
+                {/* render category img */}
+
+                <img
+                    src={categorySrc}
+                    id='category-img'
+                    className={`category ${this.state.categoryClicked && this.state.editClicked ? 'category-moved': null}`}
+                    onClick={this.state.editClicked ? this.handleCategoryClicked : null}
+                    alt='category icon'/>
+
+                <div className='category-container'>
+
+                </div>
+
+                {/* render main event data */}
+
                 <div className='event-bkg'>
                     <input
                         className='title'
                         disabled={!this.state.editClicked}
                         id='eventTitle'
                         minLength='3'
-                        maxLength='32'
+                        maxLength='30'
                         value={this.state.title}
                         name='title'
                         onChange={this.handleInputChange}/>
@@ -125,7 +179,7 @@ export default class Event extends React.Component {
                         disabled={!this.state.editClicked}
                         id='eventCity'
                         minLength='1'
-                        maxLength='32'
+                        maxLength='30'
                         value={this.state.location}
                         name='location'
                         onChange={this.handleInputChange} />
@@ -133,7 +187,7 @@ export default class Event extends React.Component {
                     <input
                         className='location2'
                         disabled={!this.state.editClicked}
-                        maxLength='32'
+                        maxLength='30'
                         value={this.state.location2}
                         name='location2'
                         onChange={this.handleInputChange} />
@@ -144,9 +198,19 @@ export default class Event extends React.Component {
                         className='organizer'
                         disabled={!this.state.editClicked}
                         minLength='3'
-                        maxLength='32'
+                        maxLength='30'
                         value={this.state.organizer}
                         name='organizer'
+                        onChange={this.handleInputChange} />
+                </div>
+                
+                {/* on edit click display url input field to replace background image */}
+
+                <div style={urlStyle} className='url-field'>
+                    <span>Paste new image url here: </span>
+                    <input 
+                        disabled={!this.state.editClicked}
+                        name='image'
                         onChange={this.handleInputChange} />
                 </div>
             </div>

@@ -36,7 +36,7 @@ export default class CreateForm extends React.Component {
                 <form className='form-contact' onSubmit={this.handleCreateEvent}>
                 <h3 style={{whiteSpace: 'pre'}}>{this.props.userMessage}</h3>
                     <label> event title: <br/>
-                        <input className="eventTitle" autoFocus maxLength='32' onChange={this.handleChange} name='title' value={this.props.title} placeholder="event title goes here"/>
+                        <input className="eventTitle" autoFocus maxLength='30' onChange={this.handleChange} name='title' value={this.props.title} placeholder="event title goes here"/>
                     </label>
                     <br/>
                     <label> description (hover over event to see preview): <br/>
@@ -45,13 +45,13 @@ export default class CreateForm extends React.Component {
                     <br/>
                     
                     <label> organizer: <br/>
-                        <input className="eventOrganizer" maxLength='32' name='organizer' onChange={this.handleChange} value={this.props.organizer} placeholder="tell the others who stands behind the event" />
+                        <input className="eventOrganizer" maxLength='30' name='organizer' onChange={this.handleChange} value={this.props.organizer} placeholder="tell the others who stands behind the event" />
                     </label>
                    
                     <br/>
                     <label> where: <br/>
                         <Places locationChange={this.props.locationChange} updateCity={this.props.updateCity} />
-                        <input className="eventLocation" placeholder="further details" maxLength='32' name='location2' onChange={this.handleChange} value={this.props.location2} />
+                        <input className="eventLocation" placeholder="further details" maxLength='30' name='location2' onChange={this.handleChange} value={this.props.location2} />
                     </label>
                     <br/>
                     

@@ -87,6 +87,9 @@
                 opacity: .9;
                 border: 4px double $main-color;
                 background-color: white;
+                &:hover {
+                    cursor: pointer;
+                }
                 img{ 
                 height: 32px;
                 width: 32px;
@@ -94,39 +97,18 @@
                 span{
                     font-family: 'Titillium Web', sans-serif;
                     font-size: 1.2rem;
-
                 }
             }
             .event-btn:nth-child(2n) {
                 right:-1px;
             }
-            >img {
-                width: 64px;
-                height: 64px;
-                position: absolute;
-                top: 50px;
-                left: 50px;
-                
-            }
-            .flightVolounteers {
-                top: 15px;
-                left: 150px;
-            }
-            .alienMeetings {
-                top: 50px;
-                left: 250px;
-            }
-            .nasa {
-                top: 150px;
-                left: 250px;
-            }
-            .alienTranslatorWorkshops {
-                top: 150px;
-                left: 50px;
-            }
-        }
+    }
         .slide-up{
             animation: slide-up 500ms 1 normal forwards;
+        }
+
+        .slide-down{
+            animation: slide-up 500ms 1 reverse forwards;
         }
         .delete-confirm {
             background-color: white;
@@ -198,6 +180,9 @@
             position: absolute;
             top: -43px;
             left: -33px;
+            &:hover {
+                cursor: pointer;
+            }
         }
             &::before {
                 content: '';
@@ -282,9 +267,8 @@
             }
         }
     }
-    .urlField {
+    .url-field {
         background-color: white;
-        // border: 1px solid $main-color;
         width: 378px;
         height: 40px;
         position: absolute;
@@ -295,21 +279,28 @@
         animation: slide-right 1s 1 normal forwards;
         display: flex;
         align-items: center;
-
-        span:last-child {
+        span{
+            color: $main-color;
+            margin-left: 5px;
+            min-width: 175px;
+            opacity: 0;
+            animation: fade-in 1s 1 normal forwards;
+            animation-delay: 700ms;
+        }
+        input {
+            font-family: 'Titillium Web', sans-serif;
+            font-size: 14px;
             overflow: hidden;
-            // word-wrap: break-word;
             min-width: 180px;
             max-width: 180px;
             color:grey;
             border: 1px dotted $main-color;
             margin-left: 5px;
             white-space: nowrap;
-        }
-        span:first-child {
-            color: $main-color;
-            margin-left: 5px;
-            min-width: 175px;
+            padding: 6px 0;
+            opacity: 0;
+            animation: fade-in 1s 1 normal forwards;
+            animation-delay: 700ms;
         }
     }
     .hidden {
@@ -339,5 +330,5 @@
 
 @keyframes  move-category{
     0% {transform:translate(0, 0 ) scale(1);}
-    100% {transform:translate(180px, 140px ) scale(1.4);}
+    100% {transform:translate(180px, 160px ) scale(1.4);}
 }
