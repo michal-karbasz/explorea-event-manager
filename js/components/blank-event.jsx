@@ -35,14 +35,6 @@ export default class BlankEvent extends React.Component {
                     </div>
                 </div>
 
-                <div className='delete-confirm'>
-                    <div className='description-col'>
-                        <p>Do you really want to delete your event?</p>
-                        <button className='event-btn' id='delete-btn-positive'>YES</button>
-                        <button className='event-btn' id='delete-btn-negative'>NO</button>
-                    </div>
-                </div>
-
                 <img src={categorySrc} className='category' id='category-img'/>
                 <div className='event-bkg'>
                     <input

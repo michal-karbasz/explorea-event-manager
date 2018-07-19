@@ -1,6 +1,7 @@
 import React from 'react';
 
 //import components
+
 import EventButton from './event-button.jsx';
 import Category from './category-button.jsx';
 
@@ -22,7 +23,7 @@ export default class Event extends React.Component {
 
     // signal if the event is/is not during edit phase; secure that the category button disappears if user clicked, didn't change it but ended editing 
 
-    handleEdit = () => {
+    handleEditClicked = () => {
         this.setState({ 
             editClicked: !this.state.editClicked,
             categoryClicked: false,
@@ -31,9 +32,16 @@ export default class Event extends React.Component {
 
     //signal that the event is about to be delete -> trigger are-you-sure buttons
 
-    handleDelete = () => {
+    handleDeleteClicked = () => {
         this.setState({ deleteClicked: !this.state.deleteClicked })
-        console.log('delete');
+    }
+
+
+
+    handleDeleteEvent = (currentEvent) => () => {
+        if (typeof this.props.deleteEvent === 'function') {
+            this.props.deleteEvent(currentEvent);
+        }
     }
 
     //function takes care of multiple state changes during edit mode
@@ -51,6 +59,12 @@ export default class Event extends React.Component {
 
     handleCategoryChange = (category) => {
         this.setState({ category: category})
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.value !== this.props.value){
+            this.setState({title:nextProps.value});
+        }
     }
 
     render() {
@@ -75,13 +89,17 @@ export default class Event extends React.Component {
 
         if  (this.props.isExample !== 'example') {
             buttons = {
-                button1: <EventButton buttonType='edit' onClick={this.handleEdit} isClicked={this.state.editClicked}/>,
-                button2:  <EventButton buttonType='delete' onClick={this.handleDelete} />
+                button1: <EventButton buttonType='edit' onClick={this.handleEditClicked} isClicked={this.state.editClicked}/>,
+                button2:  <EventButton buttonType='delete' onClick={this.handleDeleteClicked} />
             }
         }
 
         const urlStyle = {
             display: this.state.editClicked ? 'block' : 'none',
+        }
+
+        const confirmStyle = {
+            display: this.state.deleteClicked ? 'block' : 'none',
         }
         
         return (
@@ -125,11 +143,11 @@ export default class Event extends React.Component {
 
                 {/* render delete are-you-sure? buttons */}
 
-                <div className='delete-confirm'>
+                <div className='delete-confirm' style={confirmStyle}>
                     <div className='description-col'>
                         <p>Do you really want to delete your event?</p>
-                        <button className='event-btn' id='delete-btn-positive'>YES</button>
-                        <button className='event-btn' id='delete-btn-negative'>NO</button>
+                        <button className='event-btn' onClick={this.handleDeleteEvent (this.props.title)}>YES</button>
+                        <button className='event-btn' onClick={this.handleDeleteClicked}>NO</button>
                     </div>
                 </div>
 
