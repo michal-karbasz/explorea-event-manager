@@ -27,9 +27,8 @@ export default class NewEvent extends React.Component {
         const target = e.target;
         const value = target.value
         const name = target.name;
-        this.setState({[name]: value});
+        this.setState({ [name]: value} );
     }
-
 
     handleLocationChange = (location) => {
         this.setState({location: location})
@@ -176,5 +175,4 @@ Feel free to create another one:`
             </section>
         )
     }
-
 }

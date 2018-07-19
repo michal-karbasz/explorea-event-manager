@@ -8,18 +8,35 @@ export default class Event extends React.Component {
     state = {
         editClicked: false,
         deleteClicked: false,
-        description:''
+        title: this.props.title,
+        description: this.props.description,
+        hour: this.props.hour,
+        location: this.props.location,
+        location2: this.props.location2,
+        organizer: this.props.organizer,
     }
 
     handleEdit = (e) => {
-        this.setState( {editClicked: !this.state.editClicked})
+        this.setState({ editClicked: !this.state.editClicked })
     }
 
-    handleDelete = () =>{
-        this.setState( {deleteClicked: !this.state.deleteClicked})
+    handleDelete = () => {
+        this.setState({ deleteClicked: !this.state.deleteClicked })
         console.log('delete');
     }
 
+    handleInputChange = (e) => {
+        const target = e.target;
+        const value = target.value;
+        const name = target.name;
+        this.setState ({ [name]: value})
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.value !== this.props.value){
+            this.setState({title:nextProps.value});
+        }
+    }
 
     render() {
 
@@ -48,8 +65,6 @@ export default class Event extends React.Component {
             }
         }
 
-
-
         return (
 
             <div className='event-box'>
@@ -62,7 +77,9 @@ export default class Event extends React.Component {
                             cols='34'
                             rows='10'
                             disabled={!this.state.editClicked}
-                            value={this.state.editClicked ? this.state.description :this.props.description}/>
+                            value={this.state.description} 
+                            name='description'
+                            onChange={this.handleInputChange} />
                         {buttons.button1} 
                         {buttons.button2}
                     </div>
@@ -84,7 +101,9 @@ export default class Event extends React.Component {
                         id='eventTitle'
                         minLength='3'
                         maxLength='32'
-                        value={this.props.title}/>
+                        value={this.state.title}
+                        name='title'
+                        onChange={this.handleInputChange}/>
                     <br/>
                     <img src='../icons/time.png'/>
                     <input 
@@ -95,8 +114,10 @@ export default class Event extends React.Component {
                     <input
                         className='hour'
                         disabled={!this.state.editClicked}
-                        maxLength='32'
-                        value={this.props.hour}/>
+                        maxLength='5'
+                        value={this.state.hour}
+                        name='hour'
+                        onChange={this.handleInputChange} />
                     <br/>
                     <img src='../icons/here.png'/>
                     <input
@@ -105,22 +126,28 @@ export default class Event extends React.Component {
                         id='eventCity'
                         minLength='1'
                         maxLength='32'
-                        value={this.props.location}/>
+                        value={this.state.location}
+                        name='location'
+                        onChange={this.handleInputChange} />
                     <br/>
                     <input
                         className='location2'
                         disabled={!this.state.editClicked}
-                        value={this.props.location2}
-                        maxLength='32'/>
+                        maxLength='32'
+                        value={this.state.location2}
+                        name='location2'
+                        onChange={this.handleInputChange} />
                 </div>
                 <div className='event-bkg2'>
                     <img src='../icons/astronaut2.png'/>
                     <input
                         className='organizer'
                         disabled={!this.state.editClicked}
-                        value={this.props.organizer}
                         minLength='3'
-                        maxLength='32'/>
+                        maxLength='32'
+                        value={this.state.organizer}
+                        name='organizer'
+                        onChange={this.handleInputChange} />
                 </div>
             </div>
 
