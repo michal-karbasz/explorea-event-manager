@@ -330,3 +330,21 @@
     0% {transform:translate(0, 0 ) scale(1);}
     100% {transform:translate(180px, 160px ) scale(1.4);}
 }
+
+@keyframes fade-in {
+    0% {opacity: 0; transform: scale(0);}
+    100% {opacity: 1; transform: scale(1);}
+  }
+
+  // Loop from 1-12.
+@for $i from 1 through 12 {
+    .tile {
+      &:nth-child(#{$i}) {
+        
+        // Delay the animation. Delay increases as items loop.
+        animation-delay: $i * (.03s);
+      }
+    }
+  }
+
+//   animation: .3s ease-in-out both fade-in;

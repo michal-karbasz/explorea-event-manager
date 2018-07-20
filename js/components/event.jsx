@@ -60,13 +60,7 @@ export default class Event extends React.Component {
     handleCategoryChange = (category) => {
         this.setState({ category: category})
     }
-
-    componentWillReceiveProps(nextProps){
-        if(nextProps.value !== this.props.value){
-            this.setState({title:nextProps.value});
-        }
-    }
-
+    
     render() {
 
         //choose category icon

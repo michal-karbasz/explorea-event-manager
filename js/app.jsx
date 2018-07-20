@@ -18,36 +18,15 @@ import Events from './components/events.jsx';
 import About from './components/about.jsx';
 import Footer from './components/footer.jsx';
 
-
-
-
 document.addEventListener('DOMContentLoaded', function(){
     
     document.addEventListener('click',function(e) {
-
-    //     //delete event
-
-    //     if(e.target && (e.target.id == 'delete-btn'  || e.target.parentElement.id == 'delete-btn')){
-    //         e.target.parentElement.id == 'delete-btn' ?  clickedElmnt =  e.target.parentElement : clickedElmnt =  e.target;
-    //         clickedElmnt.parentElement.parentElement.parentElement.children[2].classList.add('show');
-    //     }
-    //     if(e.target && e.target.id == 'delete-btn-positive'){
-    //         e.target.parentElement.parentElement.parentElement.remove();
-    //     }
-    //     if(e.target && e.target.id == 'delete-btn-negative') {
-            
-    //         e.target.parentElement.parentElement.parentElement.children[2].classList.add('fade-out');
-    //         setTimeout(function(){ e.target.parentElement.parentElement.parentElement.children[2].classList.remove('show');
-    //            e.target.parentElement.parentElement.parentElement.children[2].classList.remove('fade-out');
-    //         }, 1000);
-    //     }
-
         
      })
 
     class App extends React.Component {
-        constructor(props) {
-            super(props);
+        constructor() {
+            super();
     
             //define the contents of 3 example events
 
@@ -81,14 +60,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
             this.state = {
                 eventList: [this.exemplaryEvent1, this.exemplaryEvent2, this.exemplaryEvent3],
-                input: '',
+                filteredEventList: [],
+                searchInput: '',
+                planetClicked: false,
             }
     }
-
-        getEventList = () => {
-            let eventListArr = [].slice.call(document.querySelectorAll('.event-box'));
-            this.setState ({ eventList: eventListArr})
-        }
 
         // add user-created event to global event list (state)
 
@@ -98,45 +74,25 @@ document.addEventListener('DOMContentLoaded', function(){
             this.setState({eventList: temporaryList})
         }
 
+        // delete user-created event (remove item from state's eventList array)
+
         deleteEvent = (eventToDelete) => {
             const temporaryList = this.state.eventList.slice();
             let newList = temporaryList.filter(item => item.title !== eventToDelete)
-            console.log(newList)
-            this.setState({eventList: newList}, () => console.log(this.state.eventList) )
+            this.setState({eventList: newList})
         }
 
-
-        handlecategoryChange = (planet) => {
-            this.handleSearchChange();    
-            for (let i = 0; i < this.state.eventList.length ; i++) {
-                this.state.eventList[i].classList.remove('hidden');
-                if(this.state.eventList[i].children[3].getAttribute('src').indexOf(planet.getAttribute('src')) == -1) {
-                    this.state.eventList[i].classList.add('hidden');
-                } 
-            }
-        }
+        // handle user input in search-box
 
         handleSearchChange = (userInput) => {
             this.setState({input: userInput })
-            this.getEventList();
         }
 
-        handleSearchEvent = (event) => {
-            event.preventDefault();        
-            for (let i = 0; i < this.state.eventList.length ; i++) {
-                this.state.eventList[i].classList.remove('hidden');
-                if(this.state.eventList[i].children[4].firstElementChild.value.indexOf(this.state.input) == -1) {
-                    this.state.eventList[i].classList.add('hidden');
-                } 
-                this.setState({input:''})
-            }
-        }
 
-        displayAllEvents = () => {
-            this.getEventList;
-            for (let i = 0; i < this.state.eventList.length ; i++) {
-                this.state.eventList[i].classList.remove('hidden');
-            }
+        // trigger open search box and display category-buttons
+
+        openSearchBox = () => {
+            this.setState ({ planetClicked: !this.state.planetClicked}, () => console.log(this.state.planetClicked))
         }
 
 
@@ -147,7 +103,15 @@ document.addEventListener('DOMContentLoaded', function(){
                         <div>
                             <Nav />
                             <Switch>
-                                <Route exact path='/' render={(props) => <Planet {...props} eventList={this.state.eventList} handlecategoryChange={this.handlecategoryChange} handleSearchChange={this.handleSearchChange} searchEvent={this.handleSearchEvent} displayAll={this.displayAllEvents} /> } />
+                                <Route
+                                    exact path='/' render={(props) => <Planet {...props}
+                                    eventList={this.state.eventList}
+                                    planetClicked={this.state.planetClicked}
+                                    handleSearchInput={this.handleSearchInput}
+                                    openSearchBox={this.openSearchBox}
+                                    searchEvent={this.handleSearchEvent}
+                                    displayAll={this.displayAllEvents}/>
+                                } />
                                 <Route
                                     path="/newEvent"
                                     render={(props) => <NewEvent {...props}
