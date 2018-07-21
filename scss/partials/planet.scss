@@ -49,10 +49,9 @@ section.flex-container {
                 height: 420px;
             }
             img {
-                width: 192px;
+                transition: all 1s;
+                width:192px;
                 height: 192px;
-                animation: rotate 900ms infinite alternate;
-                animation-timing-function: linear;
                 @include desktop {
                     width: 256px;
                     height: 256px;

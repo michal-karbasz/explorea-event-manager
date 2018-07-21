@@ -101,10 +101,10 @@ document.addEventListener('DOMContentLoaded', function(){
         // when user closes the searchbox remove any category from state to prepare it for next filtering 
 
         resetState = () => {
-            if (this.state.category !== '' && this.state.planetClicked == false) {
+            if (this.state.category !== '' && this.state.planetClicked === false) {
                 this.setState ({ category: '' })
             } 
-            if (this.state.searchInput !== '' && this.state.planetClicked == false) {
+            if (this.state.searchInput !== '' && this.state.planetClicked === false) {
                 this.setState ({ searchInput: '' })
             } 
         }
@@ -123,9 +123,13 @@ document.addEventListener('DOMContentLoaded', function(){
             if (this.state.category !== '' && this.state.planetClicked) {
                 eventList = eventList.filter(item => item.category === this.state.category);
             }
+
+            //filter events based on user input - search for title OR location
+
             if (this.state.searchInput !== '' && this.state.planetClicked) {
-                eventList = eventList.filter(item => item.title.toLowerCase().indexOf( this.state.searchInput.toLowerCase()) != -1)
+                eventList = eventList.filter(item => item.title.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) != -1 || item.location.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) != -1)
             }
+
             
 
             return (
