@@ -60,9 +60,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
             this.state = {
                 eventList: [this.exemplaryEvent1, this.exemplaryEvent2, this.exemplaryEvent3],
-                filteredEventList: [],
-                searchInput: '',
                 planetClicked: false,
+                category: '',
+                searchInput: '',
             }
     }
 
@@ -71,32 +71,62 @@ document.addEventListener('DOMContentLoaded', function(){
         addNewEvent = (event) => {
             const temporaryList = this.state.eventList.slice();
             temporaryList.push(event);
-            this.setState({eventList: temporaryList})
+            this.setState({eventList: temporaryList});
         }
 
         // delete user-created event (remove item from state's eventList array)
 
         deleteEvent = (eventToDelete) => {
-            const temporaryList = this.state.eventList.slice();
-            let newList = temporaryList.filter(item => item.title !== eventToDelete)
-            this.setState({eventList: newList})
+            const newList = this.state.eventList.filter(item => item.title !== eventToDelete);
+            this.setState({eventList: newList});
         }
-
-        // handle user input in search-box
-
-        handleSearchChange = (userInput) => {
-            this.setState({input: userInput })
-        }
-
 
         // trigger open search box and display category-buttons
 
         openSearchBox = () => {
-            this.setState ({ planetClicked: !this.state.planetClicked}, () => console.log(this.state.planetClicked))
+            this.setState ({planetClicked: !this.state.planetClicked});
+            this.resetState();
         }
 
+        // on each category click send this category name to this.state.category, events are then rendered based on that category
+
+        filterByCategory = (category) => {
+            if (this.state.planetClicked) {
+            let temporaryCategory = this.state.category;
+            temporaryCategory = category;
+            this.setState ({ category: temporaryCategory })
+            } 
+        }
+
+        // when user closes the searchbox remove any category from state to prepare it for next filtering 
+
+        resetState = () => {
+            if (this.state.category !== '' && this.state.planetClicked == false) {
+                this.setState ({ category: '' })
+            } 
+            if (this.state.searchInput !== '' && this.state.planetClicked == false) {
+                this.setState ({ searchInput: '' })
+            } 
+        }
+
+        // handle user input in search-box
+
+        handleSearchInput = (userInput) => {
+            this.setState({searchInput: userInput }, () => console.log(this.state.searchInput));
+        }
 
         render() {
+
+            //event rendering is based on eventList variable - if one of the categories has been clicked, overwrite eventList to render only filtered items
+
+            let eventList = this.state.eventList;   
+            if (this.state.category !== '' && this.state.planetClicked) {
+                eventList = eventList.filter(item => item.category === this.state.category);
+            }
+            if (this.state.searchInput !== '' && this.state.planetClicked) {
+                eventList = eventList.filter(item => item.title.toLowerCase().indexOf( this.state.searchInput.toLowerCase()) != -1)
+            }
+            
 
             return (
                     <HashRouter>
@@ -109,8 +139,8 @@ document.addEventListener('DOMContentLoaded', function(){
                                     planetClicked={this.state.planetClicked}
                                     handleSearchInput={this.handleSearchInput}
                                     openSearchBox={this.openSearchBox}
-                                    searchEvent={this.handleSearchEvent}
-                                    displayAll={this.displayAllEvents}/>
+                                    filterByCategory={this.filterByCategory}
+                                    />
                                 } />
                                 <Route
                                     path="/newEvent"
@@ -121,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 <Route path="/about" component={About} /> 
                             </Switch>
                             
-                        <Events eventList={this.state.eventList} addNewEvent={this.addNewEvent} deleteEvent={this.deleteEvent}/>
+                        <Events eventList={eventList} addNewEvent={this.addNewEvent} deleteEvent={this.deleteEvent}/>
                         <Footer />  
                         </div>
                     </HashRouter>

@@ -2,9 +2,9 @@ import React from 'react';
 
 export default class Planets extends React.Component {
 
-    runFilterByCategory = (e) => {
-        if (typeof this.props.handleCategoryChange === 'function') {
-            this.props.handleCategoryChange(e.target);
+    runFilterByCategory = (category) => () => {
+        if (typeof this.props.filterByCategory === 'function') {
+            this.props.filterByCategory(category);
         }
     }
 
@@ -18,7 +18,7 @@ export default class Planets extends React.Component {
             <div
                 className='planet-bkg-small'
                 src={this.props.img}
-                onClick={this.runCategoryChange}
+                onClick={this.runFilterByCategory(this.props.id)}
                 style={categoryStyle}>
                 <img src={`../icons/${this.props.img}.png`} className={this.props.id}/>
                 <p src={this.props.img}>{this.props.span}
