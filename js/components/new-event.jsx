@@ -83,8 +83,10 @@ export default class NewEvent extends React.Component {
         // }
     }
 
+    //create a new object containing user data
+
     copyEvent = () => {
-        let newEvent = {
+        const newEvent = {
             title: this.state.title,
             description: this.state.description,
             organizer: this.state.organizer,
@@ -125,51 +127,46 @@ Feel free to create another one:`
         })
     }
 
-    sendEventsArr = (eventArr) => {
-        if (typeof this.props.getEventsArray === 'function') {
-            this.props.getEventsArray(eventArr);
-        }
-    }
-
     render() {
+
+        const propsToPass = {
+            title: this.state.title,
+            description: this.state.description,
+            organizer: this.state.organizer,
+            location: this.state.location,
+            location2: this.state.location2,
+            date: this.state.selectedDay,
+            hour: this.state.hour,
+            imgUrl: this.state.imgUrl,
+            category: this.state.category,
+        }
+
+        const formProps = {
+            userMessage: this.state.userMessage,
+            titleChange: this.handleTitleChange,
+            descriptionChange: this.handleDescriptionChange,
+            organizerChange: this.handleOrganizerChange,
+            locationChange: this.handleLocationChange,
+            updateCity: this.updateCity,
+            location2Change: this.handleLocation2Change,
+            handleDayChange: this.handleDayChange,
+            hourChange: this.handleHourChange,
+            urlChange: this.handleUrlChange,
+            categoryChange: this.handleCategoryChange,
+            createEvent: this.handleCreateEvent,
+            handleChange: this.handleChange 
+        }
+
         return (
             <section className='new-flex-container'>
                 <div className="col">
                     <Form
-                        title={this.state.title}
-                        description={this.state.description}
-                        organizer={this.state.organizer}
-                        location={this.state.location}
-                        location2={this.state.location2}
-                        date={this.state.selectedDay}
-                        hour={this.state.hour}
-                        imgUrl={this.state.imgUrl}
-                        category={this.state.category}
-                        userMessage={this.state.userMessage}
-                        titleChange={this.handleTitleChange}
-                        descriptionChange={this.handleDescriptionChange}
-                        organizerChange={this.handleOrganizerChange}
-                        locationChange={this.handleLocationChange}
-                        updateCity={this.updateCity}
-                        location2Change={this.handleLocation2Change}
-                        handleDayChange={this.handleDayChange}
-                        hourChange={this.handleHourChange}
-                        urlChange={this.handleUrlChange}
-                        categoryChange={this.handleCategoryChange}
-                        createEvent={this.handleCreateEvent}
-                        handleChange={this.handleChange}/>
+                        {...propsToPass}
+                        {...formProps} />
                 </div>
                 <div className="col">
                     <BlankEvent
-                        title={this.state.title}
-                        description={this.state.description}
-                        organizer={this.state.organizer}
-                        location={this.state.location}
-                        location2={this.state.location2}
-                        date={this.state.selectedDay}
-                        hour={this.state.hour}
-                        imgUrl={this.state.imgUrl}
-                        category={this.state.category}
+                        {...propsToPass}
                         add={this.state.add}/>
                 </div>
             </section>

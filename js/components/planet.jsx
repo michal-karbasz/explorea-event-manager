@@ -77,7 +77,7 @@ export default class Planet extends React.Component {
 
         const planetStyle = {
             transition: '500ms',
-            transform: 'scale(0.7)',
+            transform: 'scale(0.8)',
         }
 
         const searchBoxStyle = {
