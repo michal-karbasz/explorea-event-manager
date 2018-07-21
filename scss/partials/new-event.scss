@@ -1,14 +1,13 @@
 
 // styles both form and blank-event elements
 
-
 section.new-flex-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     min-height: 100vh;
-    background-image: url('../images/background1.jpg');
+    background-image: url("../images/background1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -30,7 +29,7 @@ section.new-flex-container {
             border: 1px solid lightgray;
             background-color: white;
             // opacity: .9;
-            display:flex;
+            display: flex;
             flex-direction: column;
             flex-wrap: wrap;
             position: relative;
@@ -42,17 +41,17 @@ section.new-flex-container {
             p {
                 margin-left: 10px;
                 font-size: 1em;
-                }
+            }
             label {
                 margin: 10px;
-                }
+            }
             input {
                 min-width: 386px;
                 padding: 5px;
                 margin: 5px 25px;
                 border: 1px double lightgray;
             }
-            .eventLocation {
+            .event-location {
                 min-width: 140px;
                 padding: 5px;
                 margin-right: 0;
@@ -68,88 +67,57 @@ section.new-flex-container {
             }
             div {
                 // display:inline;
-            .DayPickerInput {
-                display: inline-block;
-                input {
-                    min-width:180px;
-                    padding: 2.5px 5px;
-                    margin-right: 0px;
-                    font-family: 'Titillium Web', sans-serif;
-                }
-            }
-            .DayPickerInput-OverlayWrapper {
-                position: relative;
-                left: 25px;
-                top: -350px;
-              }
-        }
-                .eventHour {
-                    min-width: 100px;
-                }
-                .eventCategory {
-                    margin-left: 30px;
-                    color: $main-color;
-                    border: 1px dotted lightgray;
-                }
-                .eventSubmit {
-                    padding: 10px;
-                    margin-top: 15px;
-                    margin-bottom:15px;
-                    background-color: $main-color;
-                    border: 4px double white;
-                    color: white;
-                    font-size: 1.1rem;
-                    transition: all 1s;
-                    &:hover{
-                        transition: 1s;
-                        color: $main-color;
-                        background-color: white;
-                        border: 4px double $main-color;
+                .DayPickerInput {
+                    display: inline-block;
+                    input {
+                        min-width: 180px;
+                        padding: 2.5px 5px;
+                        margin-right: 0;
+                        font-family: 'Titillium Web', sans-serif;
                     }
                 }
-                select {
-                    padding: 5px;
-                    margin-top: 10px;
+                .DayPickerInput-OverlayWrapper {
+                    position: relative;
+                    left: 25px;
+                    top: -350px;
                 }
+            }
+            .event-hour {
+                min-width: 100px;
+            }
+            .event-category {
+                margin-left: 30px;
+                color: $main-color;
+                border: 1px dotted lightgray;
+            }
+            .event-submit {
+                padding: 10px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                background-color: $main-color;
+                border: 4px double white;
+                color: white;
+                font-size: 1.1rem;
+                transition: all 1s;
+                &:hover {
+                    transition: 1s;
+                    color: $main-color;
+                    background-color: white;
+                    border: 4px double $main-color;
+                }
+            }
+            select {
+                padding: 5px;
+                margin-top: 10px;
+            }
         }
-        
-        
 
-        // new event styling
-
-        // h1 {
-        //     color: white;
-        //     font-weight: 500;
-        //     font-size: 2rem;
-        //     position: relative;
-        //     margin-top: 50px;
-        //     &::before {
-        //         content: '';
-        //         background-color: white;
-        //         // opacity: .5;
-        //         width: 46px;
-        //         height: 46px; 
-        //         border-radius: 50%;
-        //         position: absolute;
-        //         bottom: 4px;
-        //         right: -59px;
-        //         z-index: 1;
-        //     }
-        //     .scope-icon {
-        //         position: absolute;
-        //         margin-left: 15px;
-        //         width: 40px;
-        //         height: 40px;
-        //         z-index: 2;
-        //     }
-        // }
         .event-box {
-            margin: 30px;
-            margin-top: 70px;
+            margin: 70px 30px 30px;
             max-width: 380px;
             height: 450px;
             border: 1px solid lightgray;
-            display:flex;
+            display: flex;
             flex-direction: column;
             justify-content: center;
             flex-wrap: wrap;
@@ -176,14 +144,14 @@ section.new-flex-container {
                 width: 378px;
                 height: 280px;
                 position: absolute;
-                top:0;
-                left:0;
+                top: 0;
+                left: 0;
                 font-size: 1.2em;
-                display:none;
-                z-index: 2; 
-                opacity: .8;
+                display: none;
+                z-index: 2;
+                opacity: 0.8;
                 .description-col {
-                    display:flex;
+                    display: flex;
                     flex-direction: column;
                     flex-wrap: wrap;
                     position: relative;
@@ -199,7 +167,7 @@ section.new-flex-container {
                         white-space: normal;
                         font-size: 1.1rem;
                         border: none;
-                        background-color: transparent; 
+                        background-color: transparent;
                         max-height: 230px;
                         max-width: 350px;
                         min-height: 230px;
@@ -209,7 +177,7 @@ section.new-flex-container {
                         font-size: 1.4em;
                         color: $main-color;
                     }
-                    .event-btn{
+                    .event-btn {
                         display: none;
                         align-items: center;
                         justify-content: space-around;
@@ -217,24 +185,24 @@ section.new-flex-container {
                         width: 100px;
                         height: 50px;
                         position: absolute;
-                        top:-52px;
+                        top: -52px;
                         right: 99px;
-                        opacity: .9;
-                        img{ 
-                        height: 32px;
-                        width: 32px;
+                        opacity: 0.9;
+                        img {
+                            height: 32px;
+                            width: 32px;
                         }
-                        span{
+                        span {
                             font-size: 1.2rem;
                         }
                     }
                     .event-btn:nth-child(2n) {
-                        right:-1px;
+                        right: -1px;
                     }
                 }
             }
             .delete-confirm {
-                display:none;
+                display: none;
             }
             .category {
                 width: 66px;
@@ -243,16 +211,16 @@ section.new-flex-container {
                 top: -33px;
                 left: -33px;
             }
-                &::before {
-                    content: '';
-                    background-color: white;
-                    opacity: .5;
-                    width: 84px;
-                    height: 84px; 
-                    border-radius: 50%;
-                    position: absolute;
-                    top: -42px;
-                    left: -42px;
+            &::before {
+                content: '';
+                background-color: white;
+                opacity: 0.5;
+                width: 84px;
+                height: 84px;
+                border-radius: 50%;
+                position: absolute;
+                top: -42px;
+                left: -42px;
             }
             .event-bkg {
                 background-color: white;
@@ -271,7 +239,7 @@ section.new-flex-container {
                     font-size: 1.2rem;
                     margin-left: 10px;
                     border: none;
-                    background-color: transparent; 
+                    background-color: transparent;
                 }
                 .title {
                     font-size: 1.4rem;
@@ -292,7 +260,7 @@ section.new-flex-container {
                 }
             }
             .event-bkg2 {
-                display:flex;
+                display: flex;
                 align-items: center;
                 flex-wrap: wrap;
                 background-color: white;
@@ -309,10 +277,9 @@ section.new-flex-container {
                     font-size: 1.2rem;
                     margin-left: 10px;
                     border: none;
-                    background-color: transparent; 
+                    background-color: transparent;
                 }
             }
         }
     }
 }
-

@@ -30,11 +30,11 @@ export default class DatePicker extends React.Component {
         const {selectedDay} = this.state;
         return (
             <div>
-                {selectedDay && <p>day: {selectedDay.toLocaleDateString()}</p>}
+                {selectedDay && <p>when (day and hour): {selectedDay.toLocaleDateString()}</p>}
                 {!selectedDay && <p>choose a day</p>}
                 <DayPickerInput onDayChange={this.handleDayChange}/>
                 <input
-                    className="eventHour"
+                    className="event-hour"
                     onChange={this.handleHourChange}
                     value={this.props.hour}
                     placeholder='hh-mm'/>

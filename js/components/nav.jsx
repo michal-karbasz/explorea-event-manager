@@ -23,7 +23,7 @@ const Nav = () => {
             <div className="header-col menu">
                 <Link className='link-btn' to="/newEvent">
                     <img src='../icons/space_shuttle2.png'/>
-                    <span className='addNewBtn'>new</span>
+                    <span className='add-new-btn'>new</span>
                 </Link>
                 <span>|</span>
                 <Link className='link-btn' to="/">

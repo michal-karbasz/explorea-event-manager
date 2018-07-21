@@ -1,12 +1,11 @@
 
-
 section.flex-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('../images/background1.jpg');
+    background-image: url("../images/background1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -16,17 +15,17 @@ section.flex-container {
         flex-direction: initial;
     }
     .col:first-child {
-        display:flex;
+        display: flex;
         order: 2;
         @include desktop {
-        order: initial;
+            order: initial;
         }
     }
     .col {
         .planets {
-            display:flex;
+            display: flex;
             @include desktop {
-                display:initial;
+                display: initial;
             }
             #button2 {
                 margin-right: 40px;
@@ -39,7 +38,7 @@ section.flex-container {
             height: 360px;
             opacity: 0.9;
             border-radius: 50%;
-            display:flex;        
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -50,7 +49,7 @@ section.flex-container {
             }
             img {
                 transition: all 1s;
-                width:192px;
+                width: 192px;
                 height: 192px;
                 @include desktop {
                     width: 256px;
@@ -58,10 +57,10 @@ section.flex-container {
                 }
             }
             p {
-                font-size: 1.8rem; 
+                font-size: 1.8rem;
                 padding: 5px;
                 color: rgb(63, 63, 63);
-                }
+            }
             .search-box-container {
                 display: flex;
                 flex-direction: column;
@@ -72,7 +71,7 @@ section.flex-container {
                 .search-box {
                     border: none;
                     padding: 5px 15px;
-                    font-size: 1.1rem; 
+                    font-size: 1.1rem;
                     font-family: 'Titillium Web', sans-serif;
                     width: 220px;
                     &:focus {
@@ -86,21 +85,21 @@ section.flex-container {
                     width: 90px;
                     height: 40px;
                     font-size: 1rem;
-                    color:rgb(102, 97, 97);
+                    color: rgb(102, 97, 97);
                     letter-spacing: 1px;
-                    &:hover{
+                    &:hover {
                         background-color: $main-color;
                         border: 4px double white;
                         color: white;
                     }
                 }
-                    
+
             }
             span {
-            color: $main-color;
-            &:hover {
-                color: rgb(216, 0, 0);
-            }
+                color: $main-color;
+                &:hover {
+                    color: rgb(216, 0, 0);
+                }
             }
             .shrink {
                 animation: shrink 700ms 1 forward;
@@ -114,7 +113,7 @@ section.flex-container {
             border-radius: 50%;
             border: 3px double lighten($main-color,20%);
             margin: 15px 20px;
-            display:flex;        
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
@@ -130,20 +129,27 @@ section.flex-container {
                 height: 64px;
             }
             p {
-            margin: 0 25px;
-            color: rgb(63, 63, 63);
+                margin: 0 25px;
+                color: rgb(63, 63, 63);
             }
         }
     }
 }
 
-
 @keyframes rotate {
-    0% {transform: scale(1);}
-    100% {transform: scale(1.02);}
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.02);
+    }
 }
 
 @keyframes shrink {
-    0% {transform: scale(1);}
-    100% {transform: scale(0.7);}
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.7);
+    }
 }

@@ -1,65 +1,69 @@
 
 header.flex-container {
-        display:flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: white;
-        opacity: .9;
-        border-bottom: 4px dashed white;
-        position: fixed;
-        margin-bottom: 5px;
-        z-index: 10;
-        width: 100%;
-        .header-col {
-            display:flex;        
-            align-items: flex-end;
-            a {
-                text-decoration: none;
-                color: black;
-            }
-            h2 {
-                margin-left: 10px;
-                display:none;
-                
-                @include desktop {
-                    display:block;
-                }
-            }
-            span {
-               font-size: 1.5rem; 
-               padding: 3px;
-            }
-            .addNewBtn {
-                color: $main-color;
-                padding-left: 0;
-            }
-            img {
-                width: 42px;
-                height: 42px;
-                padding-top: 5px;
-                padding-left: 5px;
-            }
-            .logo {
-                transform: rotateY(180deg);
-            }
-            .ufo {
-                opacity:0;
-                width: 42px;
-                height: 42px;
-                animation: ufoFlight 800ms infinite alternate ease-in-out ;
-                animation-delay: 5s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    opacity: 0.9;
+    border-bottom: 4px dashed white;
+    position: fixed;
+    margin-bottom: 5px;
+    z-index: 10;
+    width: 100%;
+    .header-col {
+        display: flex;
+        align-items: flex-end;
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        h2 {
+            margin-left: 10px;
+            display: none;
+
+            @include desktop {
+                display: block;
             }
         }
-        .menu {
-            span {
+        span {
+            font-size: 1.5rem;
+            padding: 3px;
+        }
+        .add-new-btn {
+            color: $main-color;
+            padding-left: 0;
+        }
+        img {
+            width: 42px;
+            height: 42px;
+            padding-top: 5px;
+            padding-left: 5px;
+        }
+        .logo {
+            transform: rotateY(180deg);
+        }
+        .ufo {
+            opacity: 0;
+            width: 42px;
+            height: 42px;
+            animation: ufoFlight 800ms infinite alternate ease-in-out;
+            animation-delay: 5s;
+        }
+    }
+    .menu {
+        span {
             padding: 0 10px;
-            }
         }
     }
+}
 
-    @keyframes ufoFlight {
-        0% {opacity: 1; transform: translate(10px,-2px) }
-        100% {opacity: 1; transform: translate(10px,0)}
+@keyframes ufoFlight {
+    0% {
+        opacity: 1;
+        transform: translate(10px,-2px);
     }
-
-
+    100% {
+        opacity: 1;
+        transform: translate(10px,0);
+    }
+}

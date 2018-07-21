@@ -30,7 +30,7 @@ export default class Places extends React.Component {
         return (
             <input 
                 id='autocomplete'   //link with new Autocomplete object
-                className="eventLocation" 
+                className="event-location" 
                 placeholder="give us the city"
                 maxLength='32'
                 onChange={this.handleLocationChange} value={this.props.location}
