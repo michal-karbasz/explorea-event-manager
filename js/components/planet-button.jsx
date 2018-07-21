@@ -1,29 +1,28 @@
 import React from 'react';
 
-export default class Planets extends React.Component {
+const Planets = props => {
 
-    runFilterByCategory = (category) => () => {
-        if (typeof this.props.filterByCategory === 'function') {
-            this.props.filterByCategory(category);
+    const runFilterByCategory = (category) => () => {
+        if (typeof props.filterByCategory === 'function') {
+            props.filterByCategory(category);
         }
     }
 
-    render() {
-
-        let categoryStyle = {
-            visibility: this.props.planetClicked ? 'visible' : 'hidden'
-        }
-        return (
-
-            <div
-                className='planet-bkg-small'
-                src={this.props.img}
-                onClick={this.runFilterByCategory(this.props.id)}
-                style={categoryStyle}>
-                <img src={`../icons/${this.props.img}.png`} className={this.props.id}/>
-                <p src={this.props.img}>{this.props.span}
-                </p>
-            </div>
-        )
+    let categoryStyle = {
+        visibility: props.planetClicked ? 'visible' : 'hidden',
     }
+    return (
+
+        <div
+            className='planet-bkg-small'
+            src={props.img}
+            onClick={runFilterByCategory(props.id)}
+            style={categoryStyle}>
+            <img src={`../icons/${props.img}.png`} className={props.id}/>
+            <p src={props.img}>{props.span}
+            </p>
+        </div>
+    )
 }
+
+export default Planets;

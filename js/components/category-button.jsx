@@ -1,29 +1,29 @@
 import React from 'react';
 
-export default class Category extends React.Component {
+const Category = (props) => {
 
-// use currying to pass category img props
+    // use currying to pass category img props
 
-    runCategoryChange = (category) => () => {
-        if (typeof this.props.handleCategoryChange === 'function') {
-            this.props.handleCategoryChange(category);
+    const runCategoryChange = category => () => {
+        if (typeof props.handleCategoryChange === 'function') {
+            props.handleCategoryChange(category);
         }
     }
+    return (
 
-    render() {
-        
-        return (
+        <div
+            className={`category-btn ${props.img}`}
+            src={props.img}
+            onClick={runCategoryChange(props.span)}
+            style={{ display: props.visible }}>
 
-            <div
-                className={`category-btn ${this.props.img}`}
-                src={this.props.img}
-                onClick={this.runCategoryChange(this.props.span)}
-                style={{ display: this.props.visible }}>
+            <img src={`../icons/${props.img}.png`}/>
+            <p>
+                {props.span}
+            </p>
 
-                    <img src={`../icons/${this.props.img}.png`} />
-                    <p> {this.props.span} </p>
-
-            </div>
-        )
-    }
+        </div>
+    )
 }
+
+export default Category;

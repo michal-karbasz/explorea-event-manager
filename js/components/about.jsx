@@ -1,11 +1,8 @@
 import React from 'react';
 
 
-export default class About extends React.Component {
+const About = () => {
 
-   
-
-    render() {
         return (
 
             <section className='about-flex-container'>
@@ -18,6 +15,6 @@ export default class About extends React.Component {
                         </div>
                 </div>
             </section>
-        )
-    }
-}
+        )}
+    
+        export default About;

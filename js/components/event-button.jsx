@@ -1,23 +1,24 @@
 import React from 'react';
 
-export default class EventButton extends React.Component {
+const EventButton = props => {
 
-    render() {
-
-        let imageSrc = ''
-        if (this.props.isClicked) {
-            imageSrc = '../icons/confirm.png';
-        } else {
-            imageSrc = `../icons/${this.props.buttonType}.png`;
-        }
-
-
-        return (
-
-            <button className='event-btn' id={`${this.props.buttonType}-btn`} onClick={this.props.onClick}>
-                <img src={imageSrc}/>
-                <span>{this.props.isClicked ? 'confirm' : this.props.buttonType}</span>
-            </button>
-        )
+    let imageSrc = ''
+    if (props.isClicked) {
+        imageSrc = '../icons/confirm.png';
+    } else {
+        imageSrc = `../icons/${props.buttonType}.png`;
     }
+
+    return (
+
+        <button
+            className='event-btn'
+            id={`${props.buttonType}-btn`}
+            onClick={props.onClick}>
+            <img src={imageSrc}/>
+            <span>{props.isClicked ? 'confirm' : props.buttonType}</span>
+        </button>
+    )
 }
+
+export default EventButton;
