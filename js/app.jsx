@@ -17,6 +17,7 @@ import NewEvent from './components/new-event.jsx';
 import Events from './components/events.jsx';
 import About from './components/about.jsx';
 import Footer from './components/footer.jsx';
+import DataBase from './components/db.jsx';
 
 document.addEventListener('DOMContentLoaded', function(){
     
@@ -68,6 +69,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
         // add user-created event to global event list (state)
 
+        // addNewEvent = (event) => {
+        //     const temporaryList = this.state.eventList.slice();
+        //     temporaryList.push(event);
+        //     this.setState({eventList: temporaryList});
+        // }
+
         addNewEvent = (event) => {
             const temporaryList = this.state.eventList.slice();
             temporaryList.push(event);
@@ -116,6 +123,53 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
         render() {
+
+            //temporary DB section
+
+            // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDb || window.msIndexedDB;
+
+            if (!('indexedDB' in window)) {
+                alert(
+                    "Your browser doesn't support IndexedDB! Your events will only be visible until'l you close your browser window" );
+                    return;
+            }
+        
+            let request = window.indexedDB.open('EventsDatabase', 1)
+            let db;
+            let tx;
+            let store;
+            let index;
+            
+            request.onupgradeneeded = e => { 
+                db = e.target.result;
+                store = db.createObjectStore('EventsStore', {keyPath: 'title'});
+                index = store.createIndex('title', 'title', {unique: true});
+            }
+            request.onerror = e => console.log('There was a database error:' + e.target.errorCode);
+
+            request.onsuccess = e => {
+                db = e.target.result;
+                tx = db.transaction('EventsStore', 'readwrite');               
+                store = tx.objectStore('EventsStore');
+                index = store.index('title');
+
+            //generic error handler - take care of error handling in on db level (reached after bubbling)
+            
+            db.onerror = e => console.log('There was a database error:' + e.target.errorCode);
+            let dbEventList = this.state.eventList.slice();
+            console.log(dbEventList)
+            dbEventList.map((item) => store.put(item ));
+
+            let event1 = store.get('sdd');
+            // let eventindex = index.get('Martian languauge classes');
+            
+            event1.onsuccess = () => console.log(event1.result);
+            // event1.onsuccess = () => console.log(event1.result.title);
+            // console.log(store[0])
+            tx.oncomplete = () => db.close();
+            }
+    
+
 
             //event rendering is based on eventList variable - if one of the categories has been clicked, overwrite eventList to render only filtered items
 
