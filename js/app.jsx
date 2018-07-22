@@ -61,31 +61,90 @@ document.addEventListener('DOMContentLoaded', function(){
 
             this.state = {
                 eventList: [this.exemplaryEvent1, this.exemplaryEvent2, this.exemplaryEvent3],
+                storedList: [],
                 planetClicked: false,
                 category: '',
                 searchInput: '',
             }
     }
 
-        // add user-created event to global event list (state)
 
-        // addNewEvent = (event) => {
-        //     const temporaryList = this.state.eventList.slice();
-        //     temporaryList.push(event);
-        //     this.setState({eventList: temporaryList});
-        // }
+        //indexedDB - open transaction to an item;
+
+        loadDB = () => {
+        
+            let request = window.indexedDB.open('EventsDatabase', 1)
+            let db;
+            let tx;
+            let store;
+            
+            request.onupgradeneeded = e => { 
+                db = e.target.result;
+                store = db.createObjectStore('EventsStore', {keyPath: 'title'});
+            }
+            request.onerror = e => console.log('There was a database error:' + e.target.errorCode);
+
+            request.onsuccess = e => {
+                db = e.target.result;
+                tx = db.transaction('EventsStore', 'readwrite');               
+                store = tx.objectStore('EventsStore');
+
+            //generic error handler - take care of error handling in on db level (reached after bubbling)
+            
+            db.onerror = e => console.log('There was a database error:' + e.target.errorCode);
+            let dbEventList = this.state.eventList.slice();
+            dbEventList.map((item) => store.put(item ));
+            let storedEventList = store.getAll()
+            storedEventList.onsuccess = () => this.setState({storedList: storedEventList.result},() => console.log(this.state.storedList)) ;
+            
+            tx.oncomplete = () => db.close();
+            }
+        }
+
+        //indexedDB - open transaction to remove item, function called in deleteEvent, with event title passed as parameter (IndexedDB store keyPath is also based on title;
+
+        removeFromDB = (recordToDelete) => {
+        
+            let request = window.indexedDB.open('EventsDatabase', 1)
+            let db;
+            let tx;
+            let store;
+            
+            request.onupgradeneeded = e => { 
+                db = e.target.result;
+                store = db.createObjectStore('EventsStore', {keyPath: 'title'});
+            }
+            request.onerror = e => console.log('There was a database error:' + e.target.errorCode);
+
+            request.onsuccess = e => {
+                db = e.target.result;
+                tx = db.transaction('EventsStore', 'readwrite');               
+                store = tx.objectStore('EventsStore');
+
+            //generic error handler - take care of error handling in on db level (reached after bubbling)
+            
+            db.onerror = e => console.log('There was a database error:' + e.target.errorCode);
+            store.delete(recordToDelete)
+            let storedEventList = store.getAll();
+            storedEventList.onsuccess = () => this.setState({storedList: storedEventList.result},() => console.log(this.state.storedList)) ;
+            
+            tx.oncomplete = () => db.close();
+            }
+        }
+
+        // add user-created event to global event list (state)
 
         addNewEvent = (event) => {
             const temporaryList = this.state.eventList.slice();
             temporaryList.push(event);
-            this.setState({eventList: temporaryList});
+            this.setState({eventList: temporaryList}, () => this.loadDB());
         }
 
         // delete user-created event (remove item from state's eventList array)
 
         deleteEvent = (eventToDelete) => {
             const newList = this.state.eventList.filter(item => item.title !== eventToDelete);
-            this.setState({eventList: newList});
+            this.setState({eventList: newList}, () => this.removeFromDB(eventToDelete));
         }
 
         // trigger open search box and display category-buttons
@@ -119,61 +178,30 @@ document.addEventListener('DOMContentLoaded', function(){
         // handle user input in search-box
 
         handleSearchInput = (userInput) => {
-            this.setState({searchInput: userInput }, () => console.log(this.state.searchInput));
+            this.setState({searchInput: userInput });
+        }
+
+
+        // load events from indexedDB
+
+        componentWillMount() {
+            this.loadDB();
         }
 
         render() {
 
-            //temporary DB section
-
-            // window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDb || window.msIndexedDB;
+            //check if user's browser supports IndexedDB
 
             if (!('indexedDB' in window)) {
                 alert(
                     "Your browser doesn't support IndexedDB! Your events will only be visible until'l you close your browser window" );
                     return;
             }
-        
-            let request = window.indexedDB.open('EventsDatabase', 1)
-            let db;
-            let tx;
-            let store;
-            let index;
-            
-            request.onupgradeneeded = e => { 
-                db = e.target.result;
-                store = db.createObjectStore('EventsStore', {keyPath: 'title'});
-                index = store.createIndex('title', 'title', {unique: true});
-            }
-            request.onerror = e => console.log('There was a database error:' + e.target.errorCode);
-
-            request.onsuccess = e => {
-                db = e.target.result;
-                tx = db.transaction('EventsStore', 'readwrite');               
-                store = tx.objectStore('EventsStore');
-                index = store.index('title');
-
-            //generic error handler - take care of error handling in on db level (reached after bubbling)
-            
-            db.onerror = e => console.log('There was a database error:' + e.target.errorCode);
-            let dbEventList = this.state.eventList.slice();
-            console.log(dbEventList)
-            dbEventList.map((item) => store.put(item ));
-
-            let event1 = store.get('sdd');
-            // let eventindex = index.get('Martian languauge classes');
-            
-            event1.onsuccess = () => console.log(event1.result);
-            // event1.onsuccess = () => console.log(event1.result.title);
-            // console.log(store[0])
-            tx.oncomplete = () => db.close();
-            }
     
 
-
             //event rendering is based on eventList variable - if one of the categories has been clicked, overwrite eventList to render only filtered items
-
-            let eventList = this.state.eventList;   
+            
+            let eventList = this.state.storedList; 
             if (this.state.category !== '' && this.state.planetClicked) {
                 eventList = eventList.filter(item => item.category === this.state.category);
             }
