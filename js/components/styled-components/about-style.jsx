@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+// import media function to allow RWD settings
+
 import {media} from './media';
 
 export const Section = styled.section `

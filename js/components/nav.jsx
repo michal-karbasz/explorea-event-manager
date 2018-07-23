@@ -5,6 +5,12 @@ import {Link} from 'react-router-dom';
 
 import Typer from './typer.jsx';
 
+// import styled components
+
+import {Section, FlexCol, Paragraph, Span, Image, FlexRow, RowParagraph} from './styled-components/nav-style.jsx';
+
+
+
 const Nav = () => {
 
     return (
