@@ -1,5 +1,9 @@
 import React from 'react';
 
+// import styled components
+
+import {H2} from './styled-components/nav-style.jsx';
+
 export default class Typer extends React.Component {
 
     state = {
@@ -8,7 +12,7 @@ export default class Typer extends React.Component {
     }
 
     render() {
-        return <h2>{this.state.text}</h2>
+        return <H2>{this.state.text}</H2>
     }
 
     componentDidMount() {
