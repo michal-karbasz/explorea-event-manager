@@ -46,7 +46,7 @@ header.flex-container {
             opacity: 0;
             width: 42px;
             height: 42px;
-            animation: ufoFlight 800ms infinite alternate ease-in-out;
+            animation: ufo-flight 800ms infinite alternate ease-in-out;
             animation-delay: 5s;
         }
     }
@@ -57,7 +57,7 @@ header.flex-container {
     }
 }
 
-@keyframes ufoFlight {
+@keyframes ufo-flight {
     0% {
         opacity: 1;
         transform: translate(10px,-2px);
