@@ -19,7 +19,7 @@ import NewEvent from './components/new-event.jsx';
 import Events from './components/events.jsx';
 import About from './components/about.jsx';
 import Footer from './components/footer.jsx';
-import theme from './components/styled-components/theme.jsx';
+import theme from './components/styled-components/theme.js';
 
 
 document.addEventListener('DOMContentLoaded', function(){
