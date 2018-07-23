@@ -49,9 +49,8 @@ document.addEventListener('DOMContentLoaded', function(){
                 this.organizer = organizer;
                 this.image = imgUrl;
                 this.category = category;
+                this.type = 'example'
             }
-    
-            ExemplaryEvent.prototype.type = 'example';
     
             //create three event instances to be displated by default
 
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         loadDB = () => {
         
-            let request = window.indexedDB.open('EventsDatabase', 1)
+            let request = window.indexedDB.open('EventsDatabase', 1);
             let db;
             let tx;
             let store;
@@ -92,9 +91,12 @@ document.addEventListener('DOMContentLoaded', function(){
             //generic error handler - take care of error handling in on db level (reached after bubbling)
             
             db.onerror = e => console.log('There was a database error:' + e.target.errorCode);
-            let dbEventList = this.state.eventList.slice();
+
+            //create a copy o state.eventList, put each item into store then transfer stored data into state.storedList
+
+            const dbEventList = this.state.eventList.slice();
             dbEventList.map((item) => store.put(item ));
-            let storedEventList = store.getAll()
+            const storedEventList = store.getAll()
             storedEventList.onsuccess = () => this.setState({storedList: storedEventList.result},() => console.log(this.state.storedList)) ;
             
             tx.oncomplete = () => db.close();
@@ -105,15 +107,11 @@ document.addEventListener('DOMContentLoaded', function(){
 
         removeFromDB = (recordToDelete) => {
         
-            let request = window.indexedDB.open('EventsDatabase', 1)
+            let request = window.indexedDB.open('EventsDatabase', 1);
             let db;
             let tx;
             let store;
             
-            request.onupgradeneeded = e => { 
-                db = e.target.result;
-                store = db.createObjectStore('EventsStore', {keyPath: 'title'});
-            }
             request.onerror = e => console.log('There was a database error:' + e.target.errorCode);
 
             request.onsuccess = e => {
@@ -124,8 +122,11 @@ document.addEventListener('DOMContentLoaded', function(){
             //generic error handler - take care of error handling in on db level (reached after bubbling)
             
             db.onerror = e => console.log('There was a database error:' + e.target.errorCode);
+
+            //delete record and refresh state
+
             store.delete(recordToDelete)
-            let storedEventList = store.getAll();
+            const storedEventList = store.getAll();
             storedEventList.onsuccess = () => this.setState({storedList: storedEventList.result},() => console.log(this.state.storedList)) ;
             
             tx.oncomplete = () => db.close();
@@ -181,7 +182,6 @@ document.addEventListener('DOMContentLoaded', function(){
             this.setState({searchInput: userInput });
         }
 
-
         // load events from indexedDB
 
         componentWillMount() {
@@ -198,7 +198,6 @@ document.addEventListener('DOMContentLoaded', function(){
                     return;
             }
     
-
             //event rendering is based on eventList variable - if one of the categories has been clicked, overwrite eventList to render only filtered items
             
             let eventList = this.state.storedList; 
