@@ -1,10 +1,10 @@
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
 
-// import media function to allow RWD settings
+// import media function to allow RWD settings + import animations
 
 import {media} from './media';
-import {hover, pulsate, point} from './keyframes.js';
+import {hover, point} from './keyframes.js';
 
 
 export const Header = styled.header `
@@ -63,8 +63,6 @@ export const MobileCol = Col.extend `
     ${media.tablet `visibility: visible`}
 `;
 
-
-
 export const StyledLink = styled(Link) `
     display: flex;
     flex-direction: column;
@@ -90,6 +88,8 @@ export const StyledLogoLink = StyledLink.extend `
     border: none;
 `;
 
+// Style text elements
+
 export const H2 = styled.h2 `
     margin-left: 10px;
     display: none;
@@ -114,7 +114,7 @@ export const SpanSeparator = Span.extend `
 
 `;
 
-// Style nav icons
+// Style icons
 
 export const Image = styled.img `
     width: 32px;

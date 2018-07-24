@@ -1,5 +1,9 @@
 import React from 'react';
 
+// import styled components
+
+import { CategoryBackground, CategoryImg, CategoryParagraph } from './styled-components/planet-style.jsx';
+
 const Planets = props => {
 
     const runFilterByCategory = (category) => () => {
@@ -8,20 +12,16 @@ const Planets = props => {
         }
     }
 
-    let categoryStyle = {
-        visibility: props.planetClicked ? 'visible' : 'hidden',
-    }
     return (
 
-        <div
-            className='planet-bkg-small'
+        <CategoryBackground
             src={props.img}
             onClick={runFilterByCategory(props.id)}
-            style={categoryStyle}>
-            <img src={`../icons/${props.img}.png`} className={props.id}/>
-            <p src={props.img}>{props.span}
-            </p>
-        </div>
+            planetClicked={props.planetClicked}>
+            <CategoryImg src={`../icons/${props.img}.png`} className={props.id}/>
+            <CategoryParagraph src={props.img}>{props.span}
+            </CategoryParagraph>
+        </CategoryBackground>
     )
 }
 
