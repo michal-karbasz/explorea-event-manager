@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 eventList: [this.exemplaryEvent1, this.exemplaryEvent2, this.exemplaryEvent3],
                 storedList: [],
                 planetClicked: false,
-                mobileMenu: true,
+                mobileMenu: false,
                 category: '',
                 searchInput: '',
             }

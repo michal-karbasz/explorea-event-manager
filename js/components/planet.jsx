@@ -37,15 +37,15 @@ const Planet = props => {
     return (
 
         <Section>
-                <Col>
+                <div>
                     <CategoryButtons>
                         <Planets planetClicked={props.planetClicked} id='education' img='planetary' span='alien education events' filterByCategory={props.filterByCategory}/>
                         <Planets planetClicked={props.planetClicked} id='flight' img='nebula' span='flight volounteers' filterByCategory={props.filterByCategory} />
                         <Planets planetClicked={props.planetClicked} id='meetings' img='alien_sad' span='alien meetings' filterByCategory={props.filterByCategory} />
                     </CategoryButtons>
-                </Col>
+                </div>
 
-                <div className="col">
+                <Col>
                     <SearchBoxBackground>
                         <PlanetImg
                             src='../icons/planet.png'
@@ -53,7 +53,7 @@ const Planet = props => {
                             onClick={runOpenSearchBox} 
                         />
                         <Paragraph onClick={runOpenSearchBox}>
-                            <Span>click</Span> to explore events
+                            <Span onClick={runOpenSearchBox}>click</Span> to explore events
                         </Paragraph>
 
                         <SearchBoxContainer
@@ -61,15 +61,14 @@ const Planet = props => {
                             onSubmit={runSubmit}>
                         <Input
                             maxLength='32'
-                            className='search-box'
                             placeholder='enter event name or city...'
                             onChange={runInputChange}/>
                         <SubmitButton type='submit' className='search-submit' value='show'/>
                         </SearchBoxContainer>
                     </SearchBoxBackground>
-                </div>
+                </Col>
 
-                <div className="col">
+                <div>
                     <CategoryButtons>
                         <Planets planetClicked={props.planetClicked} id='jobs' img='astronaut' span='NASA job interviews' filterByCategory={props.filterByCategory}/>
                         <Planets planetClicked={props.planetClicked} id='translation' img='alien_sleep' span='alien translation workshops' filterByCategory={props.filterByCategory} />

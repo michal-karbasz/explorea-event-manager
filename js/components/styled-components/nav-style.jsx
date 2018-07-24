@@ -25,7 +25,7 @@ export const Header = styled.header `
         border-radius: ${props => props.menuVisible ? '0' : '30%'};
         position: absolute;
         background-color: white;
-        opacity: ${props => props.menuVisible ? '0.9' : '0.5'};
+        opacity: ${props => props.menuVisible ? '0.7' : '0.3'};
         transition: 400ms;
         z-index: -1;
     }

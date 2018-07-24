@@ -9,36 +9,41 @@ import {media} from './media';
 // style containers
 
 export const Section = styled.section `
-    /* margin-left: 100px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    /* width: 100vw; */
     background-image: url("../images/background1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    ${media.tablet `
-        justify-content: center;
-        align-items: center;
+    position: relative;
+    z-index: 1;
+    &::after {
+        content: '';
+        width: 100vw;
+        height: 100%;
+        position: absolute;
+        background-color: white;
+        opacity: 0.5;
+        z-index: -1;
+    }
+    ${media.mobile `
+    `}
+    ${media.desktop `
         flex-direction: initial;
     `}
 `;
 
 export const Col = styled.div `
     display: flex;
-    order: 2;
+    order: -1;
     ${media.tablet `order: initial;`}
 `;
 
 export const SearchBoxBackground = styled.div `
-    background-color: white;
-    border: 5px double ${props => props.theme.colors.main};;
-    width: 360px;
-    height: 360px;
-    opacity: 0.9;
-    border-radius: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,6 +52,10 @@ export const SearchBoxBackground = styled.div `
     ${media.tablet `
         width: 420px;
         height: 420px;
+        background-color: white;
+        border: 5px double ${props => props.theme.colors.main};;
+        border-radius: 50%;
+        opacity: 0.9;
     `}
 `;
 
@@ -69,9 +78,13 @@ export const CategoryButtons = styled.div `
 
 export const PlanetImg = styled.img `
     transition: all 1s;
-    width: 192px;
-    height: 192px;
+    width: 150px;
+    height: 150px;
     transform: ${props => props.planetClicked ? 'scale(0.8)' : 'scale(1)'};
+    ${media.mobile `
+        width: 200px;
+        height: 200px;
+        `}
     ${media.tablet `
         width: 256px;
         height: 256px;
@@ -111,6 +124,7 @@ export const SubmitButton = styled.input `
     color: rgb(102, 97, 97);
     letter-spacing: 1px;
     transition: all 400ms;
+    margin: 10px;
     &:hover {
         background-color: ${props => props.theme.colors.main};
         border: 4px double white;
@@ -119,17 +133,16 @@ export const SubmitButton = styled.input `
     }
 `;
 
-
 // CATEGORY BUTTONS STYLE - planets.jsx
 
 export const CategoryBackground = styled.div `
     background-color: white;
-    width: 160px;
-    height: 160px;
+    width: 90px;
+    height: 90px;
     opacity: 0.9;
     border-radius: 50%;
     border: 3px double ${props => props.theme.colors.secondary};
-    margin: 15px 20px;
+    margin: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -144,19 +157,32 @@ export const CategoryBackground = styled.div `
         border-color: ${props => props.theme.colors.main};
         transition: 400ms;
     }
+    ${media.tablet `
+        width: 160px;
+        height: 160px;
+        background-color: white;
+        border: 5px double ${props => props.theme.colors.main};;
+        border-radius: 50%;
+        margin: 15px 20px;
+        opacity: 0.9;
+    `}
 `;
 
 export const CategoryImg = styled.img `
-    width: 64px;
-    height: 64px;
+    width: 40px;
+    height: 40px;
     ${media.tablet `
+        width: 64px;
+        height: 64px;
     `}
 `;
 
 export const CategoryParagraph = styled.p `
-    margin: 0 25px;
+    margin: 5px;
     color: rgb(63, 63, 63);
+    font-size: 0.5rem;
     ${media.tablet `
+    font-size: 0.rem;
     `}
 `;
 
