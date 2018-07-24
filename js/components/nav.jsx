@@ -6,40 +6,46 @@ import Typer from './typer.jsx';
 
 // import styled components
 
-import {Header, Col, Span, Image, StyledLink, StyledLogoLink, SpanNew, SpanSeparator, Logo, UFO} from './styled-components/nav-style.jsx';
+import {Header, Col, MobileCol, Span, Image, Arrow, StyledLink, StyledLogoLink, SpanNew, SpanSeparator, UFO} from './styled-components/nav-style.jsx';
 
 
+const Nav = props => {
 
-const Nav = () => {
+    const runShowMenu = () => {
+        if (typeof props.showMobileMenu === 'function') {
+            props.showMobileMenu();
+        }
+    }
 
     return (
 
-        <Header>
+        <Header menuVisible={props.menuVisible}>
 
             <Col>
-                <StyledLogoLink to="/">
-                    <Logo src='../icons/satellite_dish.png'/>
-                    <Span>explorea</Span>
+                <StyledLogoLink to="/" replace onClick={runShowMenu} >
+                    <Image src='../icons/satellite_dish.png' />
+                    <Span >{props.menuVisible ? 'explorea' : 'explore'}</Span>
                 </StyledLogoLink>
+                    <Arrow menuVisible={props.menuVisible} src='../icons/arrow.png' />
                 <SpanSeparator>|</SpanSeparator>
-                <Typer text="Cause we're not alone anymore..."/>
+                <Typer text="Cause we're not alone anymore..." />
                 <UFO src='../icons/ufo.png'/>
             </Col>
 
-            <Col>
+            <MobileCol menuVisible={props.menuVisible}>
                 <StyledLink to="/newEvent">
-                    <Image src='../icons/space_shuttle2.png'/>
+                    <Image src='../icons/space_shuttle2.png' />
                     <SpanNew>new</SpanNew>
                 </StyledLink>
                 <SpanSeparator>|</SpanSeparator>
-                <StyledLink to="/">
-                    <Image src='../icons/explorer.png'/>
+                <StyledLink replace to="/">
+                    <Image src='../icons/explorer.png' />
                     <Span>browse</Span>
                 </StyledLink>
                 <StyledLink to="/about">
                     <Span>about</Span>
                 </StyledLink>
-            </Col>
+            </MobileCol>
 
         </Header>
     )

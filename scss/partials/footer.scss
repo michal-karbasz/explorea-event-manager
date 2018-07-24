@@ -1,9 +1,11 @@
 
 footer.flex-container {
+    position: relative;
     background-color: lightgray;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    z-index: 11;
     .col {
         display: flex;
         align-items: center;

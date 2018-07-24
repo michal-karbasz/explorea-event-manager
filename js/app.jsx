@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 eventList: [this.exemplaryEvent1, this.exemplaryEvent2, this.exemplaryEvent3],
                 storedList: [],
                 planetClicked: false,
+                mobileMenu: true,
                 category: '',
                 searchInput: '',
             }
@@ -139,6 +140,12 @@ document.addEventListener('DOMContentLoaded', function(){
             this.setState({eventList: newList}, () => this.removeFromDB(eventToDelete));
         }
 
+        // trigger open/close mobile menu
+
+        showMobileMenu = () => {
+            this.setState ({mobileMenu: !this.state.mobileMenu});
+        }
+
         // trigger open search box and display category-buttons
 
         openSearchBox = () => {
@@ -206,7 +213,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 <ThemeProvider theme={theme} >
                     <HashRouter>
                         <div>
-                            <Nav />
+                            <Nav showMobileMenu={this.showMobileMenu} menuVisible={this.state.mobileMenu}/>
                             <Switch>
                                 <Route
                                     exact path='/' render={(props) => <Planet {...props}
@@ -223,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                     eventList={this.state.eventList}
                                     addNewEvent={this.addNewEvent}/>
                                 } />
-                                <Route path="/about" render={(props) => <About {...props}  /> } /> 
+                                <Route path='/about' component={About} />
                             </Switch>
                             
                             <Events eventList={eventList} addNewEvent={this.addNewEvent} deleteEvent={this.deleteEvent}/>

@@ -4,27 +4,46 @@ import styled from 'styled-components';
 // import media function to allow RWD settings
 
 import {media} from './media';
-import {hover} from './keyframes.js';
+import {hover, pulsate, point} from './keyframes.js';
 
 
 export const Header = styled.header `
-    position: fixed;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
-    z-index: 10;
-    height: 100%;
+    position: fixed;
+    z-index: 2;
+    left: ${props => props.menuVisible ? '0' : '15px'};
+    top: ${props => props.menuVisible ? '0' : '15px'};
+    height: ${props => props.menuVisible ? '100%' : 'unset'};
+    transition: all 200ms;
+    &::after {
+        content: '';
+        width: 90px;
+        height: ${props => props.menuVisible ? '100%' : '80px'};
+        border: ${props => props.menuVisible ? 'none' : `2px solid ${props.theme.colors.complementary}`};
+        border-radius: ${props => props.menuVisible ? '0' : '30%'};
+        position: absolute;
+        background-color: white;
+        opacity: ${props => props.menuVisible ? '0.9' : '0.5'};
+        transition: 400ms;
+        z-index: -1;
+    }
     ${media.tablet `
+        background-color: white;
         flex-direction: row;
         align-items: flex-end;
         justify-content: space-between;
-        position: fixed;
         margin-bottom: 5px;
-        max-width: initial;
         width: 100%;
         height: initial;
-        opacity: .9;
+        top: initial;
+        left: initial;
+        border-bottom: 1px solid ${props => props.theme.colors.complementary};
+        &::after {
+            border: none;
+            height: 80px;
+        }
     `}
 `;
 
@@ -39,15 +58,22 @@ export const Col = styled.div `
     `}
 `;
 
+export const MobileCol = Col.extend `
+    visibility: ${props => props.menuVisible ? 'visible' : 'hidden'};
+    ${media.tablet `visibility: visible`}
+`;
+
+
+
 export const StyledLink = styled(Link) `
-    height: 70px;
-    width: 70px;
-    text-decoration: none;
-    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 70px;
+    width: 70px;
+    text-decoration: none;
+    color: black;
     border: 3px double ${props => props.theme.colors.main};
     border-radius: 20%;
     margin: 10px 5px;
@@ -88,6 +114,8 @@ export const SpanSeparator = Span.extend `
 
 `;
 
+// Style nav icons
+
 export const Image = styled.img `
     width: 32px;
     height: 32px;
@@ -97,8 +125,11 @@ export const Image = styled.img `
     `}
 `;
 
-export const Logo = Image.extend `
-    transform: rotate(270deg);
+export const Arrow = Image.extend `
+    display: ${props => props.menuVisible ? 'none' : 'block'};
+    animation: ${point} 800ms infinite alternate;
+    ${media.tablet `display: none;`}
+    
 `;
 
 export const UFO = Image.extend `
@@ -110,10 +141,5 @@ export const UFO = Image.extend `
         animation-delay: 5s;
     `}
     
-`;
-
-export const Menu = styled.div `
-        display: flex;
-        align-items: flex-end;
 `;
 
