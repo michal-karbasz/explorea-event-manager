@@ -17,7 +17,8 @@ const EventButton = props => {
 
         <EventButtons
             id={`${props.buttonType}-btn`}
-            onClick={props.onClick}>
+            onClick={props.onClick}
+            buttonType={props.buttonType}>
             <EventButtonIcon src={imageSrc}/>
             <EventButtonSpan>{props.isClicked ? 'confirm' : props.buttonType}</EventButtonSpan>
         </EventButtons>

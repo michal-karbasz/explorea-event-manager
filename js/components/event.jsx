@@ -7,7 +7,7 @@ import Category from './category-button.jsx';
 
 // import styled components
 
-import { EventContainer, EventImage, EventDescriptionContainer, DescriptionHeader, DescriptionTextarea, EventInnerContainer1, EventInnerContainer2, EventIcon, EventSpan, EventInput, EventOrganizerIcon, EventInput2, CategoryImg, EventDate, EventHour, EventLocation2} from './styled-components/event-style.jsx';
+import { EventContainer, EventImage, EventDescriptionContainer, DescriptionHeader, DescriptionTextarea, EventInnerContainer1, EventInnerContainer2, EventIcon, EventSpan, EventInput, EventOrganizerIcon, EventInput2, CategoryImg, EventDate, EventHour, EventLocation2, EventTitle, DeleteButton, UrlField, DeleteConfirmContainer, DeleteConfirmCol, DeleteConfirmParagraph, DeleteConfirmButton, UrlFieldInput, UrlFieldSpan} from './styled-components/event-style.jsx';
 
 export default class Event extends React.Component {
     
@@ -91,13 +91,13 @@ export default class Event extends React.Component {
             }
         }
 
-        const urlStyle = {
-            display: this.state.editClicked ? 'block' : 'none',
-        }
+        // const urlStyle = {
+        //     display: this.state.editClicked ? 'block' : 'none',
+        // }
 
-        const confirmStyle = {
-            display: this.state.deleteClicked ? 'block' : 'none',
-        }
+        // const confirmStyle = {
+        //     display: this.state.deleteClicked ? 'block' : 'none',
+        // }
         
         return (
 
@@ -110,10 +110,10 @@ export default class Event extends React.Component {
                 {/* render event description section */}
 
                 <EventDescriptionContainer editClicked={this.state.editClicked} >
-                    <div className='description-col' id='description-container'>
+                    <div>
                         <DescriptionHeader>About:</DescriptionHeader>
                         <DescriptionTextarea
-                            className={`description ${this.state.editClicked ? 'textarea-short': null}`}
+                            editClicked={this.state.editClicked}
                             cols='34'
                             rows='9'
                             disabled={!this.state.editClicked}
@@ -140,20 +140,21 @@ export default class Event extends React.Component {
 
                 {/* render delete are-you-sure? buttons */}
 
-                <div className='delete-confirm' style={confirmStyle}>
-                    <div className='description-col'>
-                        <p>Do you really want to delete your event?</p>
-                        <button className='event-btn' onClick={this.handleDeleteEvent (this.props.title)}>YES</button>
-                        <button className='event-btn' onClick={this.handleDeleteClicked}>NO</button>
-                    </div>
-                </div>
+                <DeleteConfirmContainer deleteClicked={this.state.deleteClicked}>
+                    <DeleteConfirmCol>
+                        <DeleteConfirmParagraph>Do you really want to delete your event?</DeleteConfirmParagraph>
+                        <DeleteConfirmButton className='event-btn' onClick={this.handleDeleteEvent (this.props.title)}>YES</DeleteConfirmButton>
+                        <DeleteConfirmButton className='event-btn' onClick={this.handleDeleteClicked}>NO</DeleteConfirmButton>
+                    </DeleteConfirmCol>
+                </DeleteConfirmContainer>
 
                 {/* render category img */}
 
                 <CategoryImg
                     src={categorySrc}
                     id='category-img'
-                    className={`category ${this.state.categoryClicked && this.state.editClicked ? 'category-moved': null}`}
+                    categoryClicked={this.state.categoryClicked}
+                    editClicked={this.state.editClicked}
                     onClick={this.state.editClicked ? this.handleCategoryClicked : null}
                     alt='category icon'/>
 
@@ -164,7 +165,7 @@ export default class Event extends React.Component {
                 {/* render main event data */}
 
                 <EventInnerContainer1>
-                    <EventInput
+                    <EventTitle
                         className='title'
                         disabled={!this.state.editClicked}
                         id='eventTitle'
@@ -221,13 +222,13 @@ export default class Event extends React.Component {
                 
                 {/* on edit click display url input field to replace background image */}
 
-                <div style={urlStyle} className='url-field'>
-                    <span>Paste new image url here: </span>
-                    <input 
+                <UrlField editClicked={this.state.editClicked}>
+                    <UrlFieldSpan>Paste new image url here: </UrlFieldSpan>
+                    <UrlFieldInput 
                         disabled={!this.state.editClicked}
                         name='image'
                         onChange={this.handleInputChange} />
-                </div>
+                </UrlField>
             </EventContainer>
 
         )

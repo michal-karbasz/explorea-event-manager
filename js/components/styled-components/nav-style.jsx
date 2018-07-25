@@ -12,7 +12,7 @@ export const Header = styled.header `
     flex-direction: column;
     align-items: center;
     position: fixed;
-    z-index: 2;
+    z-index: 6;
     left: ${props => props.menuVisible ? '0' : '15px'};
     top: ${props => props.menuVisible ? '0' : '15px'};
     height: ${props => props.menuVisible ? '100%' : 'unset'};
@@ -84,8 +84,24 @@ export const StyledLink = styled(Link) `
     `}
 `;
 
-export const StyledLogoLink = StyledLink.extend `
-    border: none;
+export const Logo = styled.div `
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70px;
+    width: 70px;
+    text-decoration: none;
+    color: black;
+    border-radius: 20%;
+    margin: 10px 5px;
+    ${media.tablet `
+        height: unset;
+        width: unset;
+        border: none;
+        flex-direction: initial;
+        margin: 5px;
+    `}
 `;
 
 // Style text elements

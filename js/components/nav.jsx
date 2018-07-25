@@ -6,7 +6,7 @@ import Typer from './typer.jsx';
 
 // import styled components
 
-import {Header, Col, MobileCol, Span, Image, Arrow, StyledLink, StyledLogoLink, SpanNew, SpanSeparator, UFO} from './styled-components/nav-style.jsx';
+import {Header, Col, MobileCol, Span, Image, Arrow, StyledLink, Logo, SpanNew, SpanSeparator, UFO} from './styled-components/nav-style.jsx';
 
 
 const Nav = props => {
@@ -22,10 +22,10 @@ const Nav = props => {
         <Header menuVisible={props.menuVisible}>
 
             <Col>
-                <StyledLogoLink to="/" replace onClick={runShowMenu} >
+                <Logo onClick={runShowMenu} >
                     <Image src='../icons/satellite_dish.png' />
                     <Span >{props.menuVisible ? 'explorea' : 'explore'}</Span>
-                </StyledLogoLink>
+                </Logo>
                     <Arrow menuVisible={props.menuVisible} src='../icons/arrow.png' />
                 <SpanSeparator>|</SpanSeparator>
                 <Typer text="Cause we're not alone anymore..." />
