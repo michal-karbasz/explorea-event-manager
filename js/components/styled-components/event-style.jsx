@@ -33,8 +33,8 @@ export const EventDescriptionContainer = styled.div `
     opacity: 0.8;
     animation: ${props => props.editClicked ? `${slideUpMobile} 500ms 1 normal forwards` : 'none'};
     ${media.mobile `
-    animation: ${props => props.editClicked ? `${slideUp} 500ms 1 normal forwards` : 'none'};
-    max-height: 283.5px;
+    animation: ${props => (props.editClicked && props.categoryClicked === false) ? `${slideUp} 500ms 1 normal forwards` : 'none'};
+    max-height: 252px;
     max-width: 378px;
     `}
 `;
@@ -73,6 +73,7 @@ export const EventContainer = styled.div `
         height: 76px;
         top: -52px;
         left: -42px;
+        border: 1px solid paleturquoise;
     }
     `}
 `;
@@ -176,7 +177,7 @@ export const UrlField = styled.div `
     font-size: 1rem;
     z-index: 1;
     animation: ${slideRight} 1s 1 normal forwards;
-    display: ${props => props.editClicked ? 'flex' : 'none'};
+    display: ${props => (props.editClicked && props.categoryClicked === false) ? 'flex' : 'none'};
     align-items: center;
     ${media.mobile `
     max-width: 381.5px;
@@ -214,10 +215,10 @@ export const CategoryImg = styled.img `
     }
     ${media.mobile `
     animation: ${props => props.editClicked && props.categoryClicked ? `${moveCategory} 800ms 1 normal forwards` : 'none'};
-    width: 58px;
-    height: 58px;
-    top: -42px;
-    left: -32px;
+    width: 61px;
+    height: 61px;
+    top: -44px;
+    left: -34px;
     `}
 `;
 
@@ -258,9 +259,9 @@ export const DescriptionTextarea = styled.textarea `
     max-height: 230px;
     min-width: ${`${maxWidth -30}px`};
     max-width: ${`${maxWidth -30}px`};
-    animation: ${props => props.editClicked ? `${textareaMobile} 400ms 1 forwards` : 'none'};
+    animation: ${props => (props.editClicked && props.categoryClicked === false)  ? `${textareaMobile} 400ms 1 forwards` : 'none'};
     ${media.mobile `
-    animation: ${props => props.editClicked ? `${textarea} 400ms 1 forwards` : 'none'};
+    animation: ${props => (props.editClicked && props.categoryClicked === false) ? `${textarea} 400ms 1 forwards` : 'none'};
     min-width: 350px;
     max-width: 350px;
     font-size: 1.1rem;
@@ -281,7 +282,7 @@ export const EventSpan = styled.span `
 
 export const EventInput = styled.input `
     font-family: 'Titillium Web', sans-serif;
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-left: 10px;
     border: none;
     background-color: transparent;
@@ -350,7 +351,7 @@ export const UrlFieldInput = styled.input `
     font-family: 'Titillium Web', sans-serif;
     font-size: 14px;
     overflow: hidden;
-    /* min-width: 180px; */
+    min-width: 120px;
     max-width: 120px;
     color: grey;
     border: 1px dotted ${props => props.theme.colors.main};
@@ -360,7 +361,8 @@ export const UrlFieldInput = styled.input `
     opacity: 0;
     animation: ${fadeIn} 1s 1 normal forwards;
     animation-delay: 700ms;
-    ${media.mobile `
-        max-width: 200px;
+    ${media.tablet `
+        min-width: 180px;
+        max-width: 180px;
     `}
 `;

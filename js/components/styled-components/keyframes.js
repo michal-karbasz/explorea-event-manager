@@ -68,8 +68,8 @@ export const textarea = keyframes`
         max-height: 350px;
     }
     100% {
-        min-height: 130px;
-        max-height: 130px;
+        min-height: 140px;
+        max-height: 140px;
     }
 `
 
@@ -79,8 +79,8 @@ export const textareaMobile = keyframes`
         max-height: 230px;
     }
     100% {
-        min-height: 130px;
-        max-height: 130px;
+        min-height: 144px;
+        max-height: 144px;
     }
 `
 

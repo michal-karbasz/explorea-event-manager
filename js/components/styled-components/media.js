@@ -2,7 +2,7 @@
 import {css} from 'styled-components';
 
 export const sizes = {
-    xl: 1201,
+    xl: 1440,
     desktop: 1025,
     tablet: 768,
     mobile: 420

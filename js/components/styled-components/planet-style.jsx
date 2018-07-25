@@ -30,9 +30,18 @@ export const HeroSection = styled.section `
         opacity: 0.5;
         z-index: -1;
     }
-    ${media.mobile `
+    ${media.tablet `
+        &::after {
+            content: '';
+            width: 100vw;
+            height: 100%;
+            position: absolute;
+            background-color: white;
+            opacity: 0;
+            z-index: -1;
+        }
     `}
-    ${media.desktop `
+    ${media.xl `
         flex-direction: initial;
     `}
 `;
@@ -40,7 +49,7 @@ export const HeroSection = styled.section `
 export const Col = styled.div `
     display: flex;
     order: -1;
-    ${media.tablet `order: initial;`}
+    ${media.xl `order: initial;`}
 `;
 
 export const SearchBoxBackground = styled.div `
@@ -50,6 +59,15 @@ export const SearchBoxBackground = styled.div `
     justify-content: center;
     text-align: center;
     ${media.tablet `
+        margin-top: 60px;
+        width: 400px;
+        height: 400px;
+        background-color: white;
+        border: 5px double ${props => props.theme.colors.main};
+        border-radius: 50%;
+        opacity: 0.9;
+    `}
+    ${media.xl `
         width: 420px;
         height: 420px;
         background-color: white;
@@ -86,9 +104,13 @@ export const PlanetImg = styled.img `
         height: 200px;
         `}
     ${media.tablet `
-        width: 256px;
-        height: 256px;
+        width: 240px;
+        height: 240px;
         `}
+    ${media.xl `
+        width: 270px;
+        height: 270px;
+    `}
 `;
 
 // style text
@@ -97,6 +119,7 @@ export const Paragraph = styled.p `
     font-size: 1.8rem;
     padding: 5px;
     color: rgb(63, 63, 63);
+    display: ${props => props.planetClicked ? 'none' : 'flex'}
 `;
 
 export const Span = styled.span `
@@ -157,20 +180,25 @@ export const CategoryBackground = styled.div `
         border-color: ${props => props.theme.colors.main};
         transition: 400ms;
     }
+    ${media.mobile `
+        width: 120px;
+        height: 120px;
+    `}
     ${media.tablet `
         width: 160px;
         height: 160px;
-        background-color: white;
         border: 5px double ${props => props.theme.colors.main};;
-        border-radius: 50%;
-        margin: 15px 20px;
-        opacity: 0.9;
+        margin: 10px 30px;
     `}
 `;
 
 export const CategoryImg = styled.img `
     width: 40px;
     height: 40px;
+    ${media.mobile `
+        width: 52px;
+        height: 52px;
+    `}
     ${media.tablet `
         width: 64px;
         height: 64px;
@@ -181,8 +209,11 @@ export const CategoryParagraph = styled.p `
     margin: 5px;
     color: rgb(63, 63, 63);
     font-size: 0.5rem;
+    ${media.mobile `
+    font-size: 0.7rem;
+    `}
     ${media.tablet `
-    font-size: 0.rem;
+    font-size: 1rem;
     `}
 `;
 

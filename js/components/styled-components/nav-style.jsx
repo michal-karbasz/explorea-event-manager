@@ -14,9 +14,12 @@ export const Header = styled.header `
     position: fixed;
     z-index: 6;
     left: ${props => props.menuVisible ? '0' : '15px'};
-    top: ${props => props.menuVisible ? '0' : '15px'};
-    height: ${props => props.menuVisible ? '100%' : 'unset'};
+    top: ${props => props.menuVisible ? '0' : '10px'};
+    height: ${props => props.menuVisible ? '100%' : '120px'};
     transition: all 200ms;
+    ${media.tablet `
+        height: ${props => props.menuVisible ? '100%' : 'unset'};
+    `}
     &::after {
         content: '';
         width: 90px;
@@ -30,6 +33,7 @@ export const Header = styled.header `
         z-index: -1;
     }
     ${media.tablet `
+        opacity: 0.9;
         background-color: white;
         flex-direction: row;
         align-items: flex-end;
@@ -39,7 +43,6 @@ export const Header = styled.header `
         height: initial;
         top: initial;
         left: initial;
-        border-bottom: 1px solid ${props => props.theme.colors.complementary};
         &::after {
             border: none;
             height: 80px;
@@ -59,8 +62,8 @@ export const Col = styled.div `
 `;
 
 export const MobileCol = Col.extend `
-    visibility: ${props => props.menuVisible ? 'visible' : 'hidden'};
-    ${media.tablet `visibility: visible`}
+    display: ${props => props.menuVisible ? 'block' : 'none'};
+    ${media.tablet `display: flex`}
 `;
 
 export const StyledLink = styled(Link) `
@@ -74,7 +77,7 @@ export const StyledLink = styled(Link) `
     color: black;
     border: 3px double ${props => props.theme.colors.main};
     border-radius: 20%;
-    margin: 10px 5px;
+    margin: 10px 10px;
     ${media.tablet `
         height: unset;
         width: unset;
@@ -110,7 +113,7 @@ export const H2 = styled.h2 `
     margin-left: 10px;
     display: none;
     margin: 5px;
-    ${media.tablet `display:block;`}
+    ${media.desktop `display:block;`}
 `;
 
 export const Span = styled.span `

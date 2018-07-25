@@ -109,10 +109,11 @@ export default class Event extends React.Component {
 
                 {/* render event description section */}
 
-                <EventDescriptionContainer editClicked={this.state.editClicked} >
+                <EventDescriptionContainer categoryClicked={this.state.categoryClicked} editClicked={this.state.editClicked} >
                     <div>
                         <DescriptionHeader>About:</DescriptionHeader>
                         <DescriptionTextarea
+                            categoryClicked={this.state.categoryClicked}
                             editClicked={this.state.editClicked}
                             cols='34'
                             rows='9'
@@ -222,7 +223,7 @@ export default class Event extends React.Component {
                 
                 {/* on edit click display url input field to replace background image */}
 
-                <UrlField editClicked={this.state.editClicked}>
+                <UrlField editClicked={this.state.editClicked} categoryClicked={this.state.categoryClicked}>
                     <UrlFieldSpan>Paste new image url here: </UrlFieldSpan>
                     <UrlFieldInput 
                         disabled={!this.state.editClicked}

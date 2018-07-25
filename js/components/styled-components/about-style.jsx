@@ -23,7 +23,7 @@ export const FlexCol = styled.div `
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    border: 4px double ${props => props.theme.colors.main};
+    border: 1px solid ${props => props.theme.colors.main};
     background-color: ${props => props.theme.colors.secondary};
     opacity: 0.9;
     ${media.tablet `flex-direction: initial;`}
@@ -59,4 +59,8 @@ export const Image = styled.img `
 
 export const RowParagraph = styled.div `
     padding: 25px 35px;
+`;
+
+export const ColorSpan = styled.span `
+    color: ${props => props.theme.colors.main};
 `;

@@ -50,8 +50,8 @@ const Planet = props => {
                             planetClicked={props.planetClicked}
                             onClick={runOpenSearchBox} 
                         />
-                        <Paragraph onClick={runOpenSearchBox}>
-                            <Span onClick={runOpenSearchBox}>click</Span> to explore events
+                        <Paragraph planetClicked={props.planetClicked} onClick={runOpenSearchBox}>
+                            <Span onClick={runOpenSearchBox}>click&nbsp;</Span>to explore events
                         </Paragraph>
 
                         <SearchBoxContainer
@@ -68,7 +68,7 @@ const Planet = props => {
 
                 <div>
                     <CategoryButtons>
-                        <Planets planetClicked={props.planetClicked} id='jobs' img='astronaut' span='NASA job interviews' filterByCategory={props.filterByCategory}/>
+                        <Planets planetClicked={props.planetClicked} id='jobs' img='astronaut' span='NASA jobs' filterByCategory={props.filterByCategory}/>
                         <Planets planetClicked={props.planetClicked} id='translation' img='alien_sleep' span='alien translation workshops' filterByCategory={props.filterByCategory} />
                     </CategoryButtons>
                 </div>
