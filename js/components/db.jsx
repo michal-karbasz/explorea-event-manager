@@ -62,7 +62,7 @@ const DataBase = () => {
 
             store.delete(recordToDelete)
             const storedEventList = store.getAll();
-            storedEventList.onsuccess = () => this.setState({storedList: storedEventList.result},() => console.log(this.state.storedList)) ;
+            storedEventList.onsuccess = () => this.setState({storedList: storedEventList.result}) ;
             
             tx.oncomplete = () => db.close();
             }

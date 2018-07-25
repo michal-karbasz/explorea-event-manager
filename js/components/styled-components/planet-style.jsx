@@ -99,6 +99,9 @@ export const PlanetImg = styled.img `
     width: 150px;
     height: 150px;
     transform: ${props => props.planetClicked ? 'scale(0.8)' : 'scale(1)'};
+    &:hover {
+        cursor: pointer;
+    }
     ${media.mobile `
         width: 200px;
         height: 200px;
@@ -120,6 +123,9 @@ export const Paragraph = styled.p `
     padding: 5px;
     color: rgb(63, 63, 63);
     display: ${props => props.planetClicked ? 'none' : 'flex'}
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 export const Span = styled.span `
@@ -153,6 +159,7 @@ export const SubmitButton = styled.input `
         border: 4px double white;
         color: white;
         transition: 400ms;
+        cursor: pointer;
     }
 `;
 

@@ -27,8 +27,8 @@ export const Header = styled.header `
         border: ${props => props.menuVisible ? 'none' : `2px solid ${props.theme.colors.complementary}`};
         border-radius: ${props => props.menuVisible ? '0' : '30%'};
         position: absolute;
-        background-color: white;
-        opacity: ${props => props.menuVisible ? '0.7' : '0.3'};
+        background-color: ${props => props.theme.colors.complementary};
+        opacity: ${props => props.menuVisible ? '0.9' : '0.4'};
         transition: 400ms;
         z-index: -1;
     }
@@ -46,6 +46,9 @@ export const Header = styled.header `
         &::after {
             border: none;
             height: 80px;
+            width: 138px;
+            border-radius: 0;
+            background-color: white;
         }
     `}
 `;
@@ -75,7 +78,7 @@ export const StyledLink = styled(Link) `
     width: 70px;
     text-decoration: none;
     color: black;
-    border: 3px double ${props => props.theme.colors.main};
+    border: 3px double ${props => props.theme.colors.secondary};
     border-radius: 20%;
     margin: 10px 10px;
     ${media.tablet `
@@ -104,7 +107,7 @@ export const Logo = styled.div `
         width: unset;
         border: none;
         flex-direction: initial;
-        margin: 5px 5px 2px 5px;
+        margin: 5px 5px 0 5px;
     `}
 `;
 
@@ -113,7 +116,7 @@ export const Logo = styled.div `
 export const H2 = styled.h2 `
     margin-left: 10px;
     display: none;
-    margin: 5px;
+    /* margin: px; */
     ${media.desktop `display:block;`}
 `;
 

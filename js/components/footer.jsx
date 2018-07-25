@@ -1,15 +1,17 @@
 import React from 'react';
 
+import { AppFooter, FooterCol, FooterImg, FooterSpan } from './styled-components/footer-style.jsx';
+
 const Footer = () => {
 
     return (
 
-        <footer className='flex-container'>
-            <div className="col">
-                    <img src='../icons/robot.png' />
-                    <p>&copy; 2018<span className='coloured'> explorea</span> </p>
-            </div>
-        </footer>
+        <AppFooter>
+            <FooterCol>
+                    <FooterImg src='../icons/robot.png' />
+                    <p>&copy; 2018<FooterSpan> explorea </FooterSpan> </p>
+            </FooterCol>
+        </AppFooter>
     )
 }
 

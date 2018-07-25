@@ -7,10 +7,19 @@ import {slideRight, slideUp, fadeIn, moveCategory, moveCategoryMobile, slideRigh
 
 // MAIN CONTAINER (SECTION)
 
+export const FlexContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+`
+
 export const EventSection = styled.section `
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     ${media.tablet `justify-content: space-around;`}
 `;
 
@@ -130,6 +139,7 @@ export const DeleteConfirmButton = styled.button `
         background-color: ${props => props.theme.colors.main};
         border: 4px double white;
         color: white;
+        cursor: pointer;
     }
     ${media.mobile `
         width: 120px;
@@ -193,7 +203,6 @@ export const EventImage = styled.img `
     width: 378px;
     height: 283.5;
     `}
-    
 `;
 
 export const EventIcon = styled.img `
@@ -236,6 +245,12 @@ export const EventOrganizerIcon = styled.img `
 `;
 
 // style text
+
+export const H1 = styled.h1 `
+    color: ${props => props.theme.colors.complementary};
+    font-size: 3rem;
+    border-bottom: 4px double ${props => props.theme.colors.complementary};
+    `
 
 export const DescriptionHeader = styled.p `
     margin: 10px 15px;

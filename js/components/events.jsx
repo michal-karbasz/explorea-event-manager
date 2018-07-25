@@ -6,7 +6,7 @@ import Event from './event.jsx';
 
 // import styled components
 
-import {EventSection} from './styled-components/event-style.jsx';
+import {EventSection, FlexContainer, H1} from './styled-components/event-style.jsx';
 
 const Events = props => {
 
@@ -29,14 +29,16 @@ const Events = props => {
         )
 
     return (
+        <FlexContainer>
+            <H1>EVENTS</H1>
+            <EventSection>
 
-        <EventSection>
-         {/* <section className='event-flex-container' id='event-section'> */}
+                {/* render 3 example events + user-created ones */} 
 
-            {/* render 3 example events + user-created ones */} 
-            {UserEvents}
+                {UserEvents}
 
-        </EventSection>
+            </EventSection>
+        </FlexContainer>
     )
 }
 
