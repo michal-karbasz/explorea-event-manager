@@ -34,3 +34,12 @@ export const point = keyframes `
     transform: translate(0, 30%);
 }
 `
+
+export const fadeInCategory = keyframes`
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+`

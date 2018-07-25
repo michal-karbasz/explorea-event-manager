@@ -8,7 +8,7 @@ import {media} from './media';
 
 // style containers
 
-export const Section = styled.section `
+export const HeroSection = styled.section `
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,7 +53,7 @@ export const SearchBoxBackground = styled.div `
         width: 420px;
         height: 420px;
         background-color: white;
-        border: 5px double ${props => props.theme.colors.main};;
+        border: 5px double ${props => props.theme.colors.main};
         border-radius: 50%;
         opacity: 0.9;
     `}

@@ -1,5 +1,9 @@
 import React from 'react';
 
+// import styled components
+
+import { CategoryButton, CategoryImg, CategoryParagraph, Nebula } from './styled-components/category-buttons-style.jsx';
+
 const Category = (props) => {
 
     // use currying to pass category img props
@@ -9,20 +13,38 @@ const Category = (props) => {
             props.handleCategoryChange(category);
         }
     }
+
+    let top = '40px';
+    let left = '25px';
+
+    if (props.img == 'nebula') {
+        top = '-10px';
+        left = '118px';
+    } else if (props.img == 'alien_sad') {
+        top = '40px';
+        left = '215px';
+    } else if (props.img == 'astronaut') {
+        top = '130px';
+        left = '255px';
+    } else if (props.img == 'alien_sleep') {
+        top = '130px';
+        left = '-7px';
+    }
+
     return (
 
-        <div
-            className={`category-btn ${props.img}`}
+        <CategoryButton
             src={props.img}
             onClick={runCategoryChange(props.span)}
-            style={{ display: props.visible }}>
+            top={top} left={left}
+            >
 
-            <img src={`../icons/${props.img}.png`}/>
-            <p>
+            <CategoryImg src={`../icons/${props.img}.png`}/>
+            <CategoryParagraph>
                 {props.span}
-            </p>
+            </CategoryParagraph>
 
-        </div>
+        </CategoryButton>
     )
 }
 

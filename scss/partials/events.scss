@@ -1,114 +1,111 @@
 
-.event-flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    @include desktop {
-        justify-content: space-around;
-    }
+// .event-flex-container {
+//     display: flex;
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     @include desktop {
+//         justify-content: space-around;
+//     }
 
-    .event-box {
-        margin: 70px 35px 35px;
-        max-width: 380px;
-        height: 450px;
-        border: 1px solid lightgray;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex-wrap: wrap;
-        position: relative;
-        transition: all 1s;
-        &:hover .event-description {
-            display: block;
-        }
+//     .event-box {
+//         margin: 70px 35px 35px;
+//         max-width: 380px;
+//         height: 450px;
+//         border: 1px solid lightgray;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         flex-wrap: wrap;
+//         position: relative;
+//         transition: all 1s;
+        // &:hover .event-description {
+        //     display: block;
+        // }
         &:hover .category {
             z-index: 3;
         }
         &:hover::before {
             display: none;
         }
-        img {
-            width: 378px;
-            height: 280px;
-        }
+        // img {
+        //     width: 378px;
+        //     height: 280px;
+        // }
         .category-moved {
             animation: move-category 800ms 1 normal forwards;
         }
-        .event-description {
-            background-color: white;
-            width: 378px;
-            height: 280px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            font-size: 1.3em;
-            display: none;
-            z-index: 2;
-            opacity: 0.8;
-            p {
-                margin: 5px 15px;
-            }
-            .description {
-                font-family: 'Titillium Web', sans-serif;
-                margin: 5px 15px;
-                text-align: justify;
-                white-space: normal;
-                border: none;
-                background-color: transparent;
-                font-size: 1.1rem;
-                min-height: 175px;
-                max-height: 230px;
-                min-width: 350px;
-                max-width: 350px;
-            }
+        // .event-description {
+        //     background-color: white;
+        //     width: 378px;
+        //     height: 280px;
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     font-size: 1.3em;
+        //     display: none;
+        //     z-index: 2;
+        //     opacity: 0.8;
+            // p {
+            //     margin: 5px 15px;
+            // }
+            // .description {
+            //     font-family: 'Titillium Web', sans-serif;
+            //     margin: 5px 15px;
+            //     text-align: justify;
+            //     white-space: normal;
+            //     border: none;
+            //     background-color: transparent;
+            //     font-size: 1.1rem;
+            //     min-height: 175px;
+            //     max-height: 230px;
+            //     min-width: 350px;
+            //     max-width: 350px;
+            // }
             .textarea-short {
                 font-family: 'Titillium Web', sans-serif;
                 animation: textarea 1ms 1 forwards;
             }
 
-            p:first-child {
-                font-family: 'Titillium Web', sans-serif;
-                font-size: 1.4em;
-                color: $main-color;
+            // p:first-child {
+            //     font-family: 'Titillium Web', sans-serif;
+            //     font-size: 1.4em;
+            //     color: $main-color;
 
+            // }
+            // .event-btn {
+            //     font-family: 'Titillium Web', sans-serif;
+            //     display: flex;
+            //     align-items: center;
+            //     justify-content: space-around;
+            //     border: 1px solid $main-color;
+            //     width: 120px;
+            //     height: 56px;
+            //     position: absolute;
+            //     top: -56px;
+            //     right: 119px;
+            //     opacity: 0.9;
+            //     border: 4px double $main-color;
+            //     background-color: white;
+            //     &:hover {
+            //         cursor: pointer;
+            //     }
+            //     img {
+            //         height: 32px;
+            //         width: 32px;
+            //     }
+            //     span {
+            //         font-family: 'Titillium Web', sans-serif;
+            //         font-size: 1.2rem;
+            //     }
             }
-            .event-btn {
-                font-family: 'Titillium Web', sans-serif;
-                display: flex;
-                align-items: center;
-                justify-content: space-around;
-                border: 1px solid $main-color;
-                width: 120px;
-                height: 56px;
-                position: absolute;
-                top: -56px;
-                right: 119px;
-                opacity: 0.9;
-                border: 4px double $main-color;
-                background-color: white;
-                &:hover {
-                    cursor: pointer;
-                }
-                img {
-                    height: 32px;
-                    width: 32px;
-                }
-                span {
-                    font-family: 'Titillium Web', sans-serif;
-                    font-size: 1.2rem;
-                }
-            }
-            .event-btn:nth-child(2n) {
-                right: -1px;
-            }
-        }
-        .slide-up {
-            animation: slide-up 500ms 1 normal forwards;
-        }
+            // .event-btn:nth-child(2n) {
+            //     right: -1px;
+            // }
+        // }
+        // .slide-up {
+        //     animation: slide-up 500ms 1 normal forwards;
+        // }
 
-        .slide-down {
-            animation: slide-up 500ms 1 reverse forwards;
-        }
         .delete-confirm {
             background-color: white;
             border-right: 1px solid $main-color;
@@ -223,11 +220,6 @@
                 border: none;
                 background-color: transparent;
                 width: 340px;
-            }
-            .title {
-                font-size: 1.4rem;
-                color: darken($main-color, 5%);
-                width: 350px;
             }
             .date {
                 width: 110px;

@@ -1,5 +1,9 @@
 import React from 'react';
 
+// import styled components
+
+import { EventButtons, EventButtonIcon, EventButtonSpan } from './styled-components/event-style.jsx';
+
 const EventButton = props => {
 
     let imageSrc = ''
@@ -11,13 +15,12 @@ const EventButton = props => {
 
     return (
 
-        <button
-            className='event-btn'
+        <EventButtons
             id={`${props.buttonType}-btn`}
             onClick={props.onClick}>
-            <img src={imageSrc}/>
-            <span>{props.isClicked ? 'confirm' : props.buttonType}</span>
-        </button>
+            <EventButtonIcon src={imageSrc}/>
+            <EventButtonSpan>{props.isClicked ? 'confirm' : props.buttonType}</EventButtonSpan>
+        </EventButtons>
     )
 }
 

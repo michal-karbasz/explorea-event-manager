@@ -9,7 +9,12 @@ const Planets = props => {
     const runFilterByCategory = (category) => () => {
         if (typeof props.filterByCategory === 'function') {
             props.filterByCategory(category);
+            scrollDown();
         }
+    }
+
+    const scrollDown = () => {
+        window.scrollTo(0,650);
     }
 
     return (

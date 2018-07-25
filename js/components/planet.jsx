@@ -6,7 +6,7 @@ import Planets from './planet-button.jsx';
 
 // import styled components
 
-import {Section, Col, CategoryButtons, PlanetImg, SearchBoxBackground, Paragraph, Span, SearchBoxContainer, Input, SubmitButton} from './styled-components/planet-style.jsx';
+import {HeroSection, Col, CategoryButtons, PlanetImg, SearchBoxBackground, Paragraph, Span, SearchBoxContainer, Input, SubmitButton} from './styled-components/planet-style.jsx';
 
 const Planet = props => {
 
@@ -28,15 +28,13 @@ const Planet = props => {
 
     // execute searching for events according to the searchbox input
 
-    const runSubmit = (e) => {
-        if(typeof props.searchEvent === 'function') {
-            props.searchEvent(e);
-        }
+    const scrollDown = () => {
+        window.scrollTo(0,650);
     }
 
     return (
 
-        <Section>
+        <HeroSection>
                 <div>
                     <CategoryButtons>
                         <Planets planetClicked={props.planetClicked} id='education' img='planetary' span='alien education events' filterByCategory={props.filterByCategory}/>
@@ -58,12 +56,12 @@ const Planet = props => {
 
                         <SearchBoxContainer
                             planetClicked={props.planetClicked}
-                            onSubmit={runSubmit}>
+                            onSubmit={scrollDown}>
                         <Input
                             maxLength='32'
                             placeholder='enter event name or city...'
                             onChange={runInputChange}/>
-                        <SubmitButton type='submit' className='search-submit' value='show'/>
+                        <SubmitButton type='submit' className='search-submit' value='show' onClick={scrollDown}/>
                         </SearchBoxContainer>
                     </SearchBoxBackground>
                 </Col>
@@ -74,7 +72,7 @@ const Planet = props => {
                         <Planets planetClicked={props.planetClicked} id='translation' img='alien_sleep' span='alien translation workshops' filterByCategory={props.filterByCategory} />
                     </CategoryButtons>
                 </div>
-        </Section>
+        </HeroSection>
     )
 }
 

@@ -4,6 +4,10 @@ import React from 'react';
 
 import Event from './event.jsx';
 
+// import styled components
+
+import {EventSection} from './styled-components/event-style.jsx';
+
 const Events = props => {
 
     // create a variable to hold all user-created events passed from App's State
@@ -26,12 +30,13 @@ const Events = props => {
 
     return (
 
-        <section className='event-flex-container' id='event-section'>
+        <EventSection>
+         {/* <section className='event-flex-container' id='event-section'> */}
 
             {/* render 3 example events + user-created ones */} 
             {UserEvents}
 
-        </section>
+        </EventSection>
     )
 }
 

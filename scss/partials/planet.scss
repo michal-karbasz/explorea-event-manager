@@ -47,20 +47,20 @@
         //         width: 420px;
         //         height: 420px;
         //     }
-            img {
-                transition: all 1s;
-                width: 192px;
-                height: 192px;
-                @include desktop {
-                    width: 256px;
-                    height: 256px;
-                }
-            }
-            p {
-                font-size: 1.8rem;
-                padding: 5px;
-                color: rgb(63, 63, 63);
-            }
+            // img {
+            //     transition: all 1s;
+            //     width: 192px;
+            //     height: 192px;
+            //     @include desktop {
+            //         width: 256px;
+            //         height: 256px;
+            //     }
+            // }
+            // p {
+            //     font-size: 1.8rem;
+            //     padding: 5px;
+            //     color: rgb(63, 63, 63);
+            // }
             // .search-box-container {
             //     display: flex;
             //     flex-direction: column;
@@ -68,41 +68,37 @@
             //     justify-content: center;
             //     flex-wrap: wrap;
             //     width: 220px;
-                .search-box {
-                    border: none;
-                    padding: 5px 15px;
-                    font-size: 1.1rem;
-                    font-family: 'Titillium Web', sans-serif;
-                    width: 220px;
-                    &:focus {
-                        outline: 1px dashed $main-color;
-                        color: $main-color;
-                    }
-                }
-                .search-submit {
-                    border: 3px double $main-color;
-                    background-color: white;
-                    width: 90px;
-                    height: 40px;
-                    font-size: 1rem;
-                    color: rgb(102, 97, 97);
-                    letter-spacing: 1px;
-                    &:hover {
-                        background-color: $main-color;
-                        border: 4px double white;
-                        color: white;
-                    }
-                }
-            span {
-                color: $main-color;
-                &:hover {
-                    color: rgb(216, 0, 0);
-                }
-            }
-            .shrink {
-                animation: shrink 700ms 1 forward;
-            }
-        
+            //     .search-box {
+            //         border: none;
+            //         padding: 5px 15px;
+            //         font-size: 1.1rem;
+            //         font-family: 'Titillium Web', sans-serif;
+            //         width: 220px;
+            //         &:focus {
+            //             outline: 1px dashed $main-color;
+            //             color: $main-color;
+            //         }
+            //     }
+            //     .search-submit {
+            //         border: 3px double $main-color;
+            //         background-color: white;
+            //         width: 90px;
+            //         height: 40px;
+            //         font-size: 1rem;
+            //         color: rgb(102, 97, 97);
+            //         letter-spacing: 1px;
+            //         &:hover {
+            //             background-color: $main-color;
+            //             border: 4px double white;
+            //             color: white;
+            //         }
+            //     }
+            // span {
+            //     color: $main-color;
+            //     &:hover {
+            //         color: rgb(216, 0, 0);
+            //     }
+            
         .planet-bkg-small {
             background-color: white;
             width: 160px;
@@ -134,11 +130,3 @@
     
 
 
-@keyframes shrink {
-    0% {
-        transform: scale(1);
-    }
-    100% {
-        transform: scale(0.7);
-    }
-}
