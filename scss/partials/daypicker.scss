@@ -198,3 +198,14 @@
     background: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
+
+.DayPickerInput {
+    display: inline-block;
+    input {
+        border: 1px solid lightgrey;
+        margin: 5px 0 5px 25px;
+        min-width: 180px;
+        padding: 2px 5px;
+        font-family: 'Titillium Web', sans-serif;
+    }
+}

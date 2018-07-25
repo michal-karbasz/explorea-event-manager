@@ -16,7 +16,7 @@ export const EventSection = styled.section `
 
 // EVENTS
 
-const maxWidth = '310';
+export const maxWidth = '310';
 
 // style containers
 
@@ -206,8 +206,8 @@ export const CategoryImg = styled.img `
     width: 58px;
     height: 58px;
     position: absolute;
-    top: -61px;
-    left: 8px;
+    top: -62px;
+    left: 7px;
     z-index: 4;
     animation: ${props => props.editClicked && props.categoryClicked ? `${moveCategoryMobile} 800ms 1 normal forwards` : 'none'};
     &:hover {
@@ -307,7 +307,7 @@ export const EventInput2 = EventInput.extend `
 `;
 
 export const EventDate = EventInput.extend `
-    max-width: 80px;
+    max-width: 100px;
     ${media.mobile `
     max-width: 110px;
     `}

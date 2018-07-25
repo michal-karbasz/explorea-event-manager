@@ -1,5 +1,11 @@
 import React from 'react';
 
+// import styled components
+
+import {EventContainer, EventImage, DescriptionHeader, DescriptionTextarea, EventDescriptionContainer, EventInnerContainer1, EventTitle, EventIcon, EventDate, EventSpan, EventHour, EventInput, EventLocation2, EventInnerContainer2, EventOrganizerIcon, EventInput2, CategoryImg} from './styled-components/event-style.jsx';
+import {EventSection, Description, DescriptionSpan} from './styled-components/new-event-style.jsx';
+
+
 const BlankEvent = (props) => {
 
     //choose category icon
@@ -17,48 +23,47 @@ const BlankEvent = (props) => {
     }
 
     return (
+        <Description>
+            <DescriptionSpan>event preview</DescriptionSpan>
+            <EventContainer>
+                <EventImage src={props.imgUrl}/>
+                <EventDescriptionContainer>
+                    <div>
+                        <DescriptionHeader>About:</DescriptionHeader>
+                        <DescriptionTextarea
+                            cols='34'
+                            rows='10'
+                            disabled="disabled"
+                            value={props.description}/>
+                    </div>
+                </EventDescriptionContainer>
 
-        <div className='event-box'>
-            <img src={props.imgUrl}/>
-            <div className='event-description'>
-                <div className='description-col' id='description-container'>
-                    <p>About:</p>
-                    <textarea
-                        className='description'
-                        cols='34'
-                        rows='10'
+                <CategoryImg src={categorySrc}/>
+                <EventInnerContainer1>
+                    <EventTitle
                         disabled="disabled"
-                        value={props.description}/>
-                </div>
-            </div>
-
-            <img src={categorySrc} className='category' id='category-img'/>
-            <div className='event-bkg'>
-                <input
-                    className='title'
-                    disabled="disabled"
-                    id='eventTitle'
-                    value={props.title}/>
-                <br/>
-                <img src='../icons/time.png'/>
-                <input className='date' disabled="disabled" value={props.date}/>
-                <span>at</span>
-                <input className='hour' disabled="disabled" value={props.hour}/>
-                <br/>
-                <img src='../icons/here.png'/>
-                <input
-                    className='location'
-                    disabled="disabled"
-                    id='eventCity'
-                    value={props.location}/>
-                <br/>
-                <input className='location2' disabled="disabled" value={props.location2}/>
-            </div>
-            <div className='event-bkg2'>
-                <img src='../icons/astronaut2.png'/>
-                <input className='organizer' disabled="disabled" value={props.organizer}/>
-            </div>
-        </div>
+                        value={props.title}
+                        placeholder='Your title will appear here'/>
+                    <br/>
+                    <EventIcon src='../icons/time.png'/>
+                    <EventDate placeholder='date' disabled="disabled" value={props.date}/>
+                    <EventSpan>at</EventSpan>
+                    <EventHour disabled="disabled" value={props.hour} placeholder='hour'/>
+                    <br/>
+                    <EventIcon src='../icons/here.png'/>
+                    <EventInput
+                        disabled="disabled"
+                        value={props.location}
+                        placeholder='event location'/>
+                    <br/>
+                    <EventLocation2 disabled="disabled" value={props.location2} placeholder='location details'/>
+                </EventInnerContainer1>
+                <EventInnerContainer2>
+                    <EventOrganizerIcon src='../icons/astronaut2.png'/>
+                    <EventInput2 disabled="disabled" value={props.organizer} placeholder='event organizer'/>
+                </EventInnerContainer2>
+            </EventContainer>
+        </Description>
     )
 }
 

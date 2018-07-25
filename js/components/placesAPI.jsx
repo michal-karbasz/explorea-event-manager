@@ -1,7 +1,10 @@
 import React from 'react';
 
-export default class Places extends React.Component {
+// import styled components
 
+import {FormLocation} from './styled-components/new-event-style.jsx';
+
+export default class Places extends React.Component {
 
     handleLocationChange = (e) => {
         if(typeof this.props.locationChange === 'function') {
@@ -28,9 +31,8 @@ export default class Places extends React.Component {
 
     render () {
         return (
-            <input 
+            <FormLocation 
                 id='autocomplete'   //link with new Autocomplete object
-                className="event-location" 
                 placeholder="give us the city"
                 maxLength='32'
                 onChange={this.handleLocationChange} value={this.props.location}

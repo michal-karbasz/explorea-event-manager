@@ -4,6 +4,7 @@ import React from 'react';
 
 import Form from './form.jsx';
 import BlankEvent from './blank-event.jsx';
+import { EventSection, Col } from './styled-components/new-event-style.jsx';
 
 export default class NewEvent extends React.Component {
 
@@ -158,18 +159,18 @@ Feel free to create another one:`
         }
 
         return (
-            <section className='new-flex-container'>
-                <div className="col">
+            <EventSection>
+                <Col>
                     <Form
                         {...propsToPass}
                         {...formProps} />
-                </div>
-                <div className="col">
+                </Col>
+                <Col>
                     <BlankEvent
                         {...propsToPass}
                         add={this.state.add}/>
-                </div>
-            </section>
+                </Col>
+            </EventSection>
         )
     }
 }

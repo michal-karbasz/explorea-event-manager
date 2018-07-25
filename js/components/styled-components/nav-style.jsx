@@ -83,7 +83,8 @@ export const StyledLink = styled(Link) `
         width: unset;
         border: none;
         flex-direction: initial;
-        margin: 5px;
+        margin: 5px 5px 2px 5px;
+        align-items: flex-end;
     `}
 `;
 
@@ -103,7 +104,7 @@ export const Logo = styled.div `
         width: unset;
         border: none;
         flex-direction: initial;
-        margin: 5px;
+        margin: 5px 5px 2px 5px;
     `}
 `;
 
@@ -118,8 +119,10 @@ export const H2 = styled.h2 `
 
 export const Span = styled.span `
     font-size: 1rem;
-    padding: 3px;
-    ${media.tablet `font-size: 1.5rem;`}
+    padding: 3px 3px 0 3px;
+    ${media.tablet `
+    font-size: 1.5rem;
+    `}
 `;
 
 export const SpanNew = Span.extend `
@@ -153,7 +156,7 @@ export const Arrow = Image.extend `
 
 export const UFO = Image.extend `
     display: none;
-    ${media.tablet `
+    ${media.desktop `
         display:block;
         opacity: 0;
         animation: ${hover} 800ms infinite alternate ease-in-out;

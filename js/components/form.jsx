@@ -4,6 +4,9 @@ import React from 'react';
 
 import DayPicker from './datepicker.jsx';
 import Places from './placesAPI.jsx';
+import { FormContainer, H3, Label, Input, FormLocation, FormSelect, CreateButton, Textarea } from './styled-components/new-event-style.jsx';
+
+// import styled components
 
 const CreateForm = props => {
 
@@ -32,49 +35,49 @@ const CreateForm = props => {
     }
 
     return (
-        <div className='form-container'>
-            <form className='form-contact' onSubmit={runHandleCreateEvent}>
-            <h3 style={{whiteSpace: 'pre'}}>{props.userMessage}</h3>
-                <label> event title: <br/>
-                    <input className="event-title" autoFocus maxLength='30' onChange={runHandleChange} name='title' value={props.title} placeholder="event title goes here"/>
-                </label>
+        <FormContainer>
+            <form onSubmit={runHandleCreateEvent}>
+            <H3>{props.userMessage}</H3>
+                <Label> event title: <br/>
+                    <Input autoFocus maxLength='30' onChange={runHandleChange} name='title' value={props.title} placeholder="event title goes here"/>
+                </Label>
                 <br/>
-                <label> description (hover over event to see preview): <br/>
-                    <textarea className="event-description" maxLength='325' placeholder="describe the event in at least 60 characters" onChange={runHandleChange} name='description' value={props.description} />
-                </label>
+                <Label> description (hover over event to see preview): <br/>
+                    <Textarea maxLength='325' placeholder="describe the event in at least 60 characters" onChange={runHandleChange} name='description' value={props.description} />
+                </Label>
                 <br/>
                 
-                <label> organizer: <br/>
-                    <input className="event-organizer" maxLength='30' name='organizer' onChange={runHandleChange} value={props.organizer} placeholder="tell the others who stands behind the event" />
-                </label>
+                <Label> organizer: <br/>
+                    <Input maxLength='30' name='organizer' onChange={runHandleChange} value={props.organizer} placeholder="tell the others who stands behind the event" />
+                </Label>
                 
                 <br/>
-                <label> where: <br/>
+                <Label> where: <br/>
                     <Places locationChange={props.locationChange} updateCity={props.updateCity} />
-                    <input className="event-location" placeholder="further details" maxLength='30' name='location2' onChange={runHandleChange} value={props.location2} />
-                </label>
+                    <FormLocation placeholder="further details" maxLength='30' name='location2' onChange={runHandleChange} value={props.location2} />
+                </Label>
                 <br/>
                 
                 <DayPicker date={props.date} dateChange={props.handleDayChange} hourChange={props.hourChange} hour={props.hour}/> 
                 
-                <label> image url: <br/>
-                    <input className="event-url" name='imgUrl' onChange={runHandleChange} value={props.url} placeholder="paste image url here"/>
-                </label>
+                <Label> image url: <br/>
+                    <Input  name='imgUrl' onChange={runHandleChange} value={props.url} placeholder="paste image url here"/>
+                </Label>
                 <br/>
-                <label> event category: 
-                    <select className='event-category' onChange={runHandleCategoryChange} defaultValue='select'>
+                <Label> event category: 
+                    <FormSelect onChange={runHandleCategoryChange} defaultValue='select'>
                         <option value='select' disabled> -- select category -- </option>
                         <option value='education'>alien education events</option>
                         <option value='flights'>flight volounteers</option>
                         <option value='meetings'>alien meetings</option>
                         <option value='jobs'>NASA job interviews</option>
                         <option value='translation'>alien translation workshops</option>
-                    </select>
-                </label>
+                    </FormSelect>
+                </Label>
                 <br/>
-                    <input  className="event-submit" type="submit" value="c r e a t e ! " />
+                    <CreateButton type="submit" value="c r e a t e ! " />
             </form>
-        </div>
+        </FormContainer>
     )
 }
 

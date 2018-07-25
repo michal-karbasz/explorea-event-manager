@@ -159,10 +159,6 @@ export default class Event extends React.Component {
                     onClick={this.state.editClicked ? this.handleCategoryClicked : null}
                     alt='category icon'/>
 
-                {/* <div className='category-container'>
-
-                </div> */}
-
                 {/* render main event data */}
 
                 <EventInnerContainer1>

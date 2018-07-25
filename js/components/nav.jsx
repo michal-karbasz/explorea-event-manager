@@ -33,16 +33,16 @@ const Nav = props => {
             </Col>
 
             <MobileCol menuVisible={props.menuVisible}>
-                <StyledLink to="/newEvent">
+                <StyledLink replace to="/newEvent" onClick={runShowMenu}>
                     <Image src='../icons/space_shuttle2.png' />
                     <SpanNew>new</SpanNew>
                 </StyledLink>
                 <SpanSeparator>|</SpanSeparator>
-                <StyledLink replace to="/">
+                <StyledLink replace to="/" onClick={runShowMenu}>
                     <Image src='../icons/explorer.png' />
                     <Span>browse</Span>
                 </StyledLink>
-                <StyledLink to="/about">
+                <StyledLink replace to="/about" onClick={runShowMenu}>
                     <Span>about</Span>
                 </StyledLink>
             </MobileCol>
