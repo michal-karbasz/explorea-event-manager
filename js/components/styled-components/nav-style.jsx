@@ -24,17 +24,17 @@ export const Header = styled.header `
         content: '';
         width: 90px;
         height: ${props => props.menuVisible ? '100%' : '80px'};
-        border: ${props => props.menuVisible ? 'none' : `2px solid ${props.theme.colors.complementary}`};
+        border: ${props => props.menuVisible ? 'none' : `2px solid white`};
         border-radius: ${props => props.menuVisible ? '0' : '30%'};
         position: absolute;
-        background-color: ${props => props.theme.colors.complementary};
+        background-color: ${props => props.theme.colors.secondary};
         opacity: ${props => props.menuVisible ? '0.9' : '0.4'};
         transition: 400ms;
         z-index: -1;
     }
     ${media.tablet `
         opacity: 0.9;
-        background-color: white;
+        background-color: ${props => props.theme.colors.secondary};
         flex-direction: row;
         align-items: flex-end;
         justify-content: space-between;
@@ -48,7 +48,6 @@ export const Header = styled.header `
             height: 80px;
             width: 138px;
             border-radius: 0;
-            background-color: white;
         }
     `}
 `;
@@ -78,7 +77,7 @@ export const StyledLink = styled(Link) `
     width: 70px;
     text-decoration: none;
     color: black;
-    border: 3px double ${props => props.theme.colors.secondary};
+    border: 3px double white;
     border-radius: 20%;
     margin: 10px 10px;
     ${media.tablet `
@@ -86,8 +85,13 @@ export const StyledLink = styled(Link) `
         width: unset;
         border: none;
         flex-direction: initial;
-        margin: 5px 5px 2px 5px;
+        margin: 5px 10px 3px 5px;
         align-items: flex-end;
+        &:hover {
+            border-radius: unset;
+            transition: 200ms;
+            color: ${props => props.theme.colors.complementary};
+        }
     `}
 `;
 
@@ -99,7 +103,6 @@ export const Logo = styled.div `
     height: 70px;
     width: 70px;
     text-decoration: none;
-    color: black;
     border-radius: 20%;
     margin: 10px 5px;
     ${media.tablet `

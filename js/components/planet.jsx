@@ -29,7 +29,7 @@ const Planet = props => {
     // execute searching for events according to the searchbox input
 
     const scrollDown = () => {
-        window.scrollTo(0,650);
+        window.scrollTo(0,1200);
     }
 
     return (
@@ -44,7 +44,7 @@ const Planet = props => {
                 </div>
 
                 <Col>
-                    <SearchBoxBackground>
+                    <SearchBoxBackground  planetClicked={props.planetClicked}>
                         <PlanetImg
                             src='../icons/planet.png'
                             planetClicked={props.planetClicked}

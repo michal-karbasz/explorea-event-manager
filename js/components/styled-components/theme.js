@@ -3,9 +3,9 @@ export default {
             //SET GLOBAL STYLES
 
         colors: {
-            main:  'rgb(204, 89, 89)',
-            secondary:  'rgb(235, 126, 126)',
-            complementary: 'rgb(109, 222, 225)',
+            main:  '#C85848',
+            secondary:  '#C7CBE4',
+            complementary: '#43468A',
         }
 
 }

@@ -52,7 +52,7 @@ export const EventContainer = styled.div `
     margin: 70px 0;
     max-width: ${`${maxWidth}px`};
     max-height: 453.5px;
-    border: 1px solid lightgray;
+    border: 1px solid ${props => props.theme.colors.secondary};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,11 +78,11 @@ export const EventContainer = styled.div `
     max-width: 380px;
     margin: 70px 35px;
     &::before {
-        width: 76px;
-        height: 76px;
-        top: -52px;
-        left: -42px;
-        border: 1px solid paleturquoise;
+        width: 85px;
+        height: 85px;
+        top: -56px;
+        left: -48px;
+        border: 1px dashed ${props => props.theme.colors.complementary};
     }
     `}
 `;
@@ -248,7 +248,13 @@ export const EventOrganizerIcon = styled.img `
 export const H1 = styled.h1 `
     color: ${props => props.theme.colors.complementary};
     font-size: 3rem;
-    border-bottom: 4px double ${props => props.theme.colors.complementary};
+    border-bottom: 4px solid ${props => props.theme.colors.secondary};
+    margin: 60px 0 30px;
+    padding: 0 30px;
+    ${media.mobile `
+        margin: 60px 0 30px;
+        padding: 10px 110px;
+    `}
     `
 
 export const DescriptionHeader = styled.p `

@@ -40,6 +40,8 @@ export default class DatePicker extends React.Component {
                 <DayPickerInput onDayChange={this.handleDayChange}/>
                 <FormHour
                     type='time'
+                    step='900'
+                    max='23:59'
                     maxLength='5'
                     onChange={this.runHourChange}
                     value={this.props.hour}

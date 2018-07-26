@@ -14,7 +14,6 @@ export const HeroSection = styled.section `
     justify-content: center;
     align-items: center;
     height: 100vh;
-    /* width: 100vw; */
     background-image: url("../images/background1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -31,14 +30,9 @@ export const HeroSection = styled.section `
         z-index: -1;
     }
     ${media.tablet `
+        height: 120vh;
         &::after {
-            content: '';
-            width: 100vw;
-            height: 100%;
-            position: absolute;
-            background-color: white;
             opacity: 0;
-            z-index: -1;
         }
     `}
     ${media.xl `
@@ -59,7 +53,9 @@ export const SearchBoxBackground = styled.div `
     justify-content: center;
     text-align: center;
     ${media.tablet `
-        margin-top: 60px;
+        transform: ${props => props.planetClicked ? 'scale(0.9) translate(0,-60px)' : 'scale(1)'};
+        transition: all 1s;
+        margin-top: 120px;
         width: 400px;
         height: 400px;
         background-color: white;
@@ -68,8 +64,6 @@ export const SearchBoxBackground = styled.div `
         opacity: 0.9;
     `}
     ${media.xl `
-        width: 420px;
-        height: 420px;
         background-color: white;
         border: 5px double ${props => props.theme.colors.main};
         border-radius: 50%;
@@ -95,10 +89,10 @@ export const CategoryButtons = styled.div `
 // style images
 
 export const PlanetImg = styled.img `
-    transition: all 1s;
     width: 150px;
     height: 150px;
-    transform: ${props => props.planetClicked ? 'scale(0.8)' : 'scale(1)'};
+    transform: ${props => props.planetClicked ? 'scale(0.9)' : 'scale(1)'};
+    transition: all 1s;
     &:hover {
         cursor: pointer;
     }
@@ -149,7 +143,7 @@ export const SubmitButton = styled.input `
     width: 90px;
     height: 40px;
     font-size: 1rem;
-    color: rgb(102, 97, 97);
+    color: ${props => props.theme.colors.main};
     letter-spacing: 1px;
     transition: all 400ms;
     margin: 10px;

@@ -29,7 +29,7 @@ export const FooterImg = styled.img `
 `;
 
 export const FooterSpan = styled.span `
-    color: ${props => props.theme.colors.main};
+    color: ${props => props.theme.colors.secondary};
 `;
 
 

@@ -12,12 +12,13 @@ export const EventSection = styled.section `
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    min-height: 100vh;
+    min-height: 120vh;
     background-image: url("../images/background1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     ${media.tablet `
+        min-height: 140vh;
         flex-direction: initial;
     `}
 `;
@@ -41,7 +42,7 @@ export const FormContainer = styled.div `
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
-    max-width: ${`${maxWidth}px`};
+    max-width: 100vw;
     ${media.mobile `
         flex-direction: initial;
         max-width: 400px;
@@ -78,7 +79,7 @@ export const Input = styled.input `
     padding: 5px;
     margin: 8px 5px;
     border: 1px double lightgray;
-    font-size: 0.3rem;
+    font-size: 0.9rem;
     ${media.mobile `
     margin: 5px 25px;
     `}
@@ -100,6 +101,7 @@ export const Textarea = styled.textarea `
     padding: 5px;
     margin: 8px 5px;
     border: 1px double lightgray;
+    font-size: 0.9rem;
     ${media.mobile `
         margin: 5px 25px;
     `}
@@ -167,11 +169,11 @@ export const Description = styled.div `
 `;
 
 export const DescriptionSpan = styled.span `
-    color: ${props => props.theme.colors.main};
-    font-size: 1.5rem;
+    color: ${props => props.theme.colors.complementary};
+    font-size: 1.7rem;
     padding: 10px 20px;
     position: relative;
-    margin: 30px 0 -30px 0;
+    margin: 30px 0 30px 0;
     &::before {
         content: '';
         background-color: white;
@@ -186,6 +188,7 @@ export const DescriptionSpan = styled.span `
         transform: translate(-50%, -50%);
     }
     ${media.tablet `
+        margin: 30px 0 -30px 0;
         margin: 60px 0 -30px 0;
     `};
 `;

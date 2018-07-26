@@ -25,7 +25,7 @@ export const CategoryButton = styled.div `
     animation: ${props => props.categoryClicked ? `${fadeIn} 1.2s normal forwards` : 'none'};
     transition: all 700ms;
     &:hover {
-        border: 3px double ${props => props.theme.colors.main};
+        border: 3px double ${props => props.theme.colors.complementary};
         cursor: pointer;
     }
     ${media.mobile `
