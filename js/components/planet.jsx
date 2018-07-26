@@ -60,8 +60,9 @@ const Planet = props => {
                         <Input
                             maxLength='32'
                             placeholder='enter event name or city...'
-                            onChange={runInputChange}/>
-                        <SubmitButton type='submit' className='search-submit' value='show' onClick={scrollDown}/>
+                            onChange={runInputChange}
+                            value={props.searchInput}/>
+                        <SubmitButton type='submit' value='show' onClick={scrollDown}/>
                         </SearchBoxContainer>
                     </SearchBoxBackground>
                 </Col>

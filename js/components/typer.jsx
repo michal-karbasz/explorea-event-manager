@@ -12,7 +12,7 @@ export default class Typer extends React.Component {
     }
 
     render() {
-        return <H2>{this.state.text}</H2>
+        return <H2>{this.state.text}</H2>;
     }
 
     componentDidMount() {
@@ -25,7 +25,7 @@ export default class Typer extends React.Component {
                 }
             })
 
-        }, 150)
+        }, 150);
     }
     componentWillUnmount() {
         clearInterval(this.id);

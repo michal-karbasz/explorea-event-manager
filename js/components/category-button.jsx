@@ -14,10 +14,14 @@ const Category = (props) => {
         }
     }
 
+    // define category buttons location depending on small screen/mobile + view
+
     let top = '40px';
     let left = '25px';
     let topMobile = '35px';
     let leftMobile = '20px';
+
+    // for mobile + view
 
     if (props.img == 'nebula') {
         top = '-10px';
@@ -32,6 +36,8 @@ const Category = (props) => {
         top = '130px';
         left = '-7px';
     }
+
+    // small screen view
 
     if (props.img == 'nebula') {
         topMobile = '-10px';

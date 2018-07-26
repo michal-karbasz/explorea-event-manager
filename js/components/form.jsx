@@ -36,6 +36,7 @@ const CreateForm = props => {
 
     return (
         <FormContainer>
+
             <form onSubmit={runHandleCreateEvent}>
             <H3>{props.userMessage}</H3>
                 <Label> event title: <br/>
@@ -58,6 +59,8 @@ const CreateForm = props => {
                 </Label>
                 <br/>
                 
+                {/* use external component to render date picker */}
+
                 <DayPicker date={props.date} dateChange={props.handleDayChange} hourChange={props.hourChange} hour={props.hour}/> 
                 
                 <Label> image url: <br/>
@@ -66,17 +69,20 @@ const CreateForm = props => {
                 <br/>
                 <Label> event category: 
                     <FormSelect onChange={runHandleCategoryChange} defaultValue='select'>
+
                         <option value='select' disabled> -- select category -- </option>
                         <option value='education'>alien education events</option>
                         <option value='flights'>flight volounteers</option>
                         <option value='meetings'>alien meetings</option>
                         <option value='jobs'>NASA job interviews</option>
                         <option value='translation'>alien translation workshops</option>
+                        
                     </FormSelect>
                 </Label>
                 <br/>
                     <CreateButton type="submit" value="c r e a t e ! " />
             </form>
+
         </FormContainer>
     )
 }

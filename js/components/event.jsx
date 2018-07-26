@@ -7,7 +7,7 @@ import Category from './category-button.jsx';
 
 // import styled components
 
-import { EventContainer, EventImage, EventDescriptionContainer, DescriptionHeader, DescriptionTextarea, EventInnerContainer1, EventInnerContainer2, EventIcon, EventSpan, EventInput, EventOrganizerIcon, EventInput2, CategoryImg, EventDate, EventHour, EventLocation2, EventTitle, DeleteButton, UrlField, DeleteConfirmContainer, DeleteConfirmCol, DeleteConfirmParagraph, DeleteConfirmButton, UrlFieldInput, UrlFieldSpan} from './styled-components/event-style.jsx';
+import { EventContainer, EventImage, EventDescriptionContainer, DescriptionHeader, DescriptionTextarea, EventInnerContainer1, EventInnerContainer2, EventIcon, EventSpan, EventInput, EventOrganizerIcon, EventInput2, CategoryImg, EventDate, EventHour, EventLocation2, EventTitle, UrlField, DeleteConfirmContainer, DeleteConfirmCol, DeleteConfirmParagraph, DeleteConfirmButton, UrlFieldInput, UrlFieldSpan} from './styled-components/event-style.jsx';
 
 export default class Event extends React.Component {
     
@@ -37,10 +37,10 @@ export default class Event extends React.Component {
     // signal that the event is about to be delete -> trigger are-you-sure buttons
 
     handleDeleteClicked = () => {
-        this.setState({ deleteClicked: !this.state.deleteClicked })
+        this.setState({ deleteClicked: !this.state.deleteClicked });
     }
 
-    handleDeleteEvent = (currentEvent) => () => {
+    runDeleteEvent = (currentEvent) => () => {
         if (typeof this.props.deleteEvent === 'function') {
             this.props.deleteEvent(currentEvent);
         }
@@ -52,15 +52,15 @@ export default class Event extends React.Component {
         const target = e.target;
         const value = target.value;
         const name = target.name;
-        this.setState ({ [name]: value})
+        this.setState ({ [name]: value});
     }
 
     handleCategoryClicked = () => {
-        this.setState({ categoryClicked: !this.state.categoryClicked})
+        this.setState({ categoryClicked: !this.state.categoryClicked});
     }
 
     handleCategoryChange = (category) => {
-        this.setState({ category: category})
+        this.setState({ category: category});
     }
     
     render() {
@@ -82,7 +82,7 @@ export default class Event extends React.Component {
 
         // check if the event is an example, if no, render edit/delete buttons
 
-        let buttons = {}
+        let buttons = {};
 
         if  (this.props.isExample !== 'example') {
             buttons = {
@@ -90,14 +90,6 @@ export default class Event extends React.Component {
                 button2:  <EventButton buttonType='delete' onClick={this.handleDeleteClicked} />
             }
         }
-
-        // const urlStyle = {
-        //     display: this.state.editClicked ? 'block' : 'none',
-        // }
-
-        // const confirmStyle = {
-        //     display: this.state.deleteClicked ? 'block' : 'none',
-        // }
         
         return (
 
@@ -144,7 +136,7 @@ export default class Event extends React.Component {
                 <DeleteConfirmContainer deleteClicked={this.state.deleteClicked}>
                     <DeleteConfirmCol>
                         <DeleteConfirmParagraph>Do you really want to delete your event?</DeleteConfirmParagraph>
-                        <DeleteConfirmButton className='event-btn' onClick={this.handleDeleteEvent (this.props.title)}>YES</DeleteConfirmButton>
+                        <DeleteConfirmButton className='event-btn' onClick={this.runDeleteEvent (this.props.title)}>YES</DeleteConfirmButton>
                         <DeleteConfirmButton className='event-btn' onClick={this.handleDeleteClicked}>NO</DeleteConfirmButton>
                     </DeleteConfirmCol>
                 </DeleteConfirmContainer>

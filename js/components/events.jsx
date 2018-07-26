@@ -37,7 +37,7 @@ const Events = props => {
 
                 {UserEvents}
 
-            </EventSection>
+            </EventSection>   
         </FlexContainer>
     )
 }

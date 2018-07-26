@@ -9,11 +9,13 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 import { FormHour, FormParagraph } from './styled-components/new-event-style.jsx';
 
 export default class DatePicker extends React.Component {
+
     constructor(props) {
         super(props);
         this.handleDayChange = this.handleDayChange.bind(this);
+
         this.state = {
-            selectedDay: undefined
+            selectedDay: undefined,
         };
     }
 
@@ -23,7 +25,7 @@ export default class DatePicker extends React.Component {
         }
     }
 
-    handleHourChange = (e) => {
+    runHourChange = (e) => {
         if (typeof this.props.hourChange === 'function') {
             this.props.hourChange(e.target.value);
         }
@@ -37,9 +39,9 @@ export default class DatePicker extends React.Component {
                 {!selectedDay && <FormParagraph>choose a day</FormParagraph>}
                 <DayPickerInput onDayChange={this.handleDayChange}/>
                 <FormHour
-                    className="event-hour"
+                    type='time'
                     maxLength='5'
-                    onChange={this.handleHourChange}
+                    onChange={this.runHourChange}
                     value={this.props.hour}
                     placeholder='hh-mm'/>
             </div>

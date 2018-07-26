@@ -4,7 +4,7 @@ import React from 'react';
 
 import {Section, FlexCol, Paragraph, Span, Image, FlexRow, RowParagraph, ColorSpan} from './styled-components/about-style.jsx';
 
-const About = (props) => {
+const About = () => {
 
         return (
 

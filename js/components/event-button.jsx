@@ -6,7 +6,8 @@ import { EventButtons, EventButtonIcon, EventButtonSpan } from './styled-compone
 
 const EventButton = props => {
 
-    let imageSrc = ''
+    let imageSrc = '';
+
     if (props.isClicked) {
         imageSrc = '../icons/confirm.png';
     } else {
@@ -14,7 +15,6 @@ const EventButton = props => {
     }
 
     return (
-
         <EventButtons
             id={`${props.buttonType}-btn`}
             onClick={props.onClick}

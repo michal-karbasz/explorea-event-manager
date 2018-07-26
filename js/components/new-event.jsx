@@ -60,28 +60,28 @@ export default class NewEvent extends React.Component {
 
         //validate the form
 
-        // if (this.state.title.length < 3 || this.state.title.length > 30) {
-        //     this.setState({userMessage: "Provide event title (3-30 chars) !"});
-        // } else if (this.state.description.length < 60) {
-        //     this.setState(
-        //         {userMessage: "Write some additional description (min 60 chars)."}
-        //     );
-        // } else if (this.state.organizer.length < 3 || this.state.organizer.length > 30) {
-        //     this.setState({userMessage: "Who's the organizer (3-30 chars)?"});
-        // } else if (this.state.location.length < 1 || this.state.location.length > 30) {
-        //     this.setState({userMessage: "Provide location (1-30 chars)"});
-        // } else if (this.state.location2.length < 3 || this.state.location2.length > 30) {
-        //     this.setState({userMessage: "Provide location details (3-30 chars)"});
-        // } else if (this.state.selectedDay === '') {
-        //     this.setState({userMessage: "Pick the event date"});
-        // } else if (this.state.hour.length < 5) {
-        //     this.setState({userMessage: "Provide valid time"});
-        // } else if (this.state.category === '-- select category --') {
-        //     this.setState({userMessage: "Select event's category"});
-        // } else {
+        if (this.state.title.length < 3 || this.state.title.length > 30) {
+            this.setState({userMessage: "Provide event title (3-30 chars) !"});
+        } else if (this.state.description.length < 60) {
+            this.setState(
+                {userMessage: "Write some additional description (min 60 chars)."}
+            );
+        } else if (this.state.organizer.length < 3 || this.state.organizer.length > 30) {
+            this.setState({userMessage: "Who's the organizer (3-30 chars)?"});
+        } else if (this.state.location.length < 1 || this.state.location.length > 30) {
+            this.setState({userMessage: "Provide location (1-30 chars)"});
+        } else if (this.state.location2.length < 3 || this.state.location2.length > 30) {
+            this.setState({userMessage: "Provide location details (3-30 chars)"});
+        } else if (this.state.selectedDay === '') {
+            this.setState({userMessage: "Pick the event date"});
+        } else if (this.state.hour.length < 5) {
+            this.setState({userMessage: "Provide valid time"});
+        } else if (this.state.category === '-- select category --') {
+            this.setState({userMessage: "Select event's category"});
+        } else {
             this.setState({userMessage: `Added a new event !`});
             this.copyEvent(); 
-        // }
+        }
     }
 
     //create a new object containing user data
@@ -98,13 +98,13 @@ export default class NewEvent extends React.Component {
             image: this.state.imgUrl,
             category: this.state.category,
         };
-        this.addEvent(newEvent)
+        this.runAddEvent(newEvent)
         this.clearState()
     }
 
     // executes parent's function - newEvent object that contains all event's data introduced by user is passed as an argument
 
-    addEvent = (newEvent) => {
+    runAddEvent = (newEvent) => {
         if(typeof this.props.addNewEvent === 'function') {
             this.props.addNewEvent(newEvent);
         }
@@ -130,7 +130,7 @@ Feel free to create another one:`
 
     render() {
 
-        const propsToPass = {
+        const eventData = {
             title: this.state.title,
             description: this.state.description,
             organizer: this.state.organizer,
@@ -140,7 +140,7 @@ Feel free to create another one:`
             hour: this.state.hour,
             imgUrl: this.state.imgUrl,
             category: this.state.category,
-        }
+        };
 
         const formProps = {
             userMessage: this.state.userMessage,
@@ -156,18 +156,18 @@ Feel free to create another one:`
             categoryChange: this.handleCategoryChange,
             createEvent: this.handleCreateEvent,
             handleChange: this.handleChange 
-        }
+        };
 
         return (
             <EventSection>
                 <Col>
                     <Form
-                        {...propsToPass}
+                        {...eventData}
                         {...formProps} />
                 </Col>
                 <Col>
                     <BlankEvent
-                        {...propsToPass}
+                        {...eventData}
                         add={this.state.add}/>
                 </Col>
             </EventSection>

@@ -78,6 +78,7 @@ export const Input = styled.input `
     padding: 5px;
     margin: 8px 5px;
     border: 1px double lightgray;
+    font-size: 0.3rem;
     ${media.mobile `
     margin: 5px 25px;
     `}
@@ -110,6 +111,12 @@ export const Textarea = styled.textarea `
 
 export const FormHour = Input.extend `
     min-width: 180px;
+    max-width: 180px;
+    padding: 2px;
+    ${media.mobile `
+    min-width: 180px;
+    max-width: 180px;
+    `}
 `
 
 export const FormSelect = styled.select `

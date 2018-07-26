@@ -3,23 +3,23 @@ import React from 'react';
 // import styled components
 
 import {EventContainer, EventImage, DescriptionHeader, DescriptionTextarea, EventDescriptionContainer, EventInnerContainer1, EventTitle, EventIcon, EventDate, EventSpan, EventHour, EventInput, EventLocation2, EventInnerContainer2, EventOrganizerIcon, EventInput2, CategoryImg} from './styled-components/event-style.jsx';
-import {EventSection, Description, DescriptionSpan} from './styled-components/new-event-style.jsx';
+import { Description, DescriptionSpan} from './styled-components/new-event-style.jsx';
 
 
 const BlankEvent = (props) => {
 
-    //choose category icon
+    // choose category icon depending on passed props
     let categorySrc = '../icons/moon.png';
     if (props.category === 'education') {
-        categorySrc = `../icons/planetary.png`
+        categorySrc = `../icons/planetary.png`;
     } else if (props.category === 'flights') {
-        categorySrc = `../icons/nebula.png`
+        categorySrc = `../icons/nebula.png`;
     } else if (props.category === 'meetings') {
-        categorySrc = `../icons/alien_sad.png`
+        categorySrc = `../icons/alien_sad.png`;
     } else if (props.category === 'jobs') {
-        categorySrc = `../icons/astronaut.png`
+        categorySrc = `../icons/astronaut.png`;
     } else if (props.category === 'translation') {
-        categorySrc = `../icons/alien_sleep.png`
+        categorySrc = `../icons/alien_sleep.png`;
     }
 
     return (

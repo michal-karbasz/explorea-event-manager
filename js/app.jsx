@@ -8,7 +8,7 @@ import {
     Switch,
 } from 'react-router-dom';
 
-import { css, ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 
 // import components
 
@@ -64,9 +64,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 mobileMenu: false,
                 category: '',
                 searchInput: '',
-            }
+            };
         }
 
+        //IndexedDB functions
 
         loadDB = () => {
             
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             // delete record and refresh state
 
-            store.delete(recordToDelete)
+            store.delete(recordToDelete);
             const storedEventList = store.getAll();
             storedEventList.onsuccess = () => this.setState({storedList: storedEventList.result}) ;
             
@@ -125,12 +126,15 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         }
 
+        // IndexedDB functions end
+
         // add user-created event to global event list (state)
 
         addNewEvent = (event) => {
             const temporaryList = this.state.eventList.slice();
             temporaryList.push(event);
             this.setState({eventList: temporaryList}, () => this.loadDB());
+            this.resetState();
         }
 
         // delete user-created event (remove item from state's eventList array)
@@ -153,6 +157,17 @@ document.addEventListener('DOMContentLoaded', function(){
             this.resetState();
         }
 
+        // when user closes the searchbox remove any category/text from state to prepare it for next filtering 
+
+        resetState = () => {
+            if (this.state.category !== '') {
+                this.setState ({ category: '' });
+            } 
+            if (this.state.searchInput !== '' && this.state.planetClicked === false) {
+                this.setState ({ searchInput: '' });
+            } 
+        }
+
         // on each category click send this category name to this.state.category, events are then rendered based on that category
 
         filterByCategory = (category) => {
@@ -160,17 +175,6 @@ document.addEventListener('DOMContentLoaded', function(){
             let temporaryCategory = this.state.category;
             temporaryCategory = category;
             this.setState ({ category: temporaryCategory })
-            } 
-        }
-
-        // when user closes the searchbox remove any category from state to prepare it for next filtering 
-
-        resetState = () => {
-            if (this.state.category !== '' && this.state.planetClicked === false) {
-                this.setState ({ category: '' })
-            } 
-            if (this.state.searchInput !== '' && this.state.planetClicked === false) {
-                this.setState ({ searchInput: '' })
             } 
         }
 
@@ -206,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function(){
             // filter events based on user input - search for title OR location
 
             if (this.state.searchInput !== '' && this.state.planetClicked) {
-                eventList = eventList.filter(item => item.title.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) != -1 || item.location.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) != -1)
+                eventList = eventList.filter(item => item.title.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) != -1 || item.location.toLowerCase().indexOf(this.state.searchInput.toLowerCase()) != -1);
             }
 
             return (
@@ -218,10 +222,12 @@ document.addEventListener('DOMContentLoaded', function(){
                                 <Route
                                     exact path='/' render={(props) => <Planet {...props}
                                     eventList={this.state.eventList}
+                                    searchInput={this.state.searchInput}
                                     planetClicked={this.state.planetClicked}
                                     handleSearchInput={this.handleSearchInput}
                                     openSearchBox={this.openSearchBox}
                                     filterByCategory={this.filterByCategory}
+                                    resetEvents={this.resetState}
                                     />
                                 } />
                                 <Route
