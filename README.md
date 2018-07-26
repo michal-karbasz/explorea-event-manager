@@ -20,7 +20,7 @@ Explorea covers:
         </ol></li>
     <li>category search 
         <ol>
-            <li>Choose explorea/browse in the navbar</li>
+            <li>Choose browse in the navbar</li>
             <li>Click on the planet to display categories</li>
             <li>Choose your category</li>
         </ol>
@@ -38,6 +38,60 @@ Explorea covers:
     <li>basic responsivenes</li>
 </ul>
 
+
+<h2>Folder Structure</h2>
+<hr/>
+<p> After cloning the folder structure should look like this:
+<pre>
+    <code>
+        'explorea-event-manager/
+            icons/
+            images/
+            js/
+                components/
+                    styled-components/
+                        about-style.jsx
+                        category-buttons-style.jsx
+                        event-style.jsx
+                        footer-style.jsx
+                        nav-style.jsx
+                        new-event-style.jsx
+                        planet-style.jsx
+                        keyframes.js
+                        media.js
+                        theme.js
+                    about.jsx
+                    blank-event.jsx
+                    category-button.jsx
+                    datepicker.jsx
+                    erroboundary.jsx
+                    event-button.jsx
+                    event.jsx
+                    events.jsx
+                    footer.jsx
+                    form.jsx
+                    nav.jsx
+                    new-event.jsx
+                    placesAPI.jsx
+                    planet-button.jsx
+                    planet.jsx
+                    typer.jsx
+                app.jsx
+            scss/
+                daypicker.scss
+                main.scss
+            index.html
+            package.json
+            README.md
+            screenshot.PNG
+            webpack.config.js
+        '
+    </code>
+</pre>
+
+<p> Note that at the moment nearly all project is styled via Styled Components that are stored in js/components/styled-components/ . Nevertheless, a pre-made daypicker component remains still styled via traditional scss notation, that you will find in scss/ folder. </p>
+
+
 <h2>Available Scripts</h2>
 <hr/>
 <p>In the project directory, you can run:</p>
@@ -45,7 +99,6 @@ Explorea covers:
 <h4><code>npm start</code></h4>
 <p>Runs the app in the development mode.
 Open http://localhost:8080 to view it in the browser.<p/>
-<br>
 <p>The page will reload if you make edits.
 You will also see any lint errors in the console.<p>
 
@@ -53,3 +106,9 @@ You will also see any lint errors in the console.<p>
 <p>Builds the app for production to the build folder.
 It correctly bundles React in production mode and optimizes the build for the best performance. <p/>
 <hr>
+
+<h2>Importing a component</h2>
+<hr/>
+
+<p>This project setup supports ES6 modules thanks to Babel and uses <code> import </code> and <code> export </code>
+instead of <code> require() </code> and <code>module.exports</code>.
