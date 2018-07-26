@@ -103,7 +103,6 @@ export const EventInnerContainer2 = styled.div `
 `;
 
 export const EventButtons = styled.button `
-    font-family: 'Titillium Web', sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -254,7 +253,6 @@ export const H1 = styled.h1 `
 
 export const DescriptionHeader = styled.p `
     margin: 10px 15px;
-    font-family: 'Titillium Web', sans-serif;
     font-size: 1.3rem;
     color: ${props => props.theme.colors.main};
     ${media.mobile `
@@ -263,7 +261,6 @@ export const DescriptionHeader = styled.p `
 `;
 
 export const DescriptionTextarea = styled.textarea `
-    font-family: 'Titillium Web', sans-serif;
     margin: 5px 15px;
     text-align: justify;
     white-space: normal;
@@ -284,7 +281,6 @@ export const DescriptionTextarea = styled.textarea `
 `;
 
 export const EventSpan = styled.span `
-    font-family: 'Titillium Web', sans-serif;
     font-size: 1.1rem;
     margin-left: 10px;
     white-space: nowrap;
@@ -296,7 +292,6 @@ export const EventSpan = styled.span `
 `;
 
 export const EventInput = styled.input `
-    font-family: 'Titillium Web', sans-serif;
     font-size: 1rem;
     margin-left: 10px;
     border: none;
@@ -341,7 +336,6 @@ export const EventLocation2 = EventInput.extend `
 `;
 
 export const EventButtonSpan = styled.span `
-    font-family: 'Titillium Web', sans-serif;
     font-size: 1.2rem;
 `;
 
@@ -363,7 +357,6 @@ export const UrlFieldSpan = styled.span `
 `;
 
 export const UrlFieldInput = styled.input `
-    font-family: 'Titillium Web', sans-serif;
     font-size: 14px;
     overflow: hidden;
     min-width: 120px;

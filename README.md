@@ -25,17 +25,22 @@ Explorea covers:
             <li>Choose your category</li>
         </ol>
     </li>
-    <li>filter by event name
+    <li>filter by event name/location
         <ol>
-            <li>In the navbar choose explorea/browse</li>
+            <li>In the navbar choose browse</li>
             <li>Click on the planet to activate input field</li>
-            <li>Type event name</li>
-            <li>Click 'search' or press Enter </li>
+            <li>Type event name/location</li>
+            <li>Click 'show' or press Enter </li>
         </ol>
     </li>
-    <li>Google Places Autocomplete API</li>
-    <li>date picker</li>
-    <li>basic responsivenes</li>
+    </li>other features
+        <ol>
+            <li>Google Places Autocomplete API</li>
+            <li>date picker</li>
+            <li>IndexedDB to store events</li>
+            <li>basic responsivenes</li>
+        </ol>
+    </li>
 </ul>
 
 
@@ -89,7 +94,7 @@ Explorea covers:
     </code>
 </pre>
 
-<p> Note that at the moment nearly all project is styled via Styled Components that are stored in js/components/styled-components/ . Nevertheless, a pre-made daypicker component remains still styled via traditional scss notation, that you will find in scss/ folder. </p>
+<p> Note that at the moment nearly all of the project is styled via Styled Components that are stored in js/components/styled-components/ . Nevertheless, a pre-made daypicker component remains still styled via traditional scss notation, that you will find in scss/ folder. </p>
 
 
 <h2>Available Scripts</h2>

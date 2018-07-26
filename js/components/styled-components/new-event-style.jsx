@@ -3,7 +3,6 @@ import styled from 'styled-components';
 // import media function to allow RWD settings + import animations
 
 import {media} from './media';
-import {} from './keyframes.js';
 import {maxWidth} from './event-style.jsx';
 
 // MAIN CONTAINER (SECTION)
@@ -77,8 +76,11 @@ export const Label = styled.label `
 export const Input = styled.input `
     min-width: 280px;
     padding: 5px;
-    margin: 5px 25px;
+    margin: 8px 5px;
     border: 1px double lightgray;
+    ${media.mobile `
+    margin: 5px 25px;
+    `}
     ${media.desktop `
     min-width: 386px;
     `}
@@ -95,11 +97,14 @@ export const Textarea = styled.textarea `
     min-height: 42px;
     max-height: 180px;
     padding: 5px;
-    margin: 5px 25px;
+    margin: 8px 5px;
     border: 1px double lightgray;
+    ${media.mobile `
+        margin: 5px 25px;
+    `}
     ${media.desktop `
-    min-width: 386px;
-    max-width: 500px;
+        min-width: 386px;
+        max-width: 500px;
     `}
 `
 
@@ -108,11 +113,14 @@ export const FormHour = Input.extend `
 `
 
 export const FormSelect = styled.select `
-    margin-left: 30px;
+    margin-left: 5px;
     margin-top: 10px;
     padding: 5px;
     color: ${props => props.theme.colors.main};
     border: 1px dotted lightgray;
+    ${media.mobile `
+        margin-left: 25px;
+    `}
 `
 export const CreateButton = styled.input `
     padding: 10px;

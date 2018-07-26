@@ -136,7 +136,6 @@ export const Input = styled.input `
     border: none;
     padding: 5px 15px;
     font-size: 1.1rem;
-    font-family: 'Titillium Web', sans-serif;
     width: 220px;
     &:focus {
         outline: 1px dashed ${props => props.theme.colors.main};

@@ -203,9 +203,12 @@
     display: inline-block;
     input {
         border: 1px solid lightgrey;
-        margin: 5px 0 5px 25px;
+        margin: 8px 0 8px 5px;
         min-width: 180px;
         padding: 2px 5px;
         font-family: 'Titillium Web', sans-serif;
+        @include mobile {
+            margin: 5px 0 5px 25px;
+        }
     }
 }

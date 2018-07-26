@@ -1,4 +1,9 @@
 
+@mixin mobile {
+    @media (min-width: 420px) {
+        @content;        
+    }
+}
 
 * {
     margin: 0;

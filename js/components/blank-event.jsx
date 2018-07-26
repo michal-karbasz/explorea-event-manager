@@ -43,7 +43,7 @@ const BlankEvent = (props) => {
                     <EventTitle
                         disabled="disabled"
                         value={props.title}
-                        placeholder='Your title will appear here'/>
+                        placeholder='your title will appear here'/>
                     <br/>
                     <EventIcon src='../icons/time.png'/>
                     <EventDate placeholder='date' disabled="disabled" value={props.date}/>
