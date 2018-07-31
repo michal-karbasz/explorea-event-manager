@@ -36,16 +36,15 @@ export const Header = styled.header `
         opacity: 0.9;
         background-color: ${props => props.theme.colors.secondary};
         flex-direction: row;
-        align-items: flex-end;
         justify-content: space-between;
         margin-bottom: 5px;
         width: 100%;
-        height: initial;
+        height: 60px;
         top: initial;
         left: initial;
         &::after {
             border: none;
-            height: 80px;
+            height: 60px;
             width: 138px;
             border-radius: 0;
         }

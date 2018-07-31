@@ -18,7 +18,7 @@ export const EventSection = styled.section `
     background-repeat: no-repeat;
     background-position: center;
     ${media.tablet `
-        min-height: 140vh;
+        min-height: 110vh;
         flex-direction: initial;
     `}
 `;

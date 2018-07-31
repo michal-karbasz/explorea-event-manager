@@ -258,7 +258,7 @@ export const H1 = styled.h1 `
     `
 
 export const DescriptionHeader = styled.p `
-    margin: 10px 15px;
+    margin: 15px 0 5px 15px;
     font-size: 1.3rem;
     color: ${props => props.theme.colors.main};
     ${media.mobile `
@@ -273,8 +273,8 @@ export const DescriptionTextarea = styled.textarea `
     border: none;
     background-color: transparent;
     font-size: 1rem;
-    min-height: 230px;
-    max-height: 230px;
+    min-height: 190px;
+    max-height: 190px;
     min-width: ${`${maxWidth -30}px`};
     max-width: ${`${maxWidth -30}px`};
     animation: ${props => (props.editClicked && props.categoryClicked === false)  ? `${textareaMobile} 400ms 1 forwards` : 'none'};

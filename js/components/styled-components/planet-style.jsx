@@ -36,6 +36,7 @@ export const HeroSection = styled.section `
         }
     `}
     ${media.xl `
+    height: 100vh;
         flex-direction: initial;
     `}
 `;
@@ -64,10 +65,13 @@ export const SearchBoxBackground = styled.div `
         opacity: 0.9;
     `}
     ${media.xl `
+        width: 440px;
+        height: 440px;
         background-color: white;
         border: 5px double ${props => props.theme.colors.main};
         border-radius: 50%;
         opacity: 0.9;
+        margin-top: 0;
     `}
 `;
 

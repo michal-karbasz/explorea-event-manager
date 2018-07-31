@@ -90,6 +90,10 @@ export default class Event extends React.Component {
                 button2:  <EventButton buttonType='delete' onClick={this.handleDeleteClicked} />
             }
         }
+
+        const CategoryButton = ({ img, span }) => (
+            <Category img={img} span={span} categoryClicked={this.state.categoryClicked} handleCategoryChange={this.handleCategoryChange} />
+        );
         
         return (
 
@@ -108,7 +112,7 @@ export default class Event extends React.Component {
                             categoryClicked={this.state.categoryClicked}
                             editClicked={this.state.editClicked}
                             cols='34'
-                            rows='9'
+                            rows='7'
                             disabled={!this.state.editClicked}
                             value={this.state.description} 
                             name='description'
@@ -118,16 +122,17 @@ export default class Event extends React.Component {
 
                         {buttons.button1} 
                         {buttons.button2}
+
                     </div>
 
                 {/* render category buttons to change category during edit */}
 
                     <div className='categories'>
-                        <Category categoryClicked={this.state.categoryClicked} img='planetary' span='education' handleCategoryChange={this.handleCategoryChange}/>
-                        <Category categoryClicked={this.state.categoryClicked} img='nebula' span='flights' handleCategoryChange={this.handleCategoryChange} />
-                        <Category categoryClicked={this.state.categoryClicked} img='alien_sad' span='meetings' handleCategoryChange={this.handleCategoryChange} />
-                        <Category categoryClicked={this.state.categoryClicked} img='astronaut' span='jobs' handleCategoryChange={this.handleCategoryChange} />
-                        <Category categoryClicked={this.state.categoryClicked} img='alien_sleep' span='translation' handleCategoryChange={this.handleCategoryChange} />
+                        <CategoryButton img='planetary' span='education' />
+                        <CategoryButton img='nebula' span='flights' />
+                        <CategoryButton img='alien_sad' span='meetings' />
+                        <CategoryButton img='astronaut' span='jobs' />
+                        <CategoryButton img='alien_sleep' span='translation' />
                     </div>
                 </EventDescriptionContainer>
 

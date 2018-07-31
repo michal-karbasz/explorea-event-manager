@@ -44,7 +44,7 @@ const CreateForm = props => {
                 </Label>
                 <br/>
                 <Label> description (hover over event to see preview): <br/>
-                    <Textarea maxLength='325' placeholder="describe the event in at least 60 characters" onChange={runHandleChange} name='description' value={props.description} />
+                    <Textarea maxLength='300' placeholder="describe the event in at least 60 characters" onChange={runHandleChange} name='description' value={props.description} />
                 </Label>
                 <br/>
                 
