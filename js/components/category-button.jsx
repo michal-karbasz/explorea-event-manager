@@ -64,7 +64,6 @@ const Category = (props) => {
             topMobile={topMobile}
             leftMobile={leftMobile}
             >
-
             <CategoryImg src={`../icons/${props.img}.png`}/>
             <CategoryParagraph>
                 {props.span}

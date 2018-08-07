@@ -32,14 +32,18 @@ const Planet = props => {
         window.scrollTo(0,1200);
     }
 
+    const PlanetButton = ({ id, img, span }) => (
+        <Planets id={id} img={img} span={span} planetClicked={props.planetClicked} filterByCategory={props.filterByCategory} />
+    );
+
     return (
 
         <HeroSection>
                 <div>
                     <CategoryButtons>
-                        <Planets planetClicked={props.planetClicked} id='education' img='planetary' span='alien education events' filterByCategory={props.filterByCategory}/>
-                        <Planets planetClicked={props.planetClicked} id='flight' img='nebula' span='flight volounteers' filterByCategory={props.filterByCategory} />
-                        <Planets planetClicked={props.planetClicked} id='meetings' img='alien_sad' span='alien meetings' filterByCategory={props.filterByCategory} />
+                        <PlanetButton  id='education' img='planetary' span='alien education events' />
+                        <PlanetButton  id='flight' img='nebula' span='flight volounteers' />
+                        <PlanetButton  id='meetings' img='alien_sad' span='alien meetings' />
                     </CategoryButtons>
                 </div>
 
@@ -69,8 +73,8 @@ const Planet = props => {
 
                 <div>
                     <CategoryButtons>
-                        <Planets planetClicked={props.planetClicked} id='jobs' img='astronaut' span='NASA jobs' filterByCategory={props.filterByCategory}/>
-                        <Planets planetClicked={props.planetClicked} id='translation' img='alien_sleep' span='alien translation workshops' filterByCategory={props.filterByCategory} />
+                        <PlanetButton  id='jobs' img='astronaut' span='NASA jobs' />
+                        <PlanetButton  id='translation' img='alien_sleep' span='alien translation workshops' />
                     </CategoryButtons>
                 </div>
         </HeroSection>

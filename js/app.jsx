@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
         //IndexedDB functions
 
+       
+
         loadDB = () => {
             
             let request = window.indexedDB.open('EventsDatabase', 1), db, tx, store;
@@ -184,6 +186,16 @@ document.addEventListener('DOMContentLoaded', function(){
             this.setState({searchInput: userInput });
         }
 
+        handleEventDataChanges = (changedEvent) => {
+            const temporaryList  = this.state.storedList.slice();
+            console.log(temporaryList, changedEvent);
+            changedEvent.forEach((item) => {
+                return (
+                    console.log(item)
+                )
+            })
+        }
+
         // load events from indexedDB
 
         componentWillMount() {
@@ -239,7 +251,7 @@ document.addEventListener('DOMContentLoaded', function(){
                                 <Route path='/about' component={About} />
                             </Switch>
                             
-                            <Events eventList={eventList} addNewEvent={this.addNewEvent} deleteEvent={this.deleteEvent}/>
+                            <Events eventList={eventList} updateAppState={this.handleEventDataChanges} addNewEvent={this.addNewEvent} deleteEvent={this.deleteEvent}/>
                             <Footer />  
                         </div>
                     </HashRouter>

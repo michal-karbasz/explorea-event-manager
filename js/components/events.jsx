@@ -12,7 +12,7 @@ const Events = props => {
 
     // create a variable to hold all user-created events passed from App's State
 
-    let UserEvents = props.eventList.map ((item) => <Event
+    let UserEvents = props.eventList.map((item) => <Event
             key={item.title} //will never use index anymore :(
             title={item.title}
             organizer={item.organizer}
@@ -25,9 +25,18 @@ const Events = props => {
             description={item.description}
             isExample={item.type}
             deleteEvent={props.deleteEvent}
-            />
+            /> , () => getUserEvents({UserEvents})
         )
 
+       const getUserEvents = (UserEvents) => {
+            if (typeof props.updateAppState === 'function') {
+                console.log(UserEvents)
+                props.updateAppState(UserEvents);
+            }
+        } 
+        
+
+        // console.log({UserEvents})
     return (
         <FlexContainer>
             <H1>EVENTS</H1>

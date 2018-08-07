@@ -34,7 +34,7 @@ export default class Event extends React.Component {
         })
     }
 
-    // signal that the event is about to be delete -> trigger are-you-sure buttons
+    // signal that the event is about to be deleted -> trigger are-you-sure buttons
 
     handleDeleteClicked = () => {
         this.setState({ deleteClicked: !this.state.deleteClicked });
@@ -62,6 +62,7 @@ export default class Event extends React.Component {
     handleCategoryChange = (category) => {
         this.setState({ category: category});
     }
+
     
     render() {
 
